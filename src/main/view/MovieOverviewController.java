@@ -366,4 +366,9 @@ public class MovieOverviewController {
         System.out.println("finish auto set all");
 
     }
+    public void handlePlay(){
+        String url = movieTable.getSelectionModel().getSelectedItem().getFileName();
+        mainApp.showMediaView(url);
+    }
+
 }

@@ -226,11 +226,11 @@ public class MovieEditDialogController {
             return true;
         } else {
             // Show the error message.
-            Dialogs.create()
-                    .title("Invalid Fields")
-                    .masthead("Please correct invalid fields")
-                    .message(errorMessage)
-                    .showError();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Not valid data");
+            alert.setContentText("Make sure your data are valid\n");
+            alert.showAndWait();
             return false;
         }
     }

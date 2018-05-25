@@ -6,8 +6,8 @@
         <director>Sergei Eisenstein, Dmitri Vasilyev</director>
         <duration>1''18'''</duration>
         <fileName>AlexanderNevsky_ru_1938.mp4</fileName>
-        <genre>/</genre>
-        <isOurSelection>false</isOurSelection>
+        <genre>Action</genre>
+        <isOurSelection>true</isOurSelection>
         <language>Russian</language>
         <mainActors>Nikolai Cherkasov, Nikolai Okhlopkov, Andrei Abrikosov</mainActors>
         <name>AlexanderNevsky</name>
@@ -19,7 +19,7 @@
         <director>Jean Cocteau</director>
         <duration>2''4'''</duration>
         <fileName>BlackOrpheus_br_1959.mp4</fileName>
-        <genre>/</genre>
+        <genre>Horror</genre>
         <isOurSelection>false</isOurSelection>
         <language>French</language>
         <mainActors>Jean Marais, François Périer, María Casares, Marie Déa</mainActors>
@@ -32,7 +32,7 @@
         <director>Orson Welles</director>
         <duration>3''44'''</duration>
         <fileName>CitizenKane_us_1941.mp4</fileName>
-        <genre>Drama</genre>
+        <genre>Musicals</genre>
         <isOurSelection>false</isOurSelection>
         <language>English</language>
         <mainActors>Orson Welles, Joseph Cotten, Joseph Cotten, Dorothy Comingore, Dorothy Comingore, Everett Sloane, Everett Sloane, Ray Collins, Ray Collins, George Coulouris, George Coulouris, Agnes Moorehead, Agnes Moorehead, Paul Stewart, Paul Stewart, Ruth Warrick, Ruth Warrick, Erskine Sanford, Erskine Sanford, William Alland, William Alland</mainActors>
@@ -58,8 +58,8 @@
         <director>Akira Kurosawa</director>
         <duration>1''13'''</duration>
         <fileName>Kagemusha_jp_1980.mp4</fileName>
-        <genre>War</genre>
-        <isOurSelection>true</isOurSelection>
+        <genre>Drama</genre>
+        <isOurSelection>false</isOurSelection>
         <language>Japanese</language>
         <mainActors>Tatsuya Nakadai</mainActors>
         <name>Kagemusha</name>

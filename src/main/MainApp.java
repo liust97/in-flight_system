@@ -7,6 +7,7 @@ import java.util.prefs.Preferences;
 
 import main.model.Movie;
 import main.model.MovieListWrapper;
+import main.view.MediaviewController;
 import main.view.MovieEditDialogController;
 import main.view.MovieOverviewController;
 import main.view.WelcomeController;
@@ -32,8 +33,11 @@ public class MainApp extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
-    private final String moviesPath = "movies";
+    private final String moviesPath = "src/movies";
     private final String infoPath = "info/MoviesInfo.xml";
+
+
+    private String movieURL;
     private ResourceBundle resourceBundle;
     /**
      * The data as an observable list of Persons.
@@ -60,7 +64,6 @@ public class MainApp extends Application {
 
         File movieFile = new File(infoPath);
         if (movieFile.exists()) {
-            System.out.println(movieFile.getAbsolutePath());
             loadMovieDataFromFile(movieFile);
         }
         ArrayList<String> fileNamesInData = new ArrayList();
@@ -183,7 +186,28 @@ public class MainApp extends Application {
             MovieOverviewController controller = loader.getController();
             controller.setMainApp(this);
             controller.setResources(ResourceBundle.getBundle(basename, locale));
+            this.resourceBundle = ResourceBundle.getBundle(basename, locale);
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void showMediaView(String movieURL) {
+        try {
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/Mediaview.fxml"));
+            AnchorPane mediaView = (AnchorPane) loader.load();
+            this.movieURL = "movies/" + movieURL; //该路径为相对src的路径
+//            primaryStage.setTitle("movie");
+            rootLayout.setCenter(mediaView);
+            MediaviewController controller = loader.getController();
+            controller.setMainApp(this);
+//            primaryStage.setFullScreen(true);
+//全屏语句
+            primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -328,6 +352,14 @@ public class MainApp extends Application {
             // Update the stage title.
 //            primaryStage.setTitle("AddressApp");
         }
+    }
+
+    public String getMovieURL() {
+        return movieURL;
+    }
+
+    public void setMovieURL(String movieURL) {
+        this.movieURL = movieURL;
     }
 
     /**
