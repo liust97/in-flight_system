@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <movies>
     <movie>
+        <country>/</country>
+        <description>A Funny Thing Happened on the Way to the Forum is a 1966 British-American DeLuxe Color musical comedy film, based on the stage musical of the same name. It was inspired by the farces of the ancient Roman playwright Plautus (251-183 B.C.) – specifically Pseudolus, Miles Gloriosus and Mostellaria – and tells the bawdy story of a slave named Pseudolus and his attempts to win his freedom by helping...</description>
+        <director>Richard Lester</director>
+        <duration>1''18'''</duration>
+        <fileName>A-Funny-Thing-Happened-Official-Trailer-1-Michael-Crawford-M.mp4</fileName>
+        <genre>Action</genre>
+        <isOurSelection>false</isOurSelection>
+        <language>English</language>
+        <mainActors>Zero Mostel, Zero Mostel, Jack Gilford, Jack Gilford, Phil Silvers, Phil Silvers</mainActors>
+        <name>A Funny Thing Happened</name>
+        <year>/</year>
+    </movie>
+    <movie>
         <country>ru</country>
         <description>Alexander Nevsky (Russian: Алекса́ндр Не́вский) is a 1938 historical drama film directed by Sergei Eisenstein. It depicts the attempted invasion of Novgorod in the 13th century by the Teutonic Knights of the Holy Roman Empire and their defeat by Prince Alexander, known popularly as Alexander Nevsky (1220–1263).</description>
         <director>Sergei Eisenstein, Dmitri Vasilyev</director>
         <duration>1''18'''</duration>
         <fileName>AlexanderNevsky_ru_1938.mp4</fileName>
-        <genre>Action</genre>
-        <isOurSelection>true</isOurSelection>
+        <genre>/</genre>
+        <isOurSelection>false</isOurSelection>
         <language>Russian</language>
         <mainActors>Nikolai Cherkasov, Nikolai Okhlopkov, Andrei Abrikosov</mainActors>
         <name>AlexanderNevsky</name>
@@ -19,7 +32,7 @@
         <director>Jean Cocteau</director>
         <duration>2''4'''</duration>
         <fileName>BlackOrpheus_br_1959.mp4</fileName>
-        <genre>Horror</genre>
+        <genre>/</genre>
         <isOurSelection>false</isOurSelection>
         <language>French</language>
         <mainActors>Jean Marais, François Périer, María Casares, Marie Déa</mainActors>
@@ -28,67 +41,28 @@
     </movie>
     <movie>
         <country>us</country>
+        <description>Butch Cassidy and the Sundance Kid is a 1969 American Western film directed by George Roy Hill and written by William Goldman (who won the Academy Award for Best Original Screenplay for the film). Based loosely on fact, the film tells the story of Wild West outlaws Robert LeRoy Parker, known as Butch Cassidy (Paul Newman), and his partner Harry Longabaugh, the "Sundance Kid" (Robert Redford), w...</description>
+        <director>George Roy Hill</director>
+        <duration>2''59'''</duration>
+        <fileName>ButchCassidyAndTheSundanceKid_us_1969.mp4</fileName>
+        <genre>/</genre>
+        <isOurSelection>false</isOurSelection>
+        <language>English</language>
+        <mainActors>Paul Newman, Paul Newman, Robert Redford, Robert Redford, Katharine Ross, Katharine Ross, Strother Martin, Strother Martin, Jeff Corey, Jeff Corey, Henry Jones, Henry Jones</mainActors>
+        <name>ButchCassidyAndTheSundanceKid</name>
+        <year>1969</year>
+    </movie>
+    <movie>
+        <country>us</country>
         <description>Citizen Kane is a 1941 American mystery drama film by Orson Welles, its producer, co-screenwriter, director and star. The picture was Welles's first feature film. Nominated for Academy Awards in nine categories, it won an Academy Award for Best Writing (Original Screenplay) by Herman J. Mankiewicz and Welles. Considered by many critics, filmmakers, and fans to be the greatest film of all time, ...</description>
         <director>Orson Welles</director>
         <duration>3''44'''</duration>
         <fileName>CitizenKane_us_1941.mp4</fileName>
-        <genre>Musicals</genre>
+        <genre>/</genre>
         <isOurSelection>false</isOurSelection>
         <language>English</language>
         <mainActors>Orson Welles, Joseph Cotten, Joseph Cotten, Dorothy Comingore, Dorothy Comingore, Everett Sloane, Everett Sloane, Ray Collins, Ray Collins, George Coulouris, George Coulouris, Agnes Moorehead, Agnes Moorehead, Paul Stewart, Paul Stewart, Ruth Warrick, Ruth Warrick, Erskine Sanford, Erskine Sanford, William Alland, William Alland</mainActors>
         <name>CitizenKane</name>
         <year>1941</year>
-    </movie>
-    <movie>
-        <country>us</country>
-        <description>Gone with the Wind is a 1939 American epic historical romance film, adapted from Margaret Mitchell's 1936 novel of the same name. The film was produced by David O. Selznick of Selznick International Pictures and directed by Victor Fleming. Set in the American South against the backdrop of the American Civil War and the Reconstruction era, the film tells the story of Scarlett O'Hara, the strong-...</description>
-        <director>Victor Fleming</director>
-        <duration>2''37'''</duration>
-        <fileName>GoneWithTheWind_us_1939.mp4</fileName>
-        <genre>Crime</genre>
-        <isOurSelection>true</isOurSelection>
-        <language>English</language>
-        <mainActors>Clark Gable, Clark Gable, Vivien Leigh, Vivien Leigh, Leslie Howard, Leslie Howard, Olivia de Havilland, Olivia de Havilland</mainActors>
-        <name>GoneWithTheWind</name>
-        <year>1939</year>
-    </movie>
-    <movie>
-        <country>jp</country>
-        <description>Kagemusha (影武者, Shadow Warrior) is a 1980 jidaigeki film directed by Akira Kurosawa. In Japanese, kagemusha is a term used to denote a political decoy. It is set in the Sengoku period of Japanese history and tells the story of a lower-class criminal who is taught to impersonate a dying daimyō to dissuade opposing lords from attacking the newly vulnerable clan. The daimyō is based on Takeda Shin...</description>
-        <director>Akira Kurosawa</director>
-        <duration>1''13'''</duration>
-        <fileName>Kagemusha_jp_1980.mp4</fileName>
-        <genre>Drama</genre>
-        <isOurSelection>false</isOurSelection>
-        <language>Japanese</language>
-        <mainActors>Tatsuya Nakadai</mainActors>
-        <name>Kagemusha</name>
-        <year>1980</year>
-    </movie>
-    <movie>
-        <country>cn</country>
-        <description>Pocket Listing is a 2016 American neo-noir black comedy film directed by Conor Allyn, written by James Jurdi, and starring Jurdi, Logan Fahey, Caitlin Gerard, Christos Vasilopolous, Jessica Clark, Rob Lowe, and Burt Reynolds. The film was acquired by Metro-Goldwyn-Mayer and Orion Pictures for limited theatrical and video on demand release on December 2, 2016.[1][2]</description>
-        <director></director>
-        <duration>2''8'''</duration>
-        <fileName>liustiong_cn_2018.mp4</fileName>
-        <genre>/</genre>
-        <isOurSelection>false</isOurSelection>
-        <language>English</language>
-        <mainActors>James Jurdi, Logan Fahey, Caitlin Gerard, Caitlin Gerard, Christos Vasilopolous, Jessica Clark, Jessica Clark, Rob Lowe, Rob Lowe, Burt Reynolds, Burt Reynolds</mainActors>
-        <name>liustiong</name>
-        <year>2018</year>
-    </movie>
-    <movie>
-        <country>cn</country>
-        <description>Lost in Thailand is a 2012 Chinese comedy film directed and co-written by Xu Zheng and starring Xu Zheng, Wang Baoqiang, and Huang Bo. The film is about three Chinese men traveling in Thailand: two competing scientists searching for their boss, and a tourist eager to explore the country.[3] The film is Xu's directorial debut.</description>
-        <director>Xu Zheng</director>
-        <duration>2''8'''</duration>
-        <fileName>LostInThailand_cn_2012.mp4</fileName>
-        <genre>/</genre>
-        <isOurSelection>false</isOurSelection>
-        <language>Mandarin</language>
-        <mainActors>Xu Zheng, Wang Baoqiang, Wang Baoqiang, Huang Bo, Huang Bo, Fan Bingbing, Fan Bingbing, Tao Hong, Tao Hong</mainActors>
-        <name>LostInThailand</name>
-        <year>2012</year>
     </movie>
 </movies>

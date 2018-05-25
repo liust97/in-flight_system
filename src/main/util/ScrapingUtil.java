@@ -22,7 +22,12 @@ public class ScrapingUtil {
                 .get();
         Elements div = doc.select("div.mw-search-result-heading");
 //        System.out.println(div.get(0).siblingElements().get(0));
-        String link = "https://en.wikipedia.org" + div.select("a[href]").get(0).attr("href");
+        String link;
+        try {
+            link = "https://en.wikipedia.org" + div.select("a[href]").get(0).attr("href");
+        } catch (Exception e) {
+            return movie;
+        }
         Document doc2 = Jsoup
                 .connect(link)
                 .get();
@@ -30,9 +35,10 @@ public class ScrapingUtil {
         try {  //director
             temp = "";
             String comma;
-            for (Element e : doc2.selectFirst("th:contains(directed by)").nextElementSibling().select("li, a")){
-                comma = temp.equals("" )? "" : ", ";
-                temp = temp + comma + e.text();}
+            for (Element e : doc2.selectFirst("th:contains(directed by)").nextElementSibling().select("li, a")) {
+                comma = temp.equals("") ? "" : ", ";
+                temp = temp + comma + e.text();
+            }
         } catch (Exception e) {
             temp = "/";
         }
@@ -41,9 +47,10 @@ public class ScrapingUtil {
         try { //actors
             temp = "";
             String comma;
-            for (Element e : doc2.selectFirst("th:contains(starring)").nextElementSibling().select("li, a")){
-                comma = temp.equals("" )? "" : ", ";
-                temp = temp + comma + e.text();}
+            for (Element e : doc2.selectFirst("th:contains(starring)").nextElementSibling().select("li, a")) {
+                comma = temp.equals("") ? "" : ", ";
+                temp = temp + comma + e.text();
+            }
         } catch (Exception e) {
             temp = "/";
         }

@@ -160,6 +160,8 @@ public class MediaviewController {
     //退出按钮
     @FXML
     private void setExit() {
+        mediaPlayer.stop();
+        mediaPlayer.dispose();
         mainApp.showMovieOverview(mainApp.getResourceBundle().getLocale());
     }
 }
