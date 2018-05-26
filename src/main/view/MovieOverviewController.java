@@ -124,7 +124,6 @@ public class MovieOverviewController {
 
     private void handleAllCategory() {
 //        categoryData.clear();
-        Category countryCategory = new Category("country");
         ObservableList<String> categoryData = FXCollections.observableArrayList();
         categoryData.add("All");
         categoriesTable.setItems(categoryData);
@@ -147,8 +146,15 @@ public class MovieOverviewController {
         Category ageCategory = new Category("Age");
         for (Movie movie : mainApp.getMovieData()) { // 分类年代
             String ageType;
-            int year = Integer.valueOf(movie.getYear());
-            if (year < 1960) {
+            int year;
+            try {
+                year = Integer.valueOf(movie.getYear());
+            } catch (NumberFormatException e) {
+                year = -1;
+            }
+            if (year == -1) {
+                ageType = "other";
+            } else if (year < 1960) {
                 ageType = "Before 1959";
             } else if (year < 2000) {
                 ageType = "1960~1999";
@@ -309,12 +315,12 @@ public class MovieOverviewController {
             }
 
         } else {
-            // Nothing selected.
-            Dialogs.create()
-                    .title("No Selection")
-                    .masthead("No Person Selected")
-                    .message("Please select a person in the table.")
-                    .showWarning();
+            // Show the error message.
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Movie Selected");
+            alert.setContentText("Please select a movie in the table.\n");
+            alert.showAndWait();
         }
     }
 
@@ -366,7 +372,8 @@ public class MovieOverviewController {
         System.out.println("finish auto set all");
 
     }
-    public void handlePlay(){
+
+    public void handlePlay() {
         String url = movieTable.getSelectionModel().getSelectedItem().getFileName();
         mainApp.showMediaView(url);
     }
