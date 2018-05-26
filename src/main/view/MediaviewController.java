@@ -1,6 +1,8 @@
 package main.view;
 
 import javafx.event.EventHandler;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import main.MainApp;
@@ -82,7 +84,7 @@ public class MediaviewController {
         } catch (Exception mediaException) {
             // Handle exception in Media constructor.
         }
-
+        setbuttonbackground();
         setFocus();
         setSlider();
         movie();
@@ -103,6 +105,7 @@ public class MediaviewController {
 
     @FXML
     public void keyTyped(KeyEvent event) {
+        System.out.println(event.getCode());
         // 按下停止视频
         if (event.getCode() == KeyCode.DOWN) {
             Stop_method();
@@ -246,5 +249,15 @@ public class MediaviewController {
         mediaPlayer.stop();
         mediaPlayer.dispose();
         mainApp.showMovieOverview(mainApp.getResourceBundle().getLocale());
+    }
+
+    // 设置按钮图片
+    private void setbuttonbackground() {
+        String play_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png").toString();
+        String volume_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/volume_button.png").toString();
+        String exit_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/exit_button.png").toString();
+        play.setGraphic(new ImageView(new Image(play_pic, 20, 20, true, true)));
+        silent.setGraphic(new ImageView((new Image(volume_pic , 20, 20, true, true))));
+        exit.setGraphic(new ImageView((new Image(exit_pic , 20, 20, true, true))));
     }
 }
