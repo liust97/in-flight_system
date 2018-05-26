@@ -14,14 +14,14 @@
         <items>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="271.0">
                <children>
-                  <RadioButton fx:id="allRadio" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="All">
+                  <RadioButton fx:id="allRadio" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="%All">
                      <toggleGroup>
                         <ToggleGroup fx:id="categoryGroup" />
                      </toggleGroup></RadioButton>
-                  <RadioButton fx:id="genreRadio" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" text="Genre" toggleGroup="$categoryGroup" />
-                  <RadioButton fx:id="countryRadio" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" text="Country" toggleGroup="$categoryGroup" />
-                  <RadioButton fx:id="ageRadio" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" text="Age" toggleGroup="$categoryGroup" />
-                  <RadioButton fx:id="ourSelectionRadio" layoutX="14.0" layoutY="115.0" mnemonicParsing="false" text="Our selection" toggleGroup="$categoryGroup" />
+                  <RadioButton fx:id="genreRadio" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" text="%Genre" toggleGroup="$categoryGroup" />
+                  <RadioButton fx:id="countryRadio" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" text="%Country" toggleGroup="$categoryGroup" />
+                  <RadioButton fx:id="ageRadio" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" text="%Age" toggleGroup="$categoryGroup" />
+                  <RadioButton fx:id="ourSelectionRadio" layoutX="14.0" layoutY="115.0" mnemonicParsing="false" text="%Our selection" toggleGroup="$categoryGroup" />
                   <TableView fx:id="categoriesTable" layoutY="143.0" prefHeight="455.0" prefWidth="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="143.0">
                     <columns>
                       <TableColumn fx:id="categoriesColumn" prefWidth="75.0" text="%Category" />

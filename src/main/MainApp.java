@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.prefs.Preferences;
 
+import javafx.scene.image.Image;
 import main.model.Movie;
 import main.model.MovieListWrapper;
 import main.view.MediaviewController;
@@ -115,7 +116,8 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("AddressApp");
+        this.primaryStage.setTitle("In Flight System");
+        this.primaryStage.getIcons().add(new Image("main/picture/airplane.jpg"));
 
         initRootLayout();
 //        showMovieOverview();
