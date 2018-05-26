@@ -9,7 +9,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.WelcomeController">
    <children>
       <RadioButton fx:id="enButton" layoutX="284.0" layoutY="399.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="74.0" selected="true" text="English">
@@ -24,5 +23,10 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../picture/airplane.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
