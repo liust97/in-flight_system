@@ -23,7 +23,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="318.0" fitWidth="495.0" layoutX="154.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../picture/airplane.jpg" />
          </image>
