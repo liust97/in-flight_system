@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <movies>
     <movie>
-        <country>/</country>
+        <country>us</country>
         <description>A Funny Thing Happened on the Way to the Forum is a 1966 British-American DeLuxe Color musical comedy film, based on the stage musical of the same name. It was inspired by the farces of the ancient Roman playwright Plautus (251-183 B.C.) – specifically Pseudolus, Miles Gloriosus and Mostellaria – and tells the bawdy story of a slave named Pseudolus and his attempts to win his freedom by helping...</description>
         <director>Richard Lester</director>
         <duration>1''18'''</duration>
@@ -11,7 +11,7 @@
         <language>English</language>
         <mainActors>Zero Mostel, Zero Mostel, Jack Gilford, Jack Gilford, Phil Silvers, Phil Silvers</mainActors>
         <name>A Funny Thing Happened</name>
-        <year>/</year>
+        <year>1956</year>
     </movie>
     <movie>
         <country>ru</country>
@@ -28,15 +28,15 @@
     </movie>
     <movie>
         <country>br</country>
-        <description>Orpheus (French: Orphée; also the title used in the UK) is a 1950 French film directed by Jean Cocteau and starring Jean Marais.[2] It is the central part of Cocteau's Orphic Trilogy, which consists of The Blood of a Poet (1930), Orpheus (1950) and Testament of Orpheus (1960).</description>
-        <director>Jean Cocteau</director>
+        <description>Harry Potter is a British-American film series based on the Harry Potter novels by author J. K. Rowling. The series is distributed by Warner Bros. and consists of eight fantasy films, beginning with Harry Potter and the Philosopher's Stone (2001) and culminating with Harry Potter and the Deathly Hallows – Part 2 (2011).[2][3] A spin-off prequel series will consist of five films, starting with F...</description>
+        <director>Chris Columbus, Alfonso Cuarón, Mike Newell, David Yates</director>
         <duration>2''4'''</duration>
         <fileName>BlackOrpheus_br_1959.mp4</fileName>
-        <genre>/</genre>
-        <isOurSelection>false</isOurSelection>
-        <language>French</language>
-        <mainActors>Jean Marais, François Périer, María Casares, Marie Déa</mainActors>
-        <name>BlackOrpheus</name>
+        <genre>Crime</genre>
+        <isOurSelection>true</isOurSelection>
+        <language>English</language>
+        <mainActors>Daniel Radcliffe, Rupert Grint, Emma Watson, See below</mainActors>
+        <name>Harry potter</name>
         <year>1959</year>
     </movie>
     <movie>

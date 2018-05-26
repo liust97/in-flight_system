@@ -19,9 +19,9 @@
              <MediaView fx:id="moviepane" fitHeight="530.0" fitWidth="800.0" nodeOrientation="INHERIT" BorderPane.alignment="CENTER" />
          </center>
          <top>
-            <Button fx:id="exit" mnemonicParsing="false" onAction="#setExit" prefHeight="0.0" prefWidth="31.0" text="Exit" BorderPane.alignment="CENTER">
+            <Button fx:id="exit" mnemonicParsing="false" onAction="#setExit" prefHeight="0.0" prefWidth="31.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets left="769.0" />
+                  <Insets left="760.0" />
                </BorderPane.margin>
             </Button>
          </top>
@@ -29,11 +29,11 @@
             <!--<MediaView fx:id="moviepane" fitHeight="530.0" fitWidth="800.0" />-->
             <Pane fx:id="UIpane" prefHeight="71.0" prefWidth="480.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="play" layoutX="312.0" layoutY="36.0" mnemonicParsing="false" onAction="#setStop" text="Play" />
+                  <Button fx:id="play" layoutX="312.0" layoutY="36.0" mnemonicParsing="false" onAction="#setStop" prefHeight="30.0" prefWidth="30.0" />
                   <TextField fx:id="time" layoutX="679.0" layoutY="6.0" prefHeight="30.0" prefWidth="108.0" />
                   <Slider fx:id="slider" layoutX="14.0" layoutY="12.0" prefHeight="18.0" prefWidth="624.0" />
                   <Slider fx:id="volume_control" layoutX="692.0" layoutY="42.0" prefHeight="14.0" prefWidth="83.0" />
-                  <Button fx:id="silent" layoutX="617.0" layoutY="36.0" mnemonicParsing="false" onAction="#setSilent" prefHeight="23.0" prefWidth="16.0" text="Volume" />
+                  <Button fx:id="silent" layoutX="607.0" layoutY="36.0" mnemonicParsing="false" onAction="#setSilent" prefHeight="30.0" prefWidth="30.0" />
                </children>
                <BorderPane.margin>
                   <Insets />
