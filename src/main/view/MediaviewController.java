@@ -65,19 +65,31 @@ public class MediaviewController {
 
     @FXML
     private void showmovie() {
-        media = new Media(UrL);
-        mediaPlayer = new MediaPlayer(media);
-        moviepane.setMediaPlayer(mediaPlayer);
-        mediaPlayer.setAutoPlay(true);
+        // this part comes from javafx.scene.media api.
+        try {
+            media = new Media(UrL);
+            if (media.getError() == null) {
+                media.setOnError(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Handle asynchronous error in Media object.
+                    }
+                });
+            }
+            mediaPlayer = new MediaPlayer(media);
+            moviepane.setMediaPlayer(mediaPlayer);
+            mediaPlayer.setAutoPlay(true);
+        } catch (Exception mediaException) {
+            // Handle exception in Media constructor.
+        }
 
         setFocus();
         setSlider();
         movie();
         setStop();
         setSilent();
-
-
     }
+
     // 移除可能出现的焦点事件
     private void setFocus() {
         exit.setFocusTraversable(false);
