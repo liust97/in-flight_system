@@ -374,8 +374,13 @@ public class MovieOverviewController {
     }
 
     public void handlePlay() {
-        String url = movieTable.getSelectionModel().getSelectedItem().getFileName();
-        mainApp.showMediaView(url);
+        String url;
+        try {
+            url = movieTable.getSelectionModel().getSelectedItem().getFileName();
+            mainApp.showMediaView(url);
+        } catch (NullPointerException ignored) {
+        }
+
     }
 
 }
