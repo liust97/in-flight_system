@@ -2,18 +2,22 @@ package main.view;
 
 import com.melloware.jintellitype.HotkeyListener;
 import com.melloware.jintellitype.JIntellitype;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import main.MainApp;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import java.util.Locale;
+import java.util.Map;
 
 public class WelcomeController {
 
     private MainApp mainApp;
     private Locale locale;
-
+    private final int asd = 1;
 
     @FXML
     private ToggleGroup Language;
@@ -30,7 +34,6 @@ public class WelcomeController {
     @FXML
     private void initialize() {
         locale = Locale.ENGLISH;
-
 
 
         zhButton.selectedProperty().addListener(new javafx.beans.value.ChangeListener<Boolean>() {
@@ -56,6 +59,7 @@ public class WelcomeController {
                 locale = Locale.FRENCH;
             }
         });
+
     }
 
     public void setMainApp(MainApp mainApp) {
@@ -64,18 +68,14 @@ public class WelcomeController {
 
     @FXML
     private void handleStart() {
-        Toggle selectedToggle = Language.getSelectedToggle();
-//        System.out.println(selectedToggle);
-        if (selectedToggle == null) {
-            // Nothing selected.
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.initOwner(mainApp.getPrimaryStage());
-            alert.setTitle("No Selection");
-            alert.setHeaderText("No Language Selected");
-            alert.setContentText("Please select a language.");
-            alert.showAndWait();
-        }
-
         mainApp.showMovieOverview(locale);
+    }
+
+    // keyboard ENTER control
+    @FXML
+    private void keyboard_Start(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER){
+            mainApp.showMovieOverview(locale);
+        }
     }
 }
