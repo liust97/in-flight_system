@@ -1,5 +1,7 @@
 package main.view;
 
+import com.melloware.jintellitype.HotkeyListener;
+import com.melloware.jintellitype.JIntellitype;
 import main.MainApp;
 import main.model.Category;
 import main.model.Movie;
@@ -12,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import main.util.ScrapingUtil;
 import org.controlsfx.dialog.Dialogs;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import java.io.File;
 import java.io.IOException;
@@ -58,13 +61,21 @@ public class MovieOverviewController {
     private RadioButton ageRadio;
     @FXML
     private RadioButton ourSelectionRadio;
+    @FXML
+    private Button Auto_set_all;
+    @FXML
+    private Button Edit;
 
     private ResourceBundle resourceBundle;
     private Category countryList;
+    private final int Super_Administrator_1 = 1;
+    private final int Super_Administrator_2 = 2;
+    private final int Super_Administrator_3 = 3;
 
     // Reference to the main application.
     private MainApp mainApp;
 
+    private boolean is_super_administrator = false;
     /**
      * The constructor.
      * The constructor is called before the initialize() method.
@@ -89,6 +100,13 @@ public class MovieOverviewController {
 //        movieNameColumn
         // Clear person details.
         showMovieDetails(null);
+
+
+        setadminvisible();
+        // 超级用户监听
+        set_super_administrator();
+
+
 
         // Listen for selection changes and show the person details when changed.
         movieTable.getSelectionModel().selectedItemProperty().addListener(
@@ -117,7 +135,36 @@ public class MovieOverviewController {
             }
         });
     }
+    private void set_super_administrator(){
+        // 管理员 超级按钮监听
+        // 全局键盘监听，根据输入超级指令选择对应的语言文件
+        JIntellitype.getInstance().registerHotKey(Super_Administrator_1, JIntellitype.MOD_CONTROL + JIntellitype.MOD_ALT, (int) 'E');
 
+        JIntellitype.getInstance().addHotKeyListener(new HotkeyListener() {
+            @Override
+            public void onHotKey(int i) {
+                if (i == Super_Administrator_1) {
+                    if(Auto_set_all.isVisible()){
+                        System.out.println("Exit Administrator");
+                        setadminvisible();
+                    }else{
+                        System.out.println("Welcome！Super Administrator");
+                        setvisbile();
+                    }
+
+                }
+            }
+        });
+    }
+    private void setadminvisible(){
+        Auto_set_all.setVisible(false);
+        Edit.setVisible(false);
+    }
+    // 管理员事件
+    private void setvisbile(){
+        Auto_set_all.setVisible(true);
+        Edit.setVisible(true);
+    }
     private void initCategory() {
 
     }

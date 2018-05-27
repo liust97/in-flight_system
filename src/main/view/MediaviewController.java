@@ -1,5 +1,7 @@
 package main.view;
 
+import com.melloware.jintellitype.HotkeyListener;
+import com.melloware.jintellitype.JIntellitype;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -64,7 +66,7 @@ public class MediaviewController {
     public void initialize() {
 
     }
-
+    public static final int FUNC_KEY_MARK = 1;
     @FXML
     private void showmovie() {
         // this part comes from javafx.scene.media api.
@@ -84,6 +86,18 @@ public class MediaviewController {
         } catch (Exception mediaException) {
             // Handle exception in Media constructor.
         }
+
+//        JIntellitype.getInstance().registerHotKey(FUNC_KEY_MARK,JIntellitype.MOD_CONTROL+JIntellitype.MOD_ALT,(int) 'I');
+//        JIntellitype.getInstance().addHotKeyListener(new HotkeyListener() {
+//            @Override
+//            public void onHotKey(int i) {
+//                if(i == FUNC_KEY_MARK){
+//                    System.out.println("==");
+//                    mediaPlayer.stop();
+//                }
+//
+//            }
+//        });
         setbuttonbackground();
         setFocus();
         setSlider();

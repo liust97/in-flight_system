@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.prefs.Preferences;
 
+import com.melloware.jintellitype.JIntellitype;
 import javafx.scene.image.Image;
 import main.model.Movie;
 import main.model.MovieListWrapper;
@@ -138,6 +139,7 @@ public class MainApp extends Application {
             // Give the controller access to the main app.
             WelcomeController controller = loader.getController();
             controller.setMainApp(this);
+
 
         } catch (IOException e) {
             e.printStackTrace();
