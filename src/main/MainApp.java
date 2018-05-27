@@ -6,7 +6,9 @@ import java.util.*;
 import java.util.prefs.Preferences;
 
 import com.melloware.jintellitype.JIntellitype;
+import javafx.event.EventHandler;
 import javafx.scene.image.Image;
+import javafx.stage.WindowEvent;
 import main.model.Movie;
 import main.model.MovieListWrapper;
 import main.view.MediaviewController;
@@ -24,6 +26,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.controlsfx.dialog.Dialogs;
+
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -123,6 +126,13 @@ public class MainApp extends Application {
         initRootLayout();
 //        showMovieOverview();
         showWelcome();
+
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                JIntellitype.getInstance().cleanUp();
+            }
+        });
     }
 
     public void showWelcome() {
