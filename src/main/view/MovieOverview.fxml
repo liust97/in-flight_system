@@ -14,15 +14,24 @@
         <items>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="271.0">
                <children>
-                  <RadioButton fx:id="allRadio" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="%All">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="categoryGroup" />
-                     </toggleGroup></RadioButton>
-                  <RadioButton fx:id="genreRadio" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" text="%Genre" toggleGroup="$categoryGroup" />
-                  <RadioButton fx:id="countryRadio" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" text="%Country" toggleGroup="$categoryGroup" />
-                  <RadioButton fx:id="ageRadio" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" text="%Age" toggleGroup="$categoryGroup" />
-                  <RadioButton fx:id="ourSelectionRadio" layoutX="14.0" layoutY="115.0" mnemonicParsing="false" text="%Our selection" toggleGroup="$categoryGroup" />
-                  <TableView fx:id="categoriesTable" layoutY="143.0" prefHeight="455.0" prefWidth="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="143.0">
+                  <AnchorPane layoutX="14.0" layoutY="14.0">
+                     <children>
+                        <VBox spacing="5.0">
+                           <children>
+                              <RadioButton fx:id="allRadio" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" selected="true" text="%All">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="categoryGroup" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="genreRadio" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" text="%Genre" toggleGroup="$categoryGroup" />
+                              <RadioButton fx:id="countryRadio" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" text="%Country" toggleGroup="$categoryGroup" />
+                              <RadioButton fx:id="ageRadio" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" text="%Age" toggleGroup="$categoryGroup" />
+                              <RadioButton fx:id="ourSelectionRadio" layoutX="14.0" layoutY="115.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" text="%Our selection" toggleGroup="$categoryGroup" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <TableView fx:id="categoriesTable" layoutY="143.0" onKeyPressed="#change_table" prefHeight="455.0" prefWidth="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="143.0">
                     <columns>
                       <TableColumn fx:id="categoriesColumn" prefWidth="75.0" text="%Category" />
                     </columns>
@@ -34,7 +43,7 @@
             </AnchorPane>
           <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="172.0">
                <children>
-                  <TableView fx:id="movieTable" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="movieTable" onKeyPressed="#change_table" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                       <TableColumn fx:id="movieNameColumn" prefWidth="75.0" text="%Movies" />
                     </columns>
@@ -96,8 +105,8 @@
                   </Label>
                   <VBox layoutX="5.0" layoutY="536.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0">
                      <children>
-                        <Button layoutX="5.0" layoutY="536.0" mnemonicParsing="false" onAction="#handlePlay" text="%Play" />
-                        <Button layoutX="14.0" layoutY="559.0" mnemonicParsing="false" onAction="#handleBack" text="%Back" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" />
+                        <Button fx:id="Play" layoutX="5.0" layoutY="536.0" mnemonicParsing="false" onAction="#handlePlay" onKeyPressed="#set_keyboard_Play" text="%Play" />
+                        <Button fx:id="Back" layoutX="14.0" layoutY="559.0" mnemonicParsing="false" onAction="#handleBack" onKeyPressed="#set_keyboard_Back" text="%Back" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" />
                      </children>
                   </VBox>
                </children>

@@ -2,6 +2,12 @@ package main.view;
 
 import com.melloware.jintellitype.HotkeyListener;
 import com.melloware.jintellitype.JIntellitype;
+import com.sun.webkit.dom.KeyboardEventImpl;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import main.MainApp;
 import main.model.Category;
 import main.model.Movie;
@@ -13,9 +19,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import main.util.ScrapingUtil;
-import org.controlsfx.dialog.Dialogs;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
+
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
@@ -65,17 +71,21 @@ public class MovieOverviewController {
     private Button Auto_set_all;
     @FXML
     private Button Edit;
+    @FXML
+    private Button Play;
+    @FXML
+    private Button Back;
 
     private ResourceBundle resourceBundle;
     private Category countryList;
     private final int Super_Administrator_1 = 1;
-    private final int Super_Administrator_2 = 2;
-    private final int Super_Administrator_3 = 3;
+    private final int Down_tab = 2;
 
     // Reference to the main application.
     private MainApp mainApp;
 
     private boolean is_super_administrator = false;
+
     /**
      * The constructor.
      * The constructor is called before the initialize() method.
@@ -101,11 +111,11 @@ public class MovieOverviewController {
         // Clear person details.
         showMovieDetails(null);
 
+        descriptionLabel.setFocusTraversable(false);
 
         setadminvisible();
         // 超级用户监听
         set_super_administrator();
-
 
 
         // Listen for selection changes and show the person details when changed.
@@ -135,36 +145,74 @@ public class MovieOverviewController {
             }
         });
     }
-    private void set_super_administrator(){
+
+    @FXML
+    private void change_table(javafx.scene.input.KeyEvent key) throws AWTException {
+        Robot r = new Robot();
+
+        if (key.getCode() == KeyCode.RIGHT) {
+            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+        }
+        if (key.getCode() == KeyCode.LEFT) {
+            r.keyPress(java.awt.event.KeyEvent.VK_SHIFT);
+            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+            r.keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
+            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+        }
+    }
+
+    @FXML
+    private void change_table_for_radio(javafx.scene.input.KeyEvent key) throws AWTException {
+        Robot r = new Robot();
+//        Toggle origin_toggle = categoryGroup.getSelectedToggle();
+        categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) +4)%5).setSelected(true); // 把category选中的放回原位
+        if (key.getCode() == KeyCode.RIGHT) {
+            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+        }
+        if (key.getCode() == KeyCode.LEFT) {
+            r.keyPress(java.awt.event.KeyEvent.VK_SHIFT);
+            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+            r.keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
+            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+        }
+//        categoryGroup.selectToggle(origin_toggle);
+    }
+
+    private void set_super_administrator() {
         // 管理员 超级按钮监听
         // 全局键盘监听，根据输入超级指令选择对应的语言文件
         JIntellitype.getInstance().registerHotKey(Super_Administrator_1, JIntellitype.MOD_CONTROL + JIntellitype.MOD_ALT, (int) 'E');
-
         JIntellitype.getInstance().addHotKeyListener(new HotkeyListener() {
             @Override
             public void onHotKey(int i) {
                 if (i == Super_Administrator_1) {
-                    if(Auto_set_all.isVisible()){
+                    if (Auto_set_all.isVisible()) {
                         System.out.println("Exit Administrator");
                         setadminvisible();
-                    }else{
+                    } else {
                         System.out.println("Welcome！Super Administrator");
                         setvisbile();
                     }
-
                 }
             }
         });
+
     }
-    private void setadminvisible(){
+
+
+    private void setadminvisible() {
         Auto_set_all.setVisible(false);
         Edit.setVisible(false);
     }
+
     // 管理员事件
-    private void setvisbile(){
+    private void setvisbile() {
         Auto_set_all.setVisible(true);
         Edit.setVisible(true);
     }
+
     private void initCategory() {
 
     }
@@ -377,6 +425,24 @@ public class MovieOverviewController {
     }
 
     @FXML
+    private void set_keyboard_Back(javafx.scene.input.KeyEvent event) throws AWTException  {
+            Robot r = new Robot();
+        if (event.getCode() == KeyCode.ENTER) {
+            handleBack();
+        }
+        if (event.getCode() == KeyCode.RIGHT) {
+            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+        }
+        if (event.getCode() == KeyCode.LEFT) {
+            r.keyPress(java.awt.event.KeyEvent.VK_SHIFT);
+            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+            r.keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
+            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+        }
+    }
+
+    @FXML
     public void setResources(ResourceBundle resourceBundle) {
         this.resourceBundle = resourceBundle;
     }
@@ -427,7 +493,13 @@ public class MovieOverviewController {
             mainApp.showMediaView(url);
         } catch (NullPointerException ignored) {
         }
+    }
 
+    @FXML
+    private void set_keyboard_Play(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            handlePlay();
+        }
     }
 
 }

@@ -87,17 +87,6 @@ public class MediaviewController {
             // Handle exception in Media constructor.
         }
 
-//        JIntellitype.getInstance().registerHotKey(FUNC_KEY_MARK,JIntellitype.MOD_CONTROL+JIntellitype.MOD_ALT,(int) 'I');
-//        JIntellitype.getInstance().addHotKeyListener(new HotkeyListener() {
-//            @Override
-//            public void onHotKey(int i) {
-//                if(i == FUNC_KEY_MARK){
-//                    System.out.println("==");
-//                    mediaPlayer.stop();
-//                }
-//
-//            }
-//        });
         setbuttonbackground();
         setFocus();
         setSlider();
