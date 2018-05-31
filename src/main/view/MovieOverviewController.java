@@ -2,7 +2,6 @@ package main.view;
 
 import com.melloware.jintellitype.HotkeyListener;
 import com.melloware.jintellitype.JIntellitype;
-import com.sun.webkit.dom.KeyboardEventImpl;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -19,7 +18,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import main.util.ScrapingUtil;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 
 import java.awt.*;
@@ -105,6 +103,7 @@ public class MovieOverviewController {
         countryRadio.setUserData("country");
         ageRadio.setUserData("age");
         ourSelectionRadio.setUserData("ourSelection");
+
         // 显示电影列表
         movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
 //        categoriesColumn.setCellValueFactory();
@@ -170,27 +169,22 @@ public class MovieOverviewController {
     @FXML
     private void change_table_for_radio(javafx.scene.input.KeyEvent key) throws AWTException {
         Robot r = new Robot();
+        categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 4) % 5).setSelected(true); // 把category选中的放回原位
 //        Toggle origin_toggle = categoryGroup.getSelectedToggle();
+//
+        if (key.getCode().equals(KeyCode.TAB)) {
+            return;
+        }
+        if (key.getCode().equals(KeyCode.RIGHT)) {
 
-        if (key.getCode() == KeyCode.ENTER) {
-            System.out.println(categoryGroup.getSelectedToggle());
-            categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 5) % 5).setSelected(true); // 把category选中的放回原位
+//            categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 5) % 5).setSelected(true); // 把category选中的放回原位
+//            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+//            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+
             r.keyPress(java.awt.event.KeyEvent.VK_TAB);
             r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
-
-        }
-        if (key.getCode() == KeyCode.RIGHT || key.getCode() == KeyCode.LEFT) {
-            categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 4) % 5).setSelected(true); // 把category选中的放回原位
-            if (key.getCode() == KeyCode.RIGHT) {
-                r.keyPress(java.awt.event.KeyEvent.VK_TAB);
-                r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
-            }
-            if (key.getCode() == KeyCode.LEFT) {
-                r.keyPress(java.awt.event.KeyEvent.VK_SHIFT);
-                r.keyPress(java.awt.event.KeyEvent.VK_TAB);
-                r.keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
-                r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
-            }
+        } else {
+            categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 1) % 5).setSelected(true); // 把category选中的放回原位
         }
 //        categoryGroup.selectToggle(origin_toggle);
     }
@@ -248,8 +242,10 @@ public class MovieOverviewController {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 movieTable.setItems(mainApp.getMovieData());
                 movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+                movieTable.getSelectionModel().selectFirst();
             }
         });
+        categoriesTable.getSelectionModel().selectFirst();
     }
 
     private void handleAgeCategory() {
@@ -281,15 +277,16 @@ public class MovieOverviewController {
 
         categoriesTable.setItems(categoryData);
         categoriesColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()));
-
         // Listen for selection changes and show the movie
         categoriesTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 movieTable.setItems(ageCategory.getMovieMap().get(newValue));
                 movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+                movieTable.getSelectionModel().selectFirst();
             }
         });
+        categoriesTable.getSelectionModel().selectFirst();
     }
 
     private void handleYearCategory() {
@@ -315,8 +312,10 @@ public class MovieOverviewController {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 movieTable.setItems(countryCategory.getMovieMap().get(newValue));
                 movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+                movieTable.getSelectionModel().selectFirst();
             }
         });
+        categoriesTable.getSelectionModel().selectFirst();
     }
 
     private void handleGenreCategory() {
@@ -337,8 +336,10 @@ public class MovieOverviewController {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 movieTable.setItems(genreCategory.getMovieMap().get(newValue));
                 movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+                movieTable.getSelectionModel().selectFirst();
             }
         });
+        categoriesTable.getSelectionModel().selectFirst();
     }
 
     private void handleOurSelectionCategory() {
@@ -354,15 +355,16 @@ public class MovieOverviewController {
 
         categoriesTable.setItems(categoryData);
         categoriesColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()));
-
         // Listen for selection changes and show the movie
         categoriesTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 movieTable.setItems(ourSelectionCategory.getMovieMap().get(newValue));
                 movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+                movieTable.getSelectionModel().selectFirst();
             }
         });
+        categoriesTable.getSelectionModel().selectFirst();
     }
 
     /**
@@ -375,7 +377,7 @@ public class MovieOverviewController {
 
         // Add observable list data to the table 添加电影列表
         movieTable.setItems(mainApp.getMovieData());
-
+        handleAllCategory(); //先显示全部
 //        movieTable.getSelectionModel().select(0);
 
     }

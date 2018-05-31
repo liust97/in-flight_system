@@ -58,7 +58,12 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <GridPane layoutX="59.0" layoutY="136.0" prefHeight="409.0" prefWidth="503.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="45.0">
+                  <Label fx:id="movieNameLabel" layoutX="5.0" layoutY="14.0" text="Label" AnchorPane.bottomAnchor="420.0" AnchorPane.leftAnchor="5.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <GridPane layoutX="59.0" layoutY="136.0" prefHeight="409.0" prefWidth="503.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="110.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="10.0" prefWidth="395.0" />
@@ -92,18 +97,13 @@
                         <Label fx:id="genreLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
-                  <HBox layoutX="289.0" layoutY="570.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                  <HBox layoutX="289.0" layoutY="570.0" spacing="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <children>
                         <Button fx:id="Auto_set_all" layoutX="289.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleAutoSetAll" text="%Auto set all" />
                         <Button fx:id="Edit" mnemonicParsing="false" onAction="#handleEditMovie" text="%Edit" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
                      </children>
                   </HBox>
-                  <Label fx:id="movieNameLabel" layoutX="5.0" layoutY="14.0" text="Label" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="10.0">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <VBox layoutX="5.0" layoutY="536.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0">
+                  <VBox layoutX="5.0" layoutY="536.0" spacing="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <children>
                         <Button fx:id="Play" layoutX="5.0" layoutY="536.0" mnemonicParsing="false" onAction="#handlePlay" onKeyPressed="#set_keyboard_Play" text="%Play" />
                         <Button fx:id="Back" layoutX="14.0" layoutY="559.0" mnemonicParsing="false" onAction="#handleBack" onKeyPressed="#set_keyboard_Back" text="%Back" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" />

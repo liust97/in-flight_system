@@ -198,9 +198,10 @@ public class MainApp extends Application {
 
             // Give the controller access to the main app.
             MovieOverviewController controller = loader.getController();
-            controller.setMainApp(this);
             controller.setResources(ResourceBundle.getBundle(basename, locale));
             this.resourceBundle = ResourceBundle.getBundle(basename, locale);
+            controller.setMainApp(this);
+
 
         } catch (Exception e) {
             e.printStackTrace();
