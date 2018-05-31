@@ -19,6 +19,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import main.util.ScrapingUtil;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 
 import java.awt.*;
@@ -149,7 +150,11 @@ public class MovieOverviewController {
     @FXML
     private void change_table(javafx.scene.input.KeyEvent key) throws AWTException {
         Robot r = new Robot();
+        if (key.getCode() == KeyCode.ENTER) {
+            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
 
+        }
         if (key.getCode() == KeyCode.RIGHT) {
             r.keyPress(java.awt.event.KeyEvent.VK_TAB);
             r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
@@ -166,16 +171,26 @@ public class MovieOverviewController {
     private void change_table_for_radio(javafx.scene.input.KeyEvent key) throws AWTException {
         Robot r = new Robot();
 //        Toggle origin_toggle = categoryGroup.getSelectedToggle();
-        categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) +4)%5).setSelected(true); // 把category选中的放回原位
-        if (key.getCode() == KeyCode.RIGHT) {
+
+        if (key.getCode() == KeyCode.ENTER) {
+            System.out.println(categoryGroup.getSelectedToggle());
+            categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 5) % 5).setSelected(true); // 把category选中的放回原位
             r.keyPress(java.awt.event.KeyEvent.VK_TAB);
             r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+
         }
-        if (key.getCode() == KeyCode.LEFT) {
-            r.keyPress(java.awt.event.KeyEvent.VK_SHIFT);
-            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
-            r.keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
-            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+        if (key.getCode() == KeyCode.RIGHT || key.getCode() == KeyCode.LEFT) {
+            categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 4) % 5).setSelected(true); // 把category选中的放回原位
+            if (key.getCode() == KeyCode.RIGHT) {
+                r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+                r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+            }
+            if (key.getCode() == KeyCode.LEFT) {
+                r.keyPress(java.awt.event.KeyEvent.VK_SHIFT);
+                r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+                r.keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
+                r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+            }
         }
 //        categoryGroup.selectToggle(origin_toggle);
     }
@@ -425,9 +440,10 @@ public class MovieOverviewController {
     }
 
     @FXML
-    private void set_keyboard_Back(javafx.scene.input.KeyEvent event) throws AWTException  {
-            Robot r = new Robot();
+    private void set_keyboard_Back(javafx.scene.input.KeyEvent event) throws AWTException {
+        Robot r = new Robot();
         if (event.getCode() == KeyCode.ENTER) {
+            System.out.println("asdasd");
             handleBack();
         }
         if (event.getCode() == KeyCode.RIGHT) {
@@ -501,5 +517,4 @@ public class MovieOverviewController {
             handlePlay();
         }
     }
-
 }
