@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.media.MediaView?>
 
-<AnchorPane fx:id="anchorpane" prefHeight="545.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MediaviewController">
+<AnchorPane fx:id="anchorpane" prefHeight="545.0" prefWidth="801.0" styleClass="anchorpane" stylesheets="@Mediaview.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MediaviewController">
    <children>
       <BorderPane fx:id="BorderPane" prefHeight="545.0" prefWidth="757.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -19,7 +19,7 @@
              <MediaView fx:id="moviepane" fitHeight="530.0" fitWidth="800.0" nodeOrientation="INHERIT" BorderPane.alignment="CENTER" />
          </center>
          <top>
-            <Button fx:id="exit" mnemonicParsing="false" onAction="#setExit" prefHeight="0.0" prefWidth="31.0" BorderPane.alignment="CENTER">
+            <Button fx:id="exit" mnemonicParsing="false" onAction="#setExit" prefHeight="0.0" prefWidth="31.0" styleClass="exit_button" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets left="760.0" />
                </BorderPane.margin>
@@ -29,11 +29,11 @@
             <!--<MediaView fx:id="moviepane" fitHeight="530.0" fitWidth="800.0" />-->
             <Pane fx:id="UIpane" prefHeight="71.0" prefWidth="480.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="play" layoutX="312.0" layoutY="36.0" mnemonicParsing="false" onAction="#setStop" prefHeight="30.0" prefWidth="30.0" />
-                  <TextField fx:id="time" layoutX="679.0" layoutY="6.0" prefHeight="30.0" prefWidth="108.0" />
+                  <Button fx:id="play" layoutX="312.0" layoutY="36.0" mnemonicParsing="false" onAction="#setStop" prefHeight="30.0" prefWidth="30.0" styleClass="playbutton" />
+                  <TextField fx:id="time" layoutX="679.0" layoutY="6.0" prefHeight="30.0" prefWidth="108.0" styleClass="time_table" />
                   <Slider fx:id="slider" layoutX="14.0" layoutY="12.0" prefHeight="18.0" prefWidth="624.0" />
                   <Slider fx:id="volume_control" layoutX="692.0" layoutY="42.0" prefHeight="14.0" prefWidth="83.0" />
-                  <Button fx:id="silent" layoutX="607.0" layoutY="36.0" mnemonicParsing="false" onAction="#setSilent" prefHeight="30.0" prefWidth="30.0" />
+                  <Button fx:id="silent" layoutX="607.0" layoutY="36.0" mnemonicParsing="false" onAction="#setSilent" prefHeight="30.0" prefWidth="30.0" styleClass="silent_button" />
                </children>
                <BorderPane.margin>
                   <Insets />

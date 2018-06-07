@@ -1,0 +1,8 @@
+.show_movie_background{
+    -fx-background-image: url("/main/picture/new_airplane.png");
+}
+.hide_description_border{
+    -fx-background-color: blank;
+    -fx-text-fill: black;
+    /*-fx-opacity:0.1;*/
+}

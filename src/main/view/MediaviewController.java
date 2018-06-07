@@ -155,7 +155,7 @@ public class MediaviewController {
         mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
             @Override
             public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
-                update_time();
+                time();
             }
         });
 
@@ -183,7 +183,7 @@ public class MediaviewController {
     }
 
     // 建构视频执行时间显示框
-    private void update_time() {
+    private void time() {
         DateUtil df = new DateUtil();
         Duration duration = mediaPlayer.getMedia().getDuration();
         Platform.runLater(new Runnable() {

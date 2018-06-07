@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="50.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MovieOverviewController">
+<AnchorPane minHeight="50.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@movieoverview.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MovieOverviewController">
    <children>
       <SplitPane dividerPositions="0.15413533834586465, 0.35213032581453635" layoutX="45.0" layoutY="84.0" prefHeight="450.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -56,7 +56,7 @@
                   </TableView>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="show_movie_background">
                <children>
                   <Label fx:id="movieNameLabel" layoutX="5.0" layoutY="98.0" text="Label" AnchorPane.bottomAnchor="476.0" AnchorPane.leftAnchor="5.0">
                      <font>
@@ -92,7 +92,7 @@
                         <Label text="%Description" GridPane.rowIndex="7" />
                         <Label text="%Language" GridPane.rowIndex="6" />
                         <Label fx:id="languageLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <TextArea fx:id="descriptionLabel" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <TextArea fx:id="descriptionLabel" editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blank;" styleClass="hide_description_border" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                         <Label text="%Genre" GridPane.rowIndex="4" />
                         <Label fx:id="genreLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
@@ -106,9 +106,9 @@
                   <VBox layoutX="5.0" layoutY="536.0" spacing="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <children>
                         <Button fx:id="Play" layoutX="5.0" layoutY="536.0" mnemonicParsing="false" onAction="#handlePlay" onKeyPressed="#set_keyboard_Play" text="%Play" />
-                        <Button fx:id="Back" layoutX="14.0" layoutY="559.0" mnemonicParsing="false" onAction="#handleBack" onKeyPressed="#set_keyboard_Back" text="%Back" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" />
                      </children>
                   </VBox>
+                  <Button fx:id="Back" layoutX="75.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleBack" onKeyPressed="#set_keyboard_Back" text="%Back" AnchorPane.bottomAnchor="563.0" AnchorPane.leftAnchor="75.0" />
                </children>
             </AnchorPane>
         </items>
