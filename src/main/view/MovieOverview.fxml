@@ -103,12 +103,12 @@
                         <Button fx:id="Edit" mnemonicParsing="false" onAction="#handleEditMovie" text="%Edit" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
                      </children>
                   </HBox>
-                  <VBox layoutX="5.0" layoutY="536.0" spacing="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Button fx:id="Play" layoutX="5.0" layoutY="536.0" mnemonicParsing="false" onAction="#handlePlay" onKeyPressed="#set_keyboard_Play" text="%Play" />
+                        <Button fx:id="Back" mnemonicParsing="false" onAction="#handleBack" onKeyPressed="#set_keyboard_Back" text="%Back" />
+                        <Button fx:id="Play" mnemonicParsing="false" onAction="#handlePlay" onKeyPressed="#set_keyboard_Play" text="%Play" />
                      </children>
-                  </VBox>
-                  <Button fx:id="Back" layoutX="75.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleBack" onKeyPressed="#set_keyboard_Back" text="%Back" AnchorPane.bottomAnchor="563.0" AnchorPane.leftAnchor="75.0" />
+                  </HBox>
                </children>
             </AnchorPane>
         </items>
