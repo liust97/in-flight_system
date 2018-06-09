@@ -12,8 +12,16 @@ import main.util.DateUtil;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+
+import javafx.event.ActionEvent;
+
+import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+
+import javafx.scene.control.Label;
+
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -49,24 +57,66 @@ public class MediaviewController {
     private Button key;
     private MainApp mainApp;
 
-
     double store_volume;
     Media media;
     MediaPlayer mediaPlayer;
     String UrL;
 
+    /**
+     * The private method is used to store the value of volume.
+     * <p>
+     * When the user click the silent button, the method will store
+     * the value of volume.
+     *
+     * @param temp_volume A static variable to store the value of volume.
+     */
     private void store_volume(double temp_volume) {
         this.store_volume = temp_volume;
     }
 
+    /**
+     * The private method is used to get the value of volume.
+     * <p>
+     * When the movie is silent, if the user click the silent  button,
+     * the value of the volume will come back to the value, which is
+     * the value before clicking the silent button.
+     *
+     * @return The value of volume, which has been store before clicking
+     * the silent button.
+     */
     private double getStore_volume() {
         return store_volume;
     }
 
+    /**
+     * The method is used to initialize.
+     */
     public void initialize() {
 
     }
-    public static final int FUNC_KEY_MARK = 1;
+
+    /**
+     * The private method is used in the model of the mediaview in
+     * the fxml file.
+     * <p>
+     * <li> According the UrL, creating a new media.</li>
+     * <li> Using the media, creating a new MediaPlayer.</li>
+     * <li> Show the mediaPlayer in the model of the mediaview in the fxml file. Then, setting
+     * play the movie automatically.</li>
+     * </p>
+     * <p>
+     * Calling the methods which were used to control the property of movie
+     * </p>
+     *
+     * <ul>
+     * <li>setbuttonbackground()/li>
+     * <li>setFocus()</li>
+     * <li>setSlider()</li>
+     * <li>movie()</li>
+     * <li>setStop()</li>
+     * <li>setSilent()</li>
+     * </ul>
+     */
     @FXML
     private void showmovie() {
         // this part comes from javafx.scene.media api.
@@ -95,7 +145,9 @@ public class MediaviewController {
         setSilent();
     }
 
-    // 移除可能出现的焦点事件
+    /**
+     * The private method is used to remove the focus of the buttons in the BorderPane.
+     */
     private void setFocus() {
         exit.setFocusTraversable(false);
         play.setFocusTraversable(false);
@@ -106,9 +158,25 @@ public class MediaviewController {
         key.setFocusTraversable(true);
     }
 
+    /**
+     * The private method provide a way to control the mediaPlayer by keyboard.
+     * <p>
+     * <ul>
+     * <li>When pressing the DOWN, if the movie is playing, the movie will be stopped. Then,
+     * if the movie is paused, the movie will be playing.</li>
+     * <li>When pressing the LEFT, the movie will be receding.</li>
+     * <li>When pressing the RIGHT, the movie will be speeding.</li>
+     * <li>When pressing the SUBTRACT, the volume will be decreased.</li>
+     * <li>When pressing the ADD, the volume will be increased.</li>
+     * <li>When pressing the MULTIPLY, the movie will be quiet.</li>
+     * <li>When pressing the UP, coming back to the last scene.</li>
+     * </ul>
+     * </p>
+     *
+     * @param event The event of keyboard.
+     */
     @FXML
     public void keyTyped(KeyEvent event) {
-        System.out.println(event.getCode());
         // 按下停止视频
         if (event.getCode() == KeyCode.DOWN) {
             Stop_method();
@@ -149,21 +217,49 @@ public class MediaviewController {
 
     }
 
-    // 设置视频进度条与声音进度条
+    /**
+     * The private method is used to set the progress of the movie and the progress
+     * of the volume.
+     * <p>
+     * Add a listener to obtain the current time of mediaPlayer. Then, according to the current
+     * time to set the action of the progress slider. In addition, showing the current time in
+     * the TextFiled.<br>
+     * Obtaining the volume of the mediaPlayer, and bind it with the slider of
+     * controlling volume. Then, setting the volume is full, when starting to
+     * play the movie.
+     * </p>
+     */
     @FXML
     private void movie() {
         mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
             @Override
             public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
-                time();
+                DateUtil df = new DateUtil();
+                Duration duration = mediaPlayer.getMedia().getDuration();
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        Duration currentTime = mediaPlayer.getCurrentTime();
+                        double show_now_time = currentTime.toMillis();
+                        time.setText(df.changeformat(show_now_time) + "/" + df.changeformat(duration.toMillis()));
+                        slider.setValue(currentTime.toMillis() / duration.toMillis() * 100);
+                    }
+                });
             }
         });
-
-
         mediaPlayer.volumeProperty().bind(volume_control.valueProperty().divide(100));
         volume_control.valueProperty().setValue(100);
     }
 
+    /**
+     * The private method is used to deal with the action of jumping in the media.
+     * <p>
+     * <ul>
+     * <li>When the user drags the slider</li>
+     * <li>When the user click the slider</li>
+     * </ul>
+     * </p>
+     */
     //监听进度条的变化
     @FXML
     private void setSlider() {
@@ -182,22 +278,9 @@ public class MediaviewController {
         });
     }
 
-    // 建构视频执行时间显示框
-    private void time() {
-        DateUtil df = new DateUtil();
-        Duration duration = mediaPlayer.getMedia().getDuration();
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                Duration currentTime = mediaPlayer.getCurrentTime();
-                double show_now_time = currentTime.toMillis();
-                time.setText(df.changeformat(show_now_time) + "/" + df.changeformat(duration.toMillis()));
-                slider.setValue(currentTime.toMillis() / duration.toMillis() * 100);
-            }
-        });
-    }
-
-    // 视频暂停与重连模块，已经播放完成后，点击重播
+    /**
+     * The action of play button.
+     */
     @FXML
     private void setStop() {
         play.setOnAction(e -> {
@@ -205,6 +288,17 @@ public class MediaviewController {
         });
     }
 
+    /**
+     * The movie status module.
+     * <p>
+     * <ol>
+     * <li>If the user clicks the play button, the movie will be stopped.</li>
+     * <li>If the status of the movie is paused, the movie will continue to playing
+     * movie when the user click the play button.</li>
+     * <li>When the movie is end, if the user click the button, the movie will replay.</li>
+     * </ol>
+     * </p>
+     */
     private void Stop_method() {
         MediaPlayer.Status status = mediaPlayer.getStatus();
         if (status == MediaPlayer.Status.PLAYING) {
@@ -225,7 +319,9 @@ public class MediaviewController {
         }
     }
 
-    // 静音按钮
+    /**
+     * The action of Volume button.
+     */
     @FXML
     private void setSilent() {
         silent.setOnAction(event -> {
@@ -233,23 +329,34 @@ public class MediaviewController {
         });
     }
 
+    /**
+     * The mute module of movie.
+     * <p>
+     * <ol>
+     * <li>If the user clicks the silent button, the volume of the movie will be zero.</li>
+     * <li>If the user clicks the silent button, when the volume of the movie is zero, the volume
+     * will come back to the value which is the value before click the button.</li>
+     * </ol>
+     * </p>
+     */
     private void Silent_method() {
         if (volume_control.getValue() == 0) {
             volume_control.valueProperty().setValue(getStore_volume());
             String volume_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/volume_button.png").toString();
-            silent.setGraphic(new ImageView((new Image(volume_pic , 20, 20, true, true))));
+            silent.setGraphic(new ImageView((new Image(volume_pic, 20, 20, true, true))));
         } else {
             double temp = volume_control.getValue();
             store_volume(temp);
             volume_control.valueProperty().setValue(0);
             String volume_slient_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/slient_button.png").toString();
-            silent.setGraphic(new ImageView((new Image(volume_slient_pic , 20, 20, true, true))));
+            silent.setGraphic(new ImageView((new Image(volume_slient_pic, 20, 20, true, true))));
         }
     }
 
+
     public void setMainApp(MainApp mainApp) { // 以及播放
         this.mainApp = mainApp;
-        System.out.println(mainApp.getMovieURL());
+//        System.out.println(mainApp.getMovieURL());
         this.UrL = Thread.currentThread().getContextClassLoader().getResource(mainApp.getMovieURL()).toString();
         showmovie();
     }
@@ -262,13 +369,15 @@ public class MediaviewController {
         mainApp.showMovieOverview(mainApp.getResourceBundle().getLocale());
     }
 
-    // 设置按钮图片
+    /**
+     *  Setting the picture of the play button, silent button and the exit button.
+     */
     private void setbuttonbackground() {
         String play_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png").toString();
         String volume_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/volume_button.png").toString();
         String exit_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/exit_button.png").toString();
         play.setGraphic(new ImageView(new Image(play_pic, 20, 20, true, true)));
-        silent.setGraphic(new ImageView((new Image(volume_pic , 20, 20, true, true))));
-        exit.setGraphic(new ImageView((new Image(exit_pic , 20, 20, true, true))));
+        silent.setGraphic(new ImageView((new Image(volume_pic, 20, 20, true, true))));
+        exit.setGraphic(new ImageView((new Image(exit_pic, 20, 20, true, true))));
     }
 }
