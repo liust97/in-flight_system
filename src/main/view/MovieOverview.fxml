@@ -10,11 +10,11 @@
 
 <AnchorPane minHeight="50.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@movieoverview.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MovieOverviewController">
    <children>
-      <SplitPane dividerPositions="0.15413533834586465, 0.35213032581453635" layoutX="45.0" layoutY="84.0" prefHeight="450.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.15413533834586465, 0.35213032581453635" layoutX="45.0" layoutY="84.0" prefHeight="450.0" prefWidth="600.0" styleClass="background" stylesheets="@style_black.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="271.0">
                <children>
-                  <AnchorPane layoutX="14.0" layoutY="14.0">
+                  <AnchorPane layoutX="14.0" layoutY="14.0" styleClass="label" stylesheets="@style_black.css">
                      <children>
                         <VBox spacing="5.0">
                            <children>
@@ -23,7 +23,7 @@
                                     <ToggleGroup fx:id="categoryGroup" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="genreRadio" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" text="%Genre" toggleGroup="$categoryGroup" />
+                              <RadioButton fx:id="genreRadio" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" styleClass="label" stylesheets="@style_black.css" text="%Genre" toggleGroup="$categoryGroup" />
                               <RadioButton fx:id="countryRadio" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" text="%Country" toggleGroup="$categoryGroup" />
                               <RadioButton fx:id="ageRadio" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" text="%Age" toggleGroup="$categoryGroup" />
                               <RadioButton fx:id="ourSelectionRadio" layoutX="14.0" layoutY="115.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" text="%Our selection" toggleGroup="$categoryGroup" />
@@ -33,7 +33,7 @@
                   </AnchorPane>
                   <TableView fx:id="categoriesTable" layoutY="143.0" onKeyPressed="#change_table" prefHeight="455.0" prefWidth="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="143.0">
                     <columns>
-                      <TableColumn fx:id="categoriesColumn" prefWidth="75.0" text="%Category" />
+                      <TableColumn fx:id="categoriesColumn" prefWidth="75.0" styleClass="colume_table" text="%Category" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -45,7 +45,7 @@
                <children>
                   <TableView fx:id="movieTable" onKeyPressed="#change_table" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn fx:id="movieNameColumn" prefWidth="75.0" text="%Movies" />
+                      <TableColumn fx:id="movieNameColumn" prefWidth="75.0" styleClass="colume_table" text="%Movies" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -88,11 +88,11 @@
                         <Label fx:id="countryLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label fx:id="durationLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label text="%Duration" GridPane.rowIndex="2" />
-                        <Label fx:id="yearLabel" text="Label" GridPane.columnIndex="1" />
+                        <Label fx:id="yearLabel" stylesheets="@style_black.css" text="Label" GridPane.columnIndex="1" />
                         <Label text="%Description" GridPane.rowIndex="7" />
                         <Label text="%Language" GridPane.rowIndex="6" />
                         <Label fx:id="languageLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <TextArea fx:id="descriptionLabel" editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blank;" styleClass="hide_description_border" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <TextArea fx:id="descriptionLabel" editable="false" prefHeight="200.0" prefWidth="200.0" styleClass="hide_description_border" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                         <Label text="%Genre" GridPane.rowIndex="4" />
                         <Label fx:id="genreLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>

@@ -2,7 +2,8 @@
     -fx-background-image: url("/main/picture/new_airplane.png");
 }
 .hide_description_border{
-    -fx-background-color: blank;
+    -fx-background-color: black;
+    -fx-opacity: 1.0;
     -fx-text-fill: black;
     /*-fx-opacity:0.1;*/
 }

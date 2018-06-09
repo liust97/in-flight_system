@@ -1,11 +1,9 @@
 .anchorpane{
-    -fx-background-image: url("/main/picture/background_welcome.jpg");
+    -fx-background-image: url(/main/picture/background_welcome.jpg);
 }
 .image{
-    -fx-image: url("/main/picture/new_airplane.png");
+    -fx-image: url(/main/picture/new_airplane.png);
     -fx-opacity: 0.4;
-    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
 }
 .startButton{
     -fx-background-color: white;

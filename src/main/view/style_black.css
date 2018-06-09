@@ -1,0 +1,17 @@
+.background{
+    -fx-background-color: #1d1d1d;
+}
+.label{
+    -fx-font-size: 12pt;
+    -fx-font-family: "Calibri";
+    -fx-text-fill: white;
+    -fx-opacity: 0.8;
+}
+.colume_table{
+    -fx-text-fill: white;
+    -fx-opacity: 0.8;
+    -fx-font-size: 12pt;
+    -fx-font-family: Calibri;
+    -fx-background-color: black;
+}
+
