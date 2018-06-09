@@ -65,4 +65,56 @@
         <name>CitizenKane</name>
         <year>1941</year>
     </movie>
+    <movie>
+        <country>us</country>
+        <description>/</description>
+        <director>/</director>
+        <duration>2''37'''</duration>
+        <fileName>GoneWithTheWind_us_1939.mp4</fileName>
+        <genre>/</genre>
+        <isOurSelection>false</isOurSelection>
+        <language>/</language>
+        <mainActors>/</mainActors>
+        <name>GoneWithTheWind</name>
+        <year>1939</year>
+    </movie>
+    <movie>
+        <country>jp</country>
+        <description>/</description>
+        <director>/</director>
+        <duration>1''13'''</duration>
+        <fileName>Kagemusha_jp_1980.mp4</fileName>
+        <genre>/</genre>
+        <isOurSelection>false</isOurSelection>
+        <language>/</language>
+        <mainActors>/</mainActors>
+        <name>Kagemusha</name>
+        <year>1980</year>
+    </movie>
+    <movie>
+        <country>cn</country>
+        <description>/</description>
+        <director>/</director>
+        <duration>2''8'''</duration>
+        <fileName>liustiong_cn_2018.mp4</fileName>
+        <genre>/</genre>
+        <isOurSelection>false</isOurSelection>
+        <language>/</language>
+        <mainActors>/</mainActors>
+        <name>liustiong</name>
+        <year>2018</year>
+    </movie>
+    <movie>
+        <country>cn</country>
+        <description>/</description>
+        <director>/</director>
+        <duration>2''8'''</duration>
+        <fileName>LostInThailand_cn_2012.mp4</fileName>
+        <genre>/</genre>
+        <isOurSelection>false</isOurSelection>
+        <language>/</language>
+        <mainActors>/</mainActors>
+        <name>LostInThailand</name>
+        <year>2012</year>
+    </movie>
 </movies>

@@ -1,17 +1,13 @@
 package main.view;
 
-import com.melloware.jintellitype.HotkeyListener;
-import com.melloware.jintellitype.JIntellitype;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import main.MainApp;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import java.util.Locale;
-import java.util.Map;
 
 public class WelcomeController {
 
@@ -30,7 +26,11 @@ public class WelcomeController {
     @FXML
     private Button startButton;
 
-
+    /**
+     *
+     * add listener to button, change the content of start button by language
+     *
+     */
     @FXML
     private void initialize() {
         locale = Locale.ENGLISH;
@@ -71,11 +71,15 @@ public class WelcomeController {
         mainApp.showMovieOverview(locale);
     }
 
-    // keyboard ENTER control
+    /**
+     * when user type enter, click start
+     *
+     * @param keyEvent KeyEvent
+     */
     @FXML
     private void keyboard_Start(KeyEvent keyEvent) {
         if(keyEvent.getCode() == KeyCode.ENTER){
-            mainApp.showMovieOverview(locale);
+            handleStart();
         }
     }
 }

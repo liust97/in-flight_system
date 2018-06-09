@@ -3,12 +3,15 @@ package main;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.prefs.Preferences;
 
 import com.melloware.jintellitype.JIntellitype;
+import javafx.animation.FadeTransition;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.stage.WindowEvent;
+import javafx.util.Duration;
 import main.model.Movie;
 import main.model.MovieListWrapper;
 import main.view.MediaviewController;
@@ -143,6 +146,11 @@ public class MainApp extends Application {
             loader.setLocation(MainApp.class.getResource("view/Welcome.fxml"));
             AnchorPane welcome = (AnchorPane) loader.load();
 
+            FadeTransition ft2 = new FadeTransition(Duration.millis(1500), welcome);
+            ft2.setFromValue(0.0);
+            ft2.setToValue(1.0);
+            ft2.play();
+
             // Set movie overview into the center of root layout.
             rootLayout.setCenter(welcome);
 
@@ -193,6 +201,11 @@ public class MainApp extends Application {
             loader.setLocation(MainApp.class.getResource("view/MovieOverview.fxml"));
             AnchorPane movieOverview = (AnchorPane) loader.load();
 
+            FadeTransition ft2 = new FadeTransition(Duration.millis(1500), movieOverview);
+            ft2.setFromValue(0.0);
+            ft2.setToValue(1.0);
+            ft2.play();
+
             // Set movie overview into the center of root layout.
             rootLayout.setCenter(movieOverview);
 
@@ -217,6 +230,7 @@ public class MainApp extends Application {
             AnchorPane mediaView = (AnchorPane) loader.load();
             this.movieURL = "movies/" + movieURL; //该路径为相对src的路径
 //            primaryStage.setTitle("movie");
+
             rootLayout.setCenter(mediaView);
             MediaviewController controller = loader.getController();
             controller.setMainApp(this);

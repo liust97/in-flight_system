@@ -53,6 +53,7 @@ public class MovieEditDialogController {
             new Separator(), "Action", "Adventure", "Comedy", "Crime", "Drama", "Horror", "Musicals", "Science Fiction", "War");
 
     /**
+     *
      * Is called by the main application to give a reference back to itself.
      *
      * @param mainApp

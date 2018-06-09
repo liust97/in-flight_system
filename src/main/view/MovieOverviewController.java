@@ -93,8 +93,8 @@ public class MovieOverviewController {
     }
 
     /**
-     * Initializes the controller class. This method is automatically called
-     * after the fxml file has been loaded.
+     * add data to movie table
+     * add listener to the toggles
      */
     @FXML
     private void initialize() {
@@ -147,17 +147,9 @@ public class MovieOverviewController {
     }
 
     /**
-     * The keyboard action to change next table.
-     * <p>
-     * <ul>
-     * <li>When pressing the ENTER, the focus will change to next table.</li>
-     * <li>When pressing the RIGHT, the focus will change to next table.</li>
-     * <li>When pressing the LEFT, the focus will change to last table.</li>
-     * </ul>
-     * </p>
+     * when user type left, right and enter, switch between tables
      *
-     * @param key The event of keyboard.
-     * @throws AWTException the exception of the absract window toolkit.
+     * @param key the key event
      */
     @FXML
     private void change_table(javafx.scene.input.KeyEvent key) throws AWTException {
@@ -179,21 +171,6 @@ public class MovieOverviewController {
         }
     }
 
-    /**
-     * The keyboard action to change between each radioButton.
-     * <p>
-     * <ul>
-     * <li>When pressing the TAB, don't do anything.</li>
-     * <li>When pressing the RIGHT, the focus will change to next radiobutton.</li>
-     * </ul>
-     * </p>
-     *
-     * @param key The event of keyboard.
-     * @throws AWTException the exception of the absract window toolkit.
-     */
-
-
-    // 有问题
     @FXML
     private void change_table_for_radio(javafx.scene.input.KeyEvent key) throws AWTException {
         Robot r = new Robot();
@@ -217,12 +194,7 @@ public class MovieOverviewController {
 //        categoryGroup.selectToggle(origin_toggle);
     }
 
-    /**
-     * Using the JIntellitype jar to make a hot key.
-     * <p>
-     * When the administrator press ctrl+alt+E, the System will enter the model of Administrator.
-     * </p>
-     */
+
     private void set_super_administrator() {
         // 管理员 超级按钮监听
         // 全局键盘监听，根据输入超级指令选择对应的语言文件
@@ -244,27 +216,22 @@ public class MovieOverviewController {
 
     }
 
-    /**
-     * The private method is that hide the button which is only used by the administrator.
-     */
+
     private void setadminvisible() {
         Auto_set_all.setVisible(false);
         Edit.setVisible(false);
     }
 
-    /**
-     * The private method is that show the button which is used by the administrator, when
-     * the System enters the administrator model.
-     */
+    // 管理员事件
     private void setvisbile() {
         Auto_set_all.setVisible(true);
         Edit.setVisible(true);
     }
 
-    private void initCategory() {
-
-    }
-
+    /**
+     * when all category toggle is selected, show all movies data
+     *
+     */
     private void handleAllCategory() {
 //        categoryData.clear();
         ObservableList<String> categoryData = FXCollections.observableArrayList();
@@ -287,6 +254,10 @@ public class MovieOverviewController {
         categoriesTable.getSelectionModel().selectFirst();
     }
 
+    /**
+     * when age toggle is selected, show movies by age
+     *
+     */
     private void handleAgeCategory() {
         Category ageCategory = new Category("Age");
         for (Movie movie : mainApp.getMovieData()) { // 分类年代
@@ -328,10 +299,10 @@ public class MovieOverviewController {
         categoriesTable.getSelectionModel().selectFirst();
     }
 
-    private void handleYearCategory() {
-
-    }
-
+    /**
+     * when country toggle is selected, show movies by country
+     *
+     */
     private void handleCountryCategory() {
         Category countryCategory = new Category("country");
         for (Movie movie : mainApp.getMovieData()) {// 将缩写变为全程
@@ -357,6 +328,10 @@ public class MovieOverviewController {
         categoriesTable.getSelectionModel().selectFirst();
     }
 
+    /**
+     * when genre toggle is selected, show movies by genre
+     *
+     */
     private void handleGenreCategory() {
         Category genreCategory = new Category("country");
         for (Movie movie : mainApp.getMovieData()) {
@@ -381,6 +356,10 @@ public class MovieOverviewController {
         categoriesTable.getSelectionModel().selectFirst();
     }
 
+    /**
+     * when our selection toggle is selected, show movies by our selection
+     *
+     */
     private void handleOurSelectionCategory() {
         Category ourSelectionCategory = new Category("ourSelection");
         for (Movie movie : mainApp.getMovieData()) {
@@ -475,23 +454,14 @@ public class MovieOverviewController {
         }
     }
 
+    /**
+     * when user click back, back to welcome page
+     */
     @FXML
     private void handleBack() {
         mainApp.showWelcome();
     }
 
-    /**
-     * The private method is that creating a keyboard operation of back button.
-     * <p>
-     * <ul>
-     * <li>When pressing the ENTER, the System will perform the handleBack method.</li>
-     * <li>When pressing the RIGHT, the focus will change to next table.</li>
-     * <li>When pressing the RIGHT, the focus will change to last table.</li>
-     * </ul>
-     * </p>
-     *
-     * @param event The action of keyboard.
-     */
     @FXML
     private void set_keyboard_Back(javafx.scene.input.KeyEvent event) throws AWTException {
         Robot r = new Robot();
@@ -516,6 +486,9 @@ public class MovieOverviewController {
         this.resourceBundle = resourceBundle;
     }
 
+    /**
+     * automatically set all the information of movies
+     */
     @FXML
     private void handleAutoSetAll() throws IOException {
         ObservableList<Movie> movieData = mainApp.getMovieData();
@@ -555,6 +528,9 @@ public class MovieOverviewController {
 
     }
 
+    /**
+     * play the video
+     */
     public void handlePlay() {
         String url;
         try {
@@ -564,11 +540,6 @@ public class MovieOverviewController {
         }
     }
 
-    /**
-     * The private method is that creating a keyboard operation of play button.
-     *
-     * @param event The action of keyboard.
-     */
     @FXML
     private void set_keyboard_Play(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
