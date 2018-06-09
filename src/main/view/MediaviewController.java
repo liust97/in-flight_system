@@ -147,6 +147,9 @@ public class MediaviewController {
 
     /**
      * The private method is used to remove the focus of the buttons in the BorderPane.
+     * <p>
+     *
+     * </p>
      */
     private void setFocus() {
         exit.setFocusTraversable(false);
@@ -314,6 +317,8 @@ public class MediaviewController {
         Duration duration = mediaPlayer.getMedia().getDuration();
 
         if (duration.equals(mediaPlayer.getCurrentTime())) {
+            String play_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png").toString();
+            play.setGraphic(new ImageView(new Image(play_pic, 20, 20, true, true)));
             slider.setValue(0);
             mediaPlayer.seek(duration.multiply(0));
         }
@@ -370,7 +375,7 @@ public class MediaviewController {
     }
 
     /**
-     *  Setting the picture of the play button, silent button and the exit button.
+     * Setting the picture of the play button, silent button and the exit button.
      */
     private void setbuttonbackground() {
         String play_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png").toString();
