@@ -93,8 +93,8 @@ public class MovieOverviewController {
     }
 
     /**
-     * Initializes the controller class. This method is automatically called
-     * after the fxml file has been loaded.
+     * add data to movie table
+     * add listener to the toggles
      */
     @FXML
     private void initialize() {
@@ -146,6 +146,11 @@ public class MovieOverviewController {
         });
     }
 
+    /**
+     * when user type left, right and enter, switch between tables
+     *
+     * @param key the key event
+     */
     @FXML
     private void change_table(javafx.scene.input.KeyEvent key) throws AWTException {
         Robot r = new Robot();
@@ -189,6 +194,7 @@ public class MovieOverviewController {
 //        categoryGroup.selectToggle(origin_toggle);
     }
 
+
     private void set_super_administrator() {
         // 管理员 超级按钮监听
         // 全局键盘监听，根据输入超级指令选择对应的语言文件
@@ -222,10 +228,10 @@ public class MovieOverviewController {
         Edit.setVisible(true);
     }
 
-    private void initCategory() {
-
-    }
-
+    /**
+     * when all category toggle is selected, show all movies data
+     *
+     */
     private void handleAllCategory() {
 //        categoryData.clear();
         ObservableList<String> categoryData = FXCollections.observableArrayList();
@@ -248,6 +254,10 @@ public class MovieOverviewController {
         categoriesTable.getSelectionModel().selectFirst();
     }
 
+    /**
+     * when age toggle is selected, show movies by age
+     *
+     */
     private void handleAgeCategory() {
         Category ageCategory = new Category("Age");
         for (Movie movie : mainApp.getMovieData()) { // 分类年代
@@ -289,10 +299,10 @@ public class MovieOverviewController {
         categoriesTable.getSelectionModel().selectFirst();
     }
 
-    private void handleYearCategory() {
-
-    }
-
+    /**
+     * when country toggle is selected, show movies by country
+     *
+     */
     private void handleCountryCategory() {
         Category countryCategory = new Category("country");
         for (Movie movie : mainApp.getMovieData()) {// 将缩写变为全程
@@ -318,6 +328,10 @@ public class MovieOverviewController {
         categoriesTable.getSelectionModel().selectFirst();
     }
 
+    /**
+     * when genre toggle is selected, show movies by genre
+     *
+     */
     private void handleGenreCategory() {
         Category genreCategory = new Category("country");
         for (Movie movie : mainApp.getMovieData()) {
@@ -342,6 +356,10 @@ public class MovieOverviewController {
         categoriesTable.getSelectionModel().selectFirst();
     }
 
+    /**
+     * when our selection toggle is selected, show movies by our selection
+     *
+     */
     private void handleOurSelectionCategory() {
         Category ourSelectionCategory = new Category("ourSelection");
         for (Movie movie : mainApp.getMovieData()) {
@@ -436,6 +454,9 @@ public class MovieOverviewController {
         }
     }
 
+    /**
+     * when user click back, back to welcome page
+     */
     @FXML
     private void handleBack() {
         mainApp.showWelcome();
@@ -465,6 +486,9 @@ public class MovieOverviewController {
         this.resourceBundle = resourceBundle;
     }
 
+    /**
+     * automatically set all the information of movies
+     */
     @FXML
     private void handleAutoSetAll() throws IOException {
         ObservableList<Movie> movieData = mainApp.getMovieData();
@@ -504,6 +528,9 @@ public class MovieOverviewController {
 
     }
 
+    /**
+     * play the video
+     */
     public void handlePlay() {
         String url;
         try {
