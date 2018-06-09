@@ -147,9 +147,17 @@ public class MovieOverviewController {
     }
 
     /**
-     * when user type left, right and enter, switch between tables
+     * The keyboard action to change next table.
+     * <p>
+     * <ul>
+     * <li>When pressing the ENTER, the focus will change to next table.</li>
+     * <li>When pressing the RIGHT, the focus will change to next table.</li>
+     * <li>When pressing the LEFT, the focus will change to last table.</li>
+     * </ul>
+     * </p>
      *
-     * @param key the key event
+     * @param key The event of keyboard.
+     * @throws AWTException the exception of the absract window toolkit.
      */
     @FXML
     private void change_table(javafx.scene.input.KeyEvent key) throws AWTException {
@@ -171,6 +179,21 @@ public class MovieOverviewController {
         }
     }
 
+    /**
+     * The keyboard action to change between each radioButton.
+     * <p>
+     * <ul>
+     * <li>When pressing the TAB, don't do anything.</li>
+     * <li>When pressing the RIGHT, the focus will change to next radiobutton.</li>
+     * </ul>
+     * </p>
+     *
+     * @param key The event of keyboard.
+     * @throws AWTException the exception of the absract window toolkit.
+     */
+
+
+    // 有问题
     @FXML
     private void change_table_for_radio(javafx.scene.input.KeyEvent key) throws AWTException {
         Robot r = new Robot();
@@ -194,7 +217,12 @@ public class MovieOverviewController {
 //        categoryGroup.selectToggle(origin_toggle);
     }
 
-
+    /**
+     * Using the JIntellitype jar to make a hot key.
+     * <p>
+     * When the administrator press ctrl+alt+E, the System will enter the model of Administrator.
+     * </p>
+     */
     private void set_super_administrator() {
         // 管理员 超级按钮监听
         // 全局键盘监听，根据输入超级指令选择对应的语言文件
@@ -216,13 +244,18 @@ public class MovieOverviewController {
 
     }
 
-
+    /**
+     * The private method is that hide the button which is only used by the administrator.
+     */
     private void setadminvisible() {
         Auto_set_all.setVisible(false);
         Edit.setVisible(false);
     }
 
-    // 管理员事件
+    /**
+     * The private method is that show the button which is used by the administrator, when
+     * the System enters the administrator model.
+     */
     private void setvisbile() {
         Auto_set_all.setVisible(true);
         Edit.setVisible(true);
@@ -230,7 +263,6 @@ public class MovieOverviewController {
 
     /**
      * when all category toggle is selected, show all movies data
-     *
      */
     private void handleAllCategory() {
 //        categoryData.clear();
@@ -256,7 +288,6 @@ public class MovieOverviewController {
 
     /**
      * when age toggle is selected, show movies by age
-     *
      */
     private void handleAgeCategory() {
         Category ageCategory = new Category("Age");
@@ -301,7 +332,6 @@ public class MovieOverviewController {
 
     /**
      * when country toggle is selected, show movies by country
-     *
      */
     private void handleCountryCategory() {
         Category countryCategory = new Category("country");
@@ -330,7 +360,6 @@ public class MovieOverviewController {
 
     /**
      * when genre toggle is selected, show movies by genre
-     *
      */
     private void handleGenreCategory() {
         Category genreCategory = new Category("country");
@@ -358,7 +387,6 @@ public class MovieOverviewController {
 
     /**
      * when our selection toggle is selected, show movies by our selection
-     *
      */
     private void handleOurSelectionCategory() {
         Category ourSelectionCategory = new Category("ourSelection");
@@ -462,6 +490,18 @@ public class MovieOverviewController {
         mainApp.showWelcome();
     }
 
+    /**
+     * The private method is that creating a keyboard operation of back button.
+     * <p>
+     * <ul>
+     * <li>When pressing the ENTER, the System will perform the handleBack method.</li>
+     * <li>When pressing the RIGHT, the focus will change to next table.</li>
+     * <li>When pressing the RIGHT, the focus will change to last table.</li>
+     * </ul>
+     * </p>
+     *
+     * @param event The action of keyboard.
+     */
     @FXML
     private void set_keyboard_Back(javafx.scene.input.KeyEvent event) throws AWTException {
         Robot r = new Robot();
@@ -540,6 +580,11 @@ public class MovieOverviewController {
         }
     }
 
+    /**
+     * The private method is that creating a keyboard operation of play button.
+     *
+     * @param event The action of keyboard.
+     */
     @FXML
     private void set_keyboard_Play(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
