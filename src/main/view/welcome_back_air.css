@@ -8,4 +8,8 @@
 .startButton{
     -fx-background-color: white;
     -fx-background-radius: 100px;
+
+}
+.startButton:hover {
+    -fx-background-color: derive(#3a3a3a,100%);
 }

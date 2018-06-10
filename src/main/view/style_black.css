@@ -1,18 +1,46 @@
-.background{
+.background {
     -fx-background-color: #1d1d1d;
+
 }
-.label{
+
+.show_movie_background {
+    -fx-background-image: url("/main/picture/new_airplane.png");
+}
+
+.label {
     -fx-font-size: 12pt;
     -fx-font-family: "Calibri";
     -fx-text-fill: white;
     -fx-opacity: 0.8;
 }
-.colume_table{
-    -fx-text-fill: white;
-    -fx-opacity: 0.8;
-    -fx-font-size: 12pt;
-    -fx-font-family: Calibri;
-    -fx-background-color: black;
+
+.table-view {
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-padding: 2;
 }
 
+.button {
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #8d8d8d;
+    -fx-font-family: Helvetica;
+    -fx-font-size: 10pt;
+    -fx-text-fill: #1d1d1d;
+}
 
+.radio-back {
+    -fx-background-color: #1d1d1d;
+}
+
+.button:hover {
+    -fx-background-color: #3a3a3a;
+}
+
+.button:pressed {
+    -fx-background-color: white;
+    -fx-opacity: 0.8;
+    -fx-text-fill: #1d1d1d;
+}

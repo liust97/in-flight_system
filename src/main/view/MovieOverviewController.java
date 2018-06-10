@@ -5,6 +5,8 @@ import com.melloware.jintellitype.JIntellitype;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import main.MainApp;
@@ -99,9 +101,6 @@ public class MovieOverviewController {
      */
     @FXML
     private void initialize() {
-
-
-
 
         allRadio.setUserData("all");
         genreRadio.setUserData("genre");
