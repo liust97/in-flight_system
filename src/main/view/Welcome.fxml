@@ -17,7 +17,7 @@
          </toggleGroup>
       </RadioButton>
       <RadioButton fx:id="zhButton" layoutX="361.0" layoutY="399.0" mnemonicParsing="false" onKeyPressed="#keyboard_Start" prefHeight="16.0" prefWidth="74.0" text="简体中文" toggleGroup="$Language" />
-      <RadioButton fx:id="frButton" layoutX="443.0" layoutY="399.0" mnemonicParsing="false" onKeyPressed="#keyboard_Start" prefHeight="16.0" prefWidth="74.0" text="Français" toggleGroup="$Language" />
+      <RadioButton fx:id="jaButton" layoutX="443.0" layoutY="399.0" mnemonicParsing="false" onKeyPressed="#keyboard_Start" prefHeight="16.0" prefWidth="74.0" text="日本語" toggleGroup="$Language" />
       <Button fx:id="startButton" layoutX="339.0" layoutY="438.0" mnemonicParsing="false" onAction="#handleStart" prefHeight="48.0" prefWidth="125.0" styleClass="startButton" text="Start">
          <font>
             <Font size="18.0" />

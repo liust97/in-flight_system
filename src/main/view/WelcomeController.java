@@ -22,7 +22,7 @@ public class WelcomeController {
     @FXML
     private RadioButton enButton;
     @FXML
-    private RadioButton frButton;
+    private RadioButton jaButton;
     @FXML
     private Button startButton;
 
@@ -52,11 +52,11 @@ public class WelcomeController {
             }
         });
 
-        frButton.selectedProperty().addListener(new javafx.beans.value.ChangeListener<Boolean>() {
+        jaButton.selectedProperty().addListener(new javafx.beans.value.ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                startButton.setText("Commencer");
-                locale = Locale.FRENCH;
+                startButton.setText("開始");
+                locale = Locale.JAPANESE;
             }
         });
 
