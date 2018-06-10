@@ -15,9 +15,8 @@ import java.io.IOException;
 import java.util.Locale;
 
 /**
- * Dialog to edit details of a person.
+ * Dialog to edit details of a movie.
  *
- * @author Marco Jakob
  */
 public class MovieEditDialogController {
 
@@ -81,7 +80,7 @@ public class MovieEditDialogController {
     }
 
     /**
-     * Sets the person to be edited in the dialog.
+     * Sets the movie to be edited in the dialog.
      *
      * @param movie
      */
@@ -110,6 +109,7 @@ public class MovieEditDialogController {
 
     /**
      * Called when the user clicks ok.
+     * Save new information into the xml file
      */
     @FXML
     private void handleOk() {
@@ -173,6 +173,10 @@ public class MovieEditDialogController {
         languageField.setText(movie.getLanguage());
     }
 
+    /**
+     * Called when the user clicks reset.
+     * Reset information of movie to the origin state
+     */
     @FXML
     private void handleReset() throws IOException {
         Movie movie = new Movie();
