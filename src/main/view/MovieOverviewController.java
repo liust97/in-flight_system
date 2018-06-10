@@ -204,6 +204,7 @@ public class MovieOverviewController {
         categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 4) % 5).setSelected(true); // 把category选中的放回原位
 //        Toggle origin_toggle = categoryGroup.getSelectedToggle();
 //
+
         if (key.getCode().equals(KeyCode.TAB)) {
             return;
         }
@@ -216,7 +217,12 @@ public class MovieOverviewController {
             r.keyPress(java.awt.event.KeyEvent.VK_TAB);
             r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
         } else {
-            categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 1) % 5).setSelected(true); // 把category选中的放回原位
+            categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 4) % 5).setSelected(true); // 把category选中的放回原位
+        }
+        if (key.getCode().equals(KeyCode.ENTER)) {
+            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+            categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 3) % 5).setSelected(true);
         }
 //        categoryGroup.selectToggle(origin_toggle);
     }

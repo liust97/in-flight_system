@@ -41,7 +41,12 @@
     -fx-background-color: #3a3a3a;
 }
 
-.button:pressed .button:focused {
+.button:pressed  {
+    -fx-background-color: white;
+    -fx-opacity: 0.8;
+    -fx-text-fill: #1d1d1d;
+}
+.button:focused{
     -fx-background-color: white;
     -fx-opacity: 0.8;
     -fx-text-fill: #1d1d1d;
