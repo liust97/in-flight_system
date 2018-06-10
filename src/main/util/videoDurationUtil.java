@@ -5,6 +5,9 @@ import it.sauronsoftware.jave.MultimediaInfo;
 
 import java.io.File;
 
+/**
+ *  Translate the time of video into the the form of hour, minute and second.
+ */
 public class videoDurationUtil {
     public static String ReadVideoDuration(File source) {
         Encoder encoder = new Encoder();
