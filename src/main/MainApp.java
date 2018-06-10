@@ -200,6 +200,7 @@ public class MainApp extends Application {
 
             loader.setLocation(MainApp.class.getResource("view/MovieOverview.fxml"));
             AnchorPane movieOverview = (AnchorPane) loader.load();
+//                   movieOverview.getStylesheets().add(getClass().getResource("view/style_black.css").toExternalForm());
 
             FadeTransition ft2 = new FadeTransition(Duration.millis(1500), movieOverview);
             ft2.setFromValue(0.0);

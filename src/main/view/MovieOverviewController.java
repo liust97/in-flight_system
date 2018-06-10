@@ -71,9 +71,10 @@ public class MovieOverviewController {
     @FXML
     private Button Edit;
     @FXML
-    private Button Play;
+    private SplitPane splitPane;
     @FXML
-    private Button Back;
+    private Button next;
+
 
     private ResourceBundle resourceBundle;
     private Category countryList;
@@ -98,6 +99,10 @@ public class MovieOverviewController {
      */
     @FXML
     private void initialize() {
+
+
+
+
         allRadio.setUserData("all");
         genreRadio.setUserData("genre");
         countryRadio.setUserData("country");
@@ -572,6 +577,8 @@ public class MovieOverviewController {
 
     }
 
+
+
     /**
      * Called when the user clicks play.
      * play the video
@@ -580,6 +587,8 @@ public class MovieOverviewController {
         String url;
         try {
             url = movieTable.getSelectionModel().getSelectedItem().getFileName();
+//            splitPane.getStylesheets().add(getClass().getResource("view/style_black.css").toExternalForm());
+
             mainApp.showMediaView(url);
         } catch (NullPointerException ignored) {
         }

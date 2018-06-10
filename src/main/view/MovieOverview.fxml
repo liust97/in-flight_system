@@ -8,25 +8,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="50.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@movieoverview.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MovieOverviewController">
+<AnchorPane minHeight="50.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MovieOverviewController">
    <children>
-      <SplitPane dividerPositions="0.15413533834586465, 0.35213032581453635" layoutX="45.0" layoutY="84.0" prefHeight="450.0" prefWidth="600.0" styleClass="background" stylesheets="@style_black.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane fx:id="splitpane" dividerPositions="0.15413533834586465, 0.35213032581453635" layoutX="45.0" layoutY="84.0" prefHeight="450.0" prefWidth="600.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="271.0">
                <children>
-                  <AnchorPane layoutX="14.0" layoutY="14.0" styleClass="label" stylesheets="@style_black.css">
+                  <AnchorPane layoutX="14.0" layoutY="14.0" styleClass="label">
                      <children>
                         <VBox spacing="5.0">
                            <children>
-                              <RadioButton fx:id="allRadio" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" selected="true" text="%All">
+                              <RadioButton fx:id="allRadio" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" selected="true" styleClass="label" text="%All">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="categoryGroup" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="genreRadio" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" styleClass="label" stylesheets="@style_black.css" text="%Genre" toggleGroup="$categoryGroup" />
-                              <RadioButton fx:id="countryRadio" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" text="%Country" toggleGroup="$categoryGroup" />
-                              <RadioButton fx:id="ageRadio" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" text="%Age" toggleGroup="$categoryGroup" />
-                              <RadioButton fx:id="ourSelectionRadio" layoutX="14.0" layoutY="115.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" text="%Our selection" toggleGroup="$categoryGroup" />
+                              <RadioButton fx:id="genreRadio" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" styleClass="label" text="%Genre" toggleGroup="$categoryGroup" />
+                              <RadioButton fx:id="countryRadio" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" styleClass="label" text="%Country" toggleGroup="$categoryGroup" />
+                              <RadioButton fx:id="ageRadio" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" styleClass="label" text="%Age" toggleGroup="$categoryGroup" />
+                              <RadioButton fx:id="ourSelectionRadio" layoutX="14.0" layoutY="115.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" styleClass="label" text="%Our selection" toggleGroup="$categoryGroup" />
                            </children>
                         </VBox>
                      </children>
