@@ -108,7 +108,7 @@ public class MovieOverviewController {
         movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
 //        categoriesColumn.setCellValueFactory();
 //        movieNameColumn
-        // Clear person details.
+        // Clear movie details.
         showMovieDetails(null);
 
         descriptionLabel.setFocusTraversable(false);
@@ -118,7 +118,7 @@ public class MovieOverviewController {
         set_super_administrator();
 
 
-        // Listen for selection changes and show the person details when changed.
+        // Listen for selection changes and show the movie details when changed.
         movieTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showMovieDetails(newValue));
 
@@ -447,8 +447,6 @@ public class MovieOverviewController {
             languageLabel.setText(movie.getLanguage());
             movieNameLabel.setText(movie.getName());
             genreLabel.setText(movie.getGenre());
-            // TODO: We need a way to convert the birthday into a String!
-//            birthdayLabel.setText(DateUtil.format(person.getBirthday()));
         } else {
             directorLabel.setText("");
             mainActorsLabel.setText("");
@@ -462,6 +460,10 @@ public class MovieOverviewController {
         }
     }
 
+    /**
+     * when user click edit, show the movie edit dialog.
+     * when user finish editing, show current movie's new detail
+     */
     @FXML
     private void handleEditMovie() {
 
@@ -483,7 +485,8 @@ public class MovieOverviewController {
     }
 
     /**
-     * when user click back, back to welcome page
+     * Called when the user clicks back.
+     * show the welcome page
      */
     @FXML
     private void handleBack() {
@@ -527,6 +530,7 @@ public class MovieOverviewController {
     }
 
     /**
+     * Called when the user clicks auto set all.
      * automatically set all the information of movies
      */
     @FXML
@@ -569,6 +573,7 @@ public class MovieOverviewController {
     }
 
     /**
+     * Called when the user clicks play.
      * play the video
      */
     public void handlePlay() {
