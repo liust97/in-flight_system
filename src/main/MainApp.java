@@ -48,7 +48,7 @@ public class MainApp extends Application {
     private String movieURL;
     private ResourceBundle resourceBundle;
     /**
-     * The data as an observable list of Persons.
+     * The data as an observable list of movies.
      */
     private ObservableList<Movie> movieData = FXCollections.observableArrayList();
 
@@ -56,10 +56,11 @@ public class MainApp extends Application {
      * Constructor
      */
     public MainApp() {
-        // Add some sample data
-//        personData.add(new Person("Hans", "Muster"));
     }
 
+    /**
+     * Traverse the movies directory and read the properties file to initialize movieData.
+     */
     public void initMovieData() throws Exception {
         File movies_directory = new File(moviesPath);
         if (!movies_directory.isDirectory()) {
@@ -120,6 +121,9 @@ public class MainApp extends Application {
         return movieData;
     }
 
+    /**
+     * initialize root layout and show welcome page
+     */
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -138,6 +142,9 @@ public class MainApp extends Application {
         });
     }
 
+    /**
+     * Shows the welcome page inside the root layout.
+     */
     public void showWelcome() {
         try {
             // Load movie overview.
@@ -222,7 +229,9 @@ public class MainApp extends Application {
         }
     }
 
-
+    /**
+     * Shows the media view inside the root layout.
+     */
     public void showMediaView(String movieURL) {
         try {
 
@@ -244,8 +253,8 @@ public class MainApp extends Application {
     }
 
     /**
-     * Opens a dialog to edit details for the specified person. If the user
-     * clicks OK, the changes are saved into the provided person object and true
+     * Opens a dialog to edit details for the specified movie. If the user
+     * clicks OK, the changes are saved into the provided movie object and true
      * is returned.
      *
      * @param movie the movie object to be edited
@@ -319,7 +328,7 @@ public class MainApp extends Application {
     }
 
     /**
-     * Saves the current person data to the specified file.
+     * Saves the current movie data to the specified file.
      *
      * @param file
      */
@@ -330,7 +339,7 @@ public class MainApp extends Application {
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            // Wrapping our person data.
+            // Wrapping our movie data.
             MovieListWrapper wrapper = new MovieListWrapper();
             wrapper.setMovies(movieData);
 
@@ -347,7 +356,7 @@ public class MainApp extends Application {
     }
 
     /**
-     * Returns the person file preference, i.e. the file that was last opened.
+     * Returns the movie file preference, i.e. the file that was last opened.
      * The preference is read from the OS specific registry. If no such
      * preference can be found, null is returned.
      *
@@ -384,6 +393,7 @@ public class MainApp extends Application {
         }
     }
 
+
     public String getMovieURL() {
         return movieURL;
     }
@@ -395,7 +405,7 @@ public class MainApp extends Application {
     /**
      * Returns the main stage.
      *
-     * @return
+     * @return primaryStage
      */
     public Stage getPrimaryStage() {
         return primaryStage;
@@ -405,6 +415,11 @@ public class MainApp extends Application {
         launch(args);
     }
 
+    /**
+     * Returns current resourceBundle
+     *
+     * @return resourceBundle
+     */
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
