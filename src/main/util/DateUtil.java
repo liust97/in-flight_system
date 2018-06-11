@@ -53,7 +53,7 @@ public class DateUtil {
         }
     }
 
-    public String changeformat(double time) {
+    public String ChangeFormat(double time) {
         String report;
         long temp = (long) (time / 1000);
         int hour = (int) (temp / 3600);

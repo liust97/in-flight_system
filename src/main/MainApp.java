@@ -7,13 +7,11 @@ import java.util.prefs.Preferences;
 
 import com.melloware.jintellitype.JIntellitype;
 import javafx.animation.FadeTransition;
-import javafx.event.EventHandler;
 import javafx.scene.image.Image;
-import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import main.model.Movie;
 import main.model.MovieListWrapper;
-import main.view.MediaviewController;
+import main.view.MediaViewController;
 import main.view.MovieEditDialogController;
 import main.view.MovieOverviewController;
 import main.view.WelcomeController;
@@ -75,16 +73,16 @@ public class MainApp extends Application {
             loadMovieDataFromFile(movieFile);
         }
         ArrayList<String> fileNamesInData = new ArrayList<>();
-        ArrayList<String> fileNamesIndir = new ArrayList<>();
+        ArrayList<String> fileNamesInDirector = new ArrayList<>();
 
         for (Movie movie : movieData) {
             fileNamesInData.add(movie.getFileName());
         }
 
-        for (File moviefile : movie_list) {
-            String fileName = moviefile.getName();
-            fileNamesIndir.add(fileName);
-            if (!moviefile.isDirectory() && !fileNamesInData.contains(fileName)) {// 如果moviedata里面已经存在这个文件，则不再读取了
+        for (File movie_file : movie_list) {
+            String fileName = movie_file.getName();
+            fileNamesInDirector.add(fileName);
+            if (!movie_file.isDirectory() && !fileNamesInData.contains(fileName)) {// 如果movie data里面已经存在这个文件，则不再读取了
                 String fileData[] = fileName.split("_");
                 try {
                     fileData[2] = fileData[2].substring(0, fileData[2].lastIndexOf('.')); // delete suffix
@@ -93,7 +91,7 @@ public class MainApp extends Application {
 
                 String duration;
                 try { // 读取视频长度顺便检查类型
-                    duration = ReadVideoDuration(moviefile);
+                    duration = ReadVideoDuration(movie_file);
                 } catch (Exception e) {
                     continue;
                 }
@@ -107,7 +105,7 @@ public class MainApp extends Application {
             }
         }
 
-        movieData.removeIf(movie -> !fileNamesIndir.contains(movie.getFileName()));
+        movieData.removeIf(movie -> !fileNamesInDirector.contains(movie.getFileName()));
         saveMovieDataToFile(movieFile);
     }
 
@@ -133,12 +131,7 @@ public class MainApp extends Application {
 //        showMovieOverview();
         showWelcome();
 
-        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                JIntellitype.getInstance().cleanUp();
-            }
-        });
+        primaryStage.setOnCloseRequest(event -> JIntellitype.getInstance().cleanUp());
     }
 
     /**
@@ -150,7 +143,7 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader();
 
             loader.setLocation(MainApp.class.getResource("view/Welcome.fxml"));
-            AnchorPane welcome = (AnchorPane) loader.load();
+            AnchorPane welcome = loader.load();
 
             FadeTransition ft2 = new FadeTransition(Duration.millis(1500), welcome);
             ft2.setFromValue(0.0);
@@ -180,7 +173,7 @@ public class MainApp extends Application {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/RootLayout.fxml"));
-            rootLayout = (BorderPane) loader.load();
+            rootLayout =  loader.load();
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
@@ -205,7 +198,7 @@ public class MainApp extends Application {
             loader.setResources(ResourceBundle.getBundle(basename, locale));
 
             loader.setLocation(MainApp.class.getResource("view/MovieOverview.fxml"));
-            AnchorPane movieOverview = (AnchorPane) loader.load();
+            AnchorPane movieOverview = loader.load();
 //                   movieOverview.getStylesheets().add(getClass().getResource("view/style_black.css").toExternalForm());
 
             FadeTransition ft2 = new FadeTransition(Duration.millis(1500), movieOverview);
@@ -236,12 +229,12 @@ public class MainApp extends Application {
 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/Mediaview.fxml"));
-            AnchorPane mediaView = (AnchorPane) loader.load();
+            AnchorPane mediaView =  loader.load();
             this.movieURL = "movies/" + movieURL; //该路径为相对src的路径
 //            primaryStage.setTitle("movie");
 
             rootLayout.setCenter(mediaView);
-            MediaviewController controller = loader.getController();
+            MediaViewController controller = loader.getController();
             controller.setMainApp(this);
 //            primaryStage.setFullScreen(true);
 //全屏语句
@@ -268,7 +261,7 @@ public class MainApp extends Application {
             String basename = "properties.config";
             loader.setResources(ResourceBundle.getBundle(basename, locale));
 
-            AnchorPane page = (AnchorPane) loader.load();
+            AnchorPane page = loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();

@@ -3,7 +3,6 @@ package main.view;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import main.MainApp;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 

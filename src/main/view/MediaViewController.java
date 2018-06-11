@@ -8,8 +8,6 @@ import javafx.scene.input.KeyEvent;
 import main.MainApp;
 import main.util.DateUtil;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
@@ -18,10 +16,8 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.util.Duration;
-import sun.util.resources.th.CalendarData_th;
 
-
-public class MediaviewController {
+public class MediaViewController {
     @FXML
     private MediaView moviepane;
     @FXML
@@ -100,11 +96,8 @@ public class MediaviewController {
         try {
             Media media = new Media(UrL);
             if (media.getError() == null) {
-                media.setOnError(new Runnable() {
-                    @Override
-                    public void run() {
-                        // Handle asynchronous error in Media object.
-                    }
+                media.setOnError(() -> {
+                    // Handle asynchronous error in Media object.
                 });
             }
             mediaPlayer = new MediaPlayer(media);
@@ -211,21 +204,15 @@ public class MediaviewController {
      */
     @FXML
     private void movie() {
-        mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
-            @Override
-            public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
-                DateUtil df = new DateUtil();
-                Duration duration = mediaPlayer.getMedia().getDuration();
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        Duration currentTime = mediaPlayer.getCurrentTime();
-                        double show_now_time = currentTime.toMillis();
-                        time.setText(df.changeformat(show_now_time) + "/" + df.changeformat(duration.toMillis()));
-                        slider.setValue(currentTime.toMillis() / duration.toMillis() * 100);
-                    }
-                });
-            }
+        mediaPlayer.currentTimeProperty().addListener((observable, oldValue, newValue) -> {
+            DateUtil df = new DateUtil();
+            Duration duration = mediaPlayer.getMedia().getDuration();
+            Platform.runLater(() -> {
+                Duration currentTime = mediaPlayer.getCurrentTime();
+                double show_now_time = currentTime.toMillis();
+                time.setText(df.ChangeFormat(show_now_time) + "/" + df.ChangeFormat(duration.toMillis()));
+                slider.setValue(currentTime.toMillis() / duration.toMillis() * 100);
+            });
         });
         mediaPlayer.volumeProperty().bind(volume_control.valueProperty().divide(100));
         volume_control.valueProperty().setValue(100);
@@ -243,17 +230,14 @@ public class MediaviewController {
     //监听进度条的变化
     @FXML
     private void setSlider() {
-        slider.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                if (slider.isValueChanging()) {
-                    Duration duration = mediaPlayer.getMedia().getDuration();
-                    mediaPlayer.seek(duration.multiply(slider.getValue() / 100.0));
-                }
-                if (slider.isPressed()) {
-                    Duration duration = mediaPlayer.getMedia().getDuration();
-                    mediaPlayer.seek(duration.multiply(slider.getValue() / 100.0));
-                }
+        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (slider.isValueChanging()) {
+                Duration duration = mediaPlayer.getMedia().getDuration();
+                mediaPlayer.seek(duration.multiply(slider.getValue() / 100.0));
+            }
+            if (slider.isPressed()) {
+                Duration duration = mediaPlayer.getMedia().getDuration();
+                mediaPlayer.seek(duration.multiply(slider.getValue() / 100.0));
             }
         });
     }

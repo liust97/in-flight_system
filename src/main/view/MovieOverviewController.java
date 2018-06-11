@@ -1,6 +1,5 @@
 package main.view;
 
-import com.melloware.jintellitype.HotkeyListener;
 import com.melloware.jintellitype.JIntellitype;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,8 +10,6 @@ import main.MainApp;
 import main.model.Category;
 import main.model.Movie;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -114,26 +111,23 @@ public class MovieOverviewController {
         movieTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showMovieDetails(newValue));
 
-        categoryGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-            @Override
-            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-                switch (newValue.getUserData().toString()) {
-                    case "all":
-                        handleAllCategory();
-                        break;
-                    case "age":
-                        handleAgeCategory();
-                        break;
-                    case "country":
-                        handleCountryCategory();
-                        break;
-                    case "ourSelection":
-                        handleOurSelectionCategory();
-                        break;
-                    case "genre":
-                        handleGenreCategory();
-                        break;
-                }
+        categoryGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+            switch (newValue.getUserData().toString()) {
+                case "all":
+                    handleAllCategory();
+                    break;
+                case "age":
+                    handleAgeCategory();
+                    break;
+                case "country":
+                    handleCountryCategory();
+                    break;
+                case "ourSelection":
+                    handleOurSelectionCategory();
+                    break;
+                case "genre":
+                    handleGenreCategory();
+                    break;
             }
         });
     }
@@ -225,17 +219,14 @@ public class MovieOverviewController {
         // 管理员 超级按钮监听
         // 全局键盘监听，根据输入超级指令选择对应的语言文件
         JIntellitype.getInstance().registerHotKey(Super_Administrator_1, JIntellitype.MOD_CONTROL + JIntellitype.MOD_ALT, (int) 'E');
-        JIntellitype.getInstance().addHotKeyListener(new HotkeyListener() {
-            @Override
-            public void onHotKey(int i) {
-                if (i == Super_Administrator_1) {
-                    if (Auto_set_all.isVisible()) {
-                        System.out.println("Exit Administrator");
-                        setadminvisible();
-                    } else {
-                        System.out.println("Welcome！Super Administrator");
-                        setvisbile();
-                    }
+        JIntellitype.getInstance().addHotKeyListener(i -> {
+            if (i == Super_Administrator_1) {
+                if (Auto_set_all.isVisible()) {
+                    System.out.println("Exit Administrator");
+                    setadminvisible();
+                } else {
+                    System.out.println("Welcome！Super Administrator");
+                    setvisbile();
                 }
             }
         });
@@ -273,13 +264,10 @@ public class MovieOverviewController {
         movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
 
         // Listen for selection changes and show the movie
-        categoriesTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                movieTable.setItems(mainApp.getMovieData());
-                movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-                movieTable.getSelectionModel().selectFirst();
-            }
+        categoriesTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            movieTable.setItems(mainApp.getMovieData());
+            movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+            movieTable.getSelectionModel().selectFirst();
         });
         categoriesTable.getSelectionModel().selectFirst();
     }
@@ -317,13 +305,10 @@ public class MovieOverviewController {
         categoriesTable.setItems(categoryData);
         categoriesColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()));
         // Listen for selection changes and show the movie
-        categoriesTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                movieTable.setItems(ageCategory.getMovieMap().get(newValue));
-                movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-                movieTable.getSelectionModel().selectFirst();
-            }
+        categoriesTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            movieTable.setItems(ageCategory.getMovieMap().get(newValue));
+            movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+            movieTable.getSelectionModel().selectFirst();
         });
         categoriesTable.getSelectionModel().selectFirst();
     }
@@ -345,13 +330,10 @@ public class MovieOverviewController {
         categoriesColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()));
 
         // Listen for selection changes and show the movie
-        categoriesTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                movieTable.setItems(countryCategory.getMovieMap().get(newValue));
-                movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-                movieTable.getSelectionModel().selectFirst();
-            }
+        categoriesTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            movieTable.setItems(countryCategory.getMovieMap().get(newValue));
+            movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+            movieTable.getSelectionModel().selectFirst();
         });
         categoriesTable.getSelectionModel().selectFirst();
     }
@@ -372,13 +354,10 @@ public class MovieOverviewController {
         categoriesColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()));
 
         // Listen for selection changes and show the movie
-        categoriesTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                movieTable.setItems(genreCategory.getMovieMap().get(newValue));
-                movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-                movieTable.getSelectionModel().selectFirst();
-            }
+        categoriesTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            movieTable.setItems(genreCategory.getMovieMap().get(newValue));
+            movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+            movieTable.getSelectionModel().selectFirst();
         });
         categoriesTable.getSelectionModel().selectFirst();
     }
@@ -400,13 +379,10 @@ public class MovieOverviewController {
         categoriesTable.setItems(categoryData);
         categoriesColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()));
         // Listen for selection changes and show the movie
-        categoriesTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                movieTable.setItems(ourSelectionCategory.getMovieMap().get(newValue));
-                movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-                movieTable.getSelectionModel().selectFirst();
-            }
+        categoriesTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            movieTable.setItems(ourSelectionCategory.getMovieMap().get(newValue));
+            movieNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+            movieTable.getSelectionModel().selectFirst();
         });
         categoriesTable.getSelectionModel().selectFirst();
     }

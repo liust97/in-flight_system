@@ -83,17 +83,6 @@ public class ScrapingUtil {
             temp = temp.substring(0, 397) + "...";
         }
         movie.setDescription(temp);
-//        for (Element t : div) {
-//            Elements rows = t.select("tbody tr");
-//            for (Element r : rows) {
-//                Elements cells = r.select("td");
-//                if (cells.size() > 0) {
-//                    Elements year = r.select("th");
-//                    System.out.print(year.get(0).text() + ",");
-//                    System.out.println("\"" + cells.get(0).text() + "\"");
-//                }
-//            }
-//        }
         return movie;
     }
 }

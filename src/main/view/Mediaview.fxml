@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.media.MediaView?>
 
-<AnchorPane fx:id="anchorpane" prefHeight="545.0" prefWidth="801.0" styleClass="anchorpane" stylesheets="@Mediaview.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MediaviewController">
+<AnchorPane fx:id="anchorpane" prefHeight="545.0" prefWidth="801.0" styleClass="anchorpane" stylesheets="@Mediaview.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MediaViewController">
    <children>
       <BorderPane fx:id="BorderPane" prefHeight="545.0" prefWidth="757.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
