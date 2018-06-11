@@ -5,8 +5,6 @@ import com.melloware.jintellitype.JIntellitype;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import main.MainApp;
@@ -20,8 +18,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import main.util.ScrapingUtil;
-
-
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -72,21 +68,13 @@ public class MovieOverviewController {
     private Button Auto_set_all;
     @FXML
     private Button Edit;
-    @FXML
-    private SplitPane splitPane;
-    @FXML
-    private Button next;
-
-
     private ResourceBundle resourceBundle;
     private Category countryList;
-    private static  final int Super_Administrator_1 = 1;
-    private static final int Down_tab = 2;
+    private static final int Super_Administrator_1 = 1;
 
     // Reference to the main application.
     private MainApp mainApp;
 
-    private boolean is_super_administrator = false;
 
     /**
      * The constructor.
@@ -547,12 +535,12 @@ public class MovieOverviewController {
     private void handleAutoSetAll() throws IOException {
         ObservableList<Movie> movieData = mainApp.getMovieData();
         System.out.println("start auto set all, please wait");
-        for (int i = 0; i < movieData.size(); i++) {
-            Movie movie = ScrapingUtil.scrapMovieInfo(movieData.get(i).getName());
-            movieData.get(i).setDirector(movie.getDirector());
-            movieData.get(i).setMainActors(movie.getMainActors());
-            movieData.get(i).setLanguage(movie.getLanguage());
-            movieData.get(i).setDescription(movie.getDescription());
+        for (Movie aMovieData : movieData) {
+            Movie movie = ScrapingUtil.scrapMovieInfo(aMovieData.getName());
+            aMovieData.setDirector(movie.getDirector());
+            aMovieData.setMainActors(movie.getMainActors());
+            aMovieData.setLanguage(movie.getLanguage());
+            aMovieData.setDescription(movie.getDescription());
         }
         // save
         String path = "info";//所创建文件的路径
@@ -581,7 +569,6 @@ public class MovieOverviewController {
         System.out.println("finish auto set all");
 
     }
-
 
 
     /**

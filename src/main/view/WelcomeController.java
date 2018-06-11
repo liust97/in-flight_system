@@ -13,8 +13,6 @@ public class WelcomeController {
 
     private MainApp mainApp;
     private Locale locale;
-    private final int asd = 1;
-
     @FXML
     private ToggleGroup Language;
     @FXML
@@ -27,37 +25,26 @@ public class WelcomeController {
     private Button startButton;
 
     /**
-     *
      * add listener to button, change the content of start button by language
-     *
      */
     @FXML
     private void initialize() {
         locale = Locale.ENGLISH;
 
 
-        zhButton.selectedProperty().addListener(new javafx.beans.value.ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                startButton.setText("开始");
-                locale = Locale.CHINESE;
-            }
+        zhButton.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            startButton.setText("开始");
+            locale = Locale.CHINESE;
         });
 
-        enButton.selectedProperty().addListener(new javafx.beans.value.ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                startButton.setText("Start");
-                locale = Locale.ENGLISH;
-            }
+        enButton.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            startButton.setText("Start");
+            locale = Locale.ENGLISH;
         });
 
-        jaButton.selectedProperty().addListener(new javafx.beans.value.ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                startButton.setText("開始");
-                locale = Locale.JAPANESE;
-            }
+        jaButton.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            startButton.setText("開始");
+            locale = Locale.JAPANESE;
         });
 
     }
@@ -78,7 +65,7 @@ public class WelcomeController {
      */
     @FXML
     private void keyboard_Start(KeyEvent keyEvent) {
-        if(keyEvent.getCode() == KeyCode.ENTER){
+        if (keyEvent.getCode() == KeyCode.ENTER) {
             handleStart();
         }
     }

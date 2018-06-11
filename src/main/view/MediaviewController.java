@@ -1,8 +1,6 @@
 package main.view;
 
-import com.melloware.jintellitype.HotkeyListener;
-import com.melloware.jintellitype.JIntellitype;
-import javafx.event.EventHandler;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -12,31 +10,18 @@ import main.util.DateUtil;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-
-import javafx.event.ActionEvent;
-
-import javafx.event.EventHandler;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-
-import javafx.scene.control.Label;
-
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.util.Duration;
-
-import javax.xml.stream.XMLEventWriter;
+import sun.util.resources.th.CalendarData_th;
 
 
 public class MediaviewController {
-    @FXML
-    private AnchorPane anchorPane;
     @FXML
     private MediaView moviepane;
     @FXML
@@ -49,8 +34,6 @@ public class MediaviewController {
     private Slider volume_control;
     @FXML
     private Button play;
-    @FXML
-    private BorderPane borderPane;
     @FXML
     private Button exit;
     @FXML
@@ -280,9 +263,7 @@ public class MediaviewController {
      */
     @FXML
     private void setStop() {
-        play.setOnAction(e -> {
-            Stop_method();
-        });
+        play.setOnAction(e -> Stop_method());
     }
 
     /**
@@ -298,23 +279,38 @@ public class MediaviewController {
      */
     private void Stop_method() {
         MediaPlayer.Status status = mediaPlayer.getStatus();
-        if (status == MediaPlayer.Status.PLAYING) {
-            String play_pause_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/pause_button.png").toString();
-            play.setGraphic(new ImageView(new Image(play_pause_pic, 20, 20, true, true)));
-            mediaPlayer.pause();
-        } else if (status == MediaPlayer.Status.PAUSED || status == MediaPlayer.Status.STOPPED || status == MediaPlayer.Status.READY) {
-            String play_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png").toString();
-            play.setGraphic(new ImageView(new Image(play_pic, 20, 20, true, true)));
-            mediaPlayer.seek(mediaPlayer.getCurrentTime());
-            mediaPlayer.play();
-        }
         Duration duration = mediaPlayer.getMedia().getDuration();
-
+        if (status == MediaPlayer.Status.PLAYING) {
+            try {
+                String play_pause_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/pause_button.png").toString();
+                play.setGraphic(new ImageView(new Image(play_pause_pic, 20, 20, true, true)));
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                mediaPlayer.pause();
+            }
+        } else if (status == MediaPlayer.Status.PAUSED || status == MediaPlayer.Status.STOPPED || status == MediaPlayer.Status.READY) {
+            try {
+                String play_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png").toString();
+                play.setGraphic(new ImageView(new Image(play_pic, 20, 20, true, true)));
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                mediaPlayer.seek(mediaPlayer.getCurrentTime());
+                mediaPlayer.play();
+            }
+        }
         if (duration.equals(mediaPlayer.getCurrentTime())) {
-            String play_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png").toString();
-            play.setGraphic(new ImageView(new Image(play_pic, 20, 20, true, true)));
-            slider.setValue(0);
-            mediaPlayer.seek(duration.multiply(0));
+            try {
+                String play_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png").toString();
+                play.setGraphic(new ImageView(new Image(play_pic, 20, 20, true, true)));
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                slider.setValue(0);
+                mediaPlayer.seek(duration.multiply(0));
+            }
+
         }
     }
 
@@ -323,9 +319,7 @@ public class MediaviewController {
      */
     @FXML
     private void setSilent() {
-        silent.setOnAction(event -> {
-            Silent_method();
-        });
+        silent.setOnAction(event -> Silent_method());
     }
 
     /**
@@ -340,15 +334,28 @@ public class MediaviewController {
      */
     private void Silent_method() {
         if (volume_control.getValue() == 0) {
-            volume_control.valueProperty().setValue(getStore_volume());
-            String volume_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/volume_button.png").toString();
-            silent.setGraphic(new ImageView((new Image(volume_pic, 20, 20, true, true))));
+
+            try {
+                String volume_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/volume_button.png").toString();
+                silent.setGraphic(new ImageView((new Image(volume_pic, 20, 20, true, true))));
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                volume_control.valueProperty().setValue(getStore_volume());
+            }
+
         } else {
-            double temp = volume_control.getValue();
-            store_volume(temp);
-            volume_control.valueProperty().setValue(0);
-            String volume_slient_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/slient_button.png").toString();
-            silent.setGraphic(new ImageView((new Image(volume_slient_pic, 20, 20, true, true))));
+
+            try {
+                double temp = volume_control.getValue();
+                store_volume(temp);
+                volume_control.valueProperty().setValue(0);
+                String volume_slient_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/slient_button.png").toString();
+                silent.setGraphic(new ImageView((new Image(volume_slient_pic, 20, 20, true, true))));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
@@ -372,11 +379,16 @@ public class MediaviewController {
      * Setting the picture of the play button, silent button and the exit button.
      */
     private void setbuttonbackground() {
-        String play_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png").toString();
-        String volume_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/volume_button.png").toString();
-        String exit_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/exit_button.png").toString();
-        play.setGraphic(new ImageView(new Image(play_pic, 20, 20, true, true)));
-        silent.setGraphic(new ImageView((new Image(volume_pic, 20, 20, true, true))));
-        exit.setGraphic(new ImageView((new Image(exit_pic, 20, 20, true, true))));
+        try {
+            String play_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png").toString();
+            String volume_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/volume_button.png").toString();
+            String exit_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/exit_button.png").toString();
+            play.setGraphic(new ImageView(new Image(play_pic, 20, 20, true, true)));
+            silent.setGraphic(new ImageView((new Image(volume_pic, 20, 20, true, true))));
+            exit.setGraphic(new ImageView((new Image(exit_pic, 20, 20, true, true))));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

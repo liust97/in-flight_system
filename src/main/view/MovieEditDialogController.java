@@ -8,8 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import main.util.ScrapingUtil;
-import org.controlsfx.dialog.Dialogs;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
@@ -178,7 +176,7 @@ public class MovieEditDialogController {
      * Reset information of movie to the origin state
      */
     @FXML
-    private void handleReset() throws IOException {
+    private void handleReset()  {
         Movie movie = new Movie();
         String fileName = this.movie.getFileName();
         String fileData[] = fileName.split("_");

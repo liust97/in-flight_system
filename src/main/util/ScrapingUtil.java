@@ -12,7 +12,6 @@ public class ScrapingUtil {
 
     public static void main(String[] args) throws IOException {
         System.out.println(scrapMovieInfo("harry potter"));
-        ;
     }
 
     public static Movie scrapMovieInfo(String movieName) throws IOException {
@@ -31,9 +30,9 @@ public class ScrapingUtil {
         Document doc2 = Jsoup
                 .connect(link)
                 .get();
-        String temp = "";
+        String temp;
         try {  //director
-            temp = "";
+            temp = null;
             String comma;
             for (Element e : doc2.selectFirst("th:contains(directed by)").nextElementSibling().select("li, a")) {
                 comma = temp.equals("") ? "" : ", ";

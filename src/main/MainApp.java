@@ -3,7 +3,6 @@ package main;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 import java.util.prefs.Preferences;
 
 import com.melloware.jintellitype.JIntellitype;
@@ -75,8 +74,8 @@ public class MainApp extends Application {
         if (movieFile.exists()) {
             loadMovieDataFromFile(movieFile);
         }
-        ArrayList<String> fileNamesInData = new ArrayList<String>();
-        ArrayList<String> fileNamesIndir = new ArrayList<String>();
+        ArrayList<String> fileNamesInData = new ArrayList<>();
+        ArrayList<String> fileNamesIndir = new ArrayList<>();
 
         for (Movie movie : movieData) {
             fileNamesInData.add(movie.getFileName());

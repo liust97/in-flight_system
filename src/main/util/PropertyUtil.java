@@ -63,9 +63,6 @@ public class PropertyUtil {
         }
     }
 
-    private static void clearProperty(){
-
-    }
 
     @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
@@ -75,7 +72,7 @@ public class PropertyUtil {
 
 //        map.put("password","psw");
         while(true){
-            HashMap<String, String> map = new HashMap<String, String>();
+            HashMap<String, String> map = new HashMap<>();
             System.out.println("Key:");
             String key = scanner.nextLine();
             System.out.println("Value:");
