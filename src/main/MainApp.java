@@ -228,7 +228,7 @@ public class MainApp extends Application {
         try {
 
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/Mediaview.fxml"));
+            loader.setLocation(MainApp.class.getResource("view/MediaView.fxml"));
             AnchorPane mediaView =  loader.load();
             this.movieURL = "movies/" + movieURL; //该路径为相对src的路径
 //            primaryStage.setTitle("movie");

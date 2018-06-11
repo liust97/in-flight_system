@@ -102,7 +102,7 @@ public class MovieOverviewController {
 
         descriptionLabel.setFocusTraversable(false);
 
-        setadminvisible();
+        set_admin_visible();
         // 超级用户监听
         set_super_administrator();
 
@@ -143,7 +143,7 @@ public class MovieOverviewController {
      * </p>
      *
      * @param key The event of keyboard.
-     * @throws AWTException the exception of the absract window toolkit.
+     * @throws AWTException the exception of the abstract window toolkit.
      */
     @FXML
     private void change_table(javafx.scene.input.KeyEvent key) throws AWTException {
@@ -175,7 +175,7 @@ public class MovieOverviewController {
      * </p>
      *
      * @param key The event of keyboard.
-     * @throws AWTException the exception of the absract window toolkit.
+     * @throws AWTException the exception of the abstract window toolkit.
      */
 
 
@@ -223,10 +223,10 @@ public class MovieOverviewController {
             if (i == Super_Administrator_1) {
                 if (Auto_set_all.isVisible()) {
                     System.out.println("Exit Administrator");
-                    setadminvisible();
+                    set_admin_visible();
                 } else {
                     System.out.println("Welcome！Super Administrator");
-                    setvisbile();
+                    set_visible();
                 }
             }
         });
@@ -236,7 +236,7 @@ public class MovieOverviewController {
     /**
      * The private method is that hide the button which is only used by the administrator.
      */
-    private void setadminvisible() {
+    private void set_admin_visible() {
         Auto_set_all.setVisible(false);
         Edit.setVisible(false);
     }
@@ -245,7 +245,7 @@ public class MovieOverviewController {
      * The private method is that show the button which is used by the administrator, when
      * the System enters the administrator model.
      */
-    private void setvisbile() {
+    private void set_visible() {
         Auto_set_all.setVisible(true);
         Edit.setVisible(true);
     }
@@ -483,7 +483,6 @@ public class MovieOverviewController {
     private void set_keyboard_Back(javafx.scene.input.KeyEvent event) throws AWTException {
         Robot r = new Robot();
         if (event.getCode() == KeyCode.ENTER) {
-            System.out.println("asdasd");
             handleBack();
         }
         if (event.getCode() == KeyCode.RIGHT) {

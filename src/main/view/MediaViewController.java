@@ -69,12 +69,12 @@ public class MediaViewController {
 
 
     /**
-     * The private method is used in the model of the mediaview in
+     * The private method is used in the model of the MediaView in
      * the fxml file.
      * <p>
      * <li> According the UrL, creating a new media.</li>
      * <li> Using the media, creating a new MediaPlayer.</li>
-     * <li> Show the mediaPlayer in the model of the mediaview in the fxml file. Then, setting
+     * <li> Show the mediaPlayer in the model of the MediaView in the fxml file. Then, setting
      * play the movie automatically.</li>
      * </p>
      * <p>
@@ -82,7 +82,7 @@ public class MediaViewController {
      * </p>
      *
      * <ul>
-     * <li>setbuttonbackground()/li>
+     * <li>set_button_background()/li>
      * <li>setFocus()</li>
      * <li>setSlider()</li>
      * <li>movie()</li>
@@ -91,7 +91,7 @@ public class MediaViewController {
      * </ul>
      */
     @FXML
-    private void showmovie() {
+    private void ShowMovie() {
         // this part comes from javafx.scene.media api.
         try {
             Media media = new Media(UrL);
@@ -107,7 +107,7 @@ public class MediaViewController {
             // Handle exception in Media constructor.
         }
 
-        setbuttonbackground();
+        set_button_background();
         setFocus();
         setSlider();
         movie();
@@ -334,8 +334,8 @@ public class MediaViewController {
                 double temp = volume_control.getValue();
                 store_volume(temp);
                 volume_control.valueProperty().setValue(0);
-                String volume_slient_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/slient_button.png").toString();
-                silent.setGraphic(new ImageView((new Image(volume_slient_pic, 20, 20, true, true))));
+                String volume_silent_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/silent_button.png").toString();
+                silent.setGraphic(new ImageView((new Image(volume_silent_pic, 20, 20, true, true))));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -348,7 +348,7 @@ public class MediaViewController {
         this.mainApp = mainApp;
 //        System.out.println(mainApp.getMovieURL());
         this.UrL = Thread.currentThread().getContextClassLoader().getResource(mainApp.getMovieURL()).toString();
-        showmovie();
+        ShowMovie();
     }
 
     //退出按钮
@@ -362,7 +362,7 @@ public class MediaViewController {
     /**
      * Setting the picture of the play button, silent button and the exit button.
      */
-    private void setbuttonbackground() {
+    private void set_button_background() {
         try {
             String play_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png").toString();
             String volume_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/volume_button.png").toString();
