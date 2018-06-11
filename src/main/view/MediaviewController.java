@@ -57,10 +57,10 @@ public class MediaviewController {
     private Button key;
     private MainApp mainApp;
 
-    double store_volume;
-    Media media;
-    MediaPlayer mediaPlayer;
-    String UrL;
+    private double store_volume;
+    //    private  Media media;
+    private MediaPlayer mediaPlayer;
+    private String UrL;
 
     /**
      * The private method is used to store the value of volume.
@@ -88,12 +88,6 @@ public class MediaviewController {
         return store_volume;
     }
 
-    /**
-     * The method is used to initialize.
-     */
-    public void initialize() {
-
-    }
 
     /**
      * The private method is used in the model of the mediaview in
@@ -121,7 +115,7 @@ public class MediaviewController {
     private void showmovie() {
         // this part comes from javafx.scene.media api.
         try {
-            media = new Media(UrL);
+            Media media = new Media(UrL);
             if (media.getError() == null) {
                 media.setOnError(new Runnable() {
                     @Override

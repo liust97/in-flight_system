@@ -41,7 +41,7 @@ public class DateUtil {
      * @param dateString the date as String
      * @return the date object or null if it could not be converted
      */
-    public static LocalDate parse(String dateString) {
+    private static LocalDate parse(String dateString) {
         try {
             return DATE_FORMATTER.parse(dateString, LocalDate::from);
         } catch (DateTimeParseException e) {
@@ -60,7 +60,7 @@ public class DateUtil {
         return DateUtil.parse(dateString) != null;
     }
 
-    public static String changeformat(double time) {
+    public  String changeformat(double time) {
         String report = null;
         long temp = (long) (time / 1000);
         int hour = (int)(temp/3600);

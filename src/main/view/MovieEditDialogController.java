@@ -47,7 +47,7 @@ public class MovieEditDialogController {
     private Stage dialogStage;
     private Movie movie;
     private boolean okClicked = false;
-    private ObservableList genreList = FXCollections.observableArrayList(
+    private final  ObservableList genreList = FXCollections.observableArrayList(
             "/",
             new Separator(), "Action", "Adventure", "Comedy", "Crime", "Drama", "Horror", "Musicals", "Science Fiction", "War");
 

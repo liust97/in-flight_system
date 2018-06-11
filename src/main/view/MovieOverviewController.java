@@ -80,8 +80,8 @@ public class MovieOverviewController {
 
     private ResourceBundle resourceBundle;
     private Category countryList;
-    private final int Super_Administrator_1 = 1;
-    private final int Down_tab = 2;
+    private static  final int Super_Administrator_1 = 1;
+    private static final int Down_tab = 2;
 
     // Reference to the main application.
     private MainApp mainApp;

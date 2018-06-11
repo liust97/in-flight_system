@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class Category {
 
-    private StringProperty name;
+    private final StringProperty name;
     private HashMap<String,ObservableList<Movie>> movieMap;
 
     public Category(String name) {

@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Scanner;
 
+@SuppressWarnings("InfiniteLoopStatement")
 public class PropertyUtil {
 //    public static String getProperty(String key) {
 //        String value = "";
@@ -66,6 +67,7 @@ public class PropertyUtil {
 
     }
 
+    @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input language name (example: zh)");

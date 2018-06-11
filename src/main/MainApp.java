@@ -41,8 +41,8 @@ public class MainApp extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
-    private final String moviesPath = "src/movies";
-    private final String infoPath = "info/MoviesInfo.xml";
+    private static final String moviesPath = "src/movies";
+    private static final String infoPath = "info/MoviesInfo.xml";
 
 
     private String movieURL;
@@ -50,7 +50,7 @@ public class MainApp extends Application {
     /**
      * The data as an observable list of movies.
      */
-    private ObservableList<Movie> movieData = FXCollections.observableArrayList();
+    private final ObservableList<Movie> movieData = FXCollections.observableArrayList();
 
     /**
      * Constructor
@@ -61,7 +61,7 @@ public class MainApp extends Application {
     /**
      * Traverse the movies directory and read the properties file to initialize movieData.
      */
-    public void initMovieData() throws Exception {
+    private void initMovieData() throws Exception {
         File movies_directory = new File(moviesPath);
         if (!movies_directory.isDirectory()) {
             throw new Exception("movies_directory is not a directory");
@@ -75,8 +75,8 @@ public class MainApp extends Application {
         if (movieFile.exists()) {
             loadMovieDataFromFile(movieFile);
         }
-        ArrayList<String> fileNamesInData = new ArrayList();
-        ArrayList<String> fileNamesIndir = new ArrayList();
+        ArrayList<String> fileNamesInData = new ArrayList<String>();
+        ArrayList<String> fileNamesIndir = new ArrayList<String>();
 
         for (Movie movie : movieData) {
             fileNamesInData.add(movie.getFileName());
@@ -174,7 +174,7 @@ public class MainApp extends Application {
     /**
      * Initializes the root layout.
      */
-    public void initRootLayout() {
+    private void initRootLayout() {
         try {
 
 //        resourceBundle = mainApp.getResourceBundle();
@@ -300,7 +300,7 @@ public class MainApp extends Application {
      *
      * @param file
      */
-    public void loadMovieDataFromFile(File file) {
+    private void loadMovieDataFromFile(File file) {
         try {
             JAXBContext context = JAXBContext.newInstance(MovieListWrapper.class);
             Unmarshaller um = context.createUnmarshaller();
@@ -378,7 +378,7 @@ public class MainApp extends Application {
      *
      * @param file the file or null to remove the path
      */
-    public void setMovieFilePath(File file) {
+    private void setMovieFilePath(File file) {
         Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
         if (file != null) {
             prefs.put("filePath", file.getPath());
