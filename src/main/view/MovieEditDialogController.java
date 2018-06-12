@@ -177,8 +177,6 @@ public class MovieEditDialogController {
         String fileName = this.movie.getFileName();
         String fileData[] = fileName.split("_");
         fileData[2] = fileData[2].substring(0, fileData[2].lastIndexOf('.')); // delete suffix
-        Locale l = new Locale("", fileData[1]);
-        fileData[1] = l.getDisplayCountry();
         if (fileData.length == 3) {
             movie.setName(fileData[0]);
             movie.setCountry(fileData[1]);
