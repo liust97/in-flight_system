@@ -32,7 +32,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import static main.util.videoDurationUtil.ReadVideoDuration;
+import static main.util.VideoDurationUtil.ReadVideoDuration;
 
 public class MainApp extends Application {
 
@@ -65,7 +65,9 @@ public class MainApp extends Application {
         }
 
         File[] movie_list = movies_directory.listFiles();
-        if (movie_list == null) throw new Exception("movie_list is null");
+        if (movie_list == null) {
+            throw new Exception("movie_list is null");
+        }
 
 
         File movieFile = new File(infoPath);
@@ -173,7 +175,7 @@ public class MainApp extends Application {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/RootLayout.fxml"));
-            rootLayout =  loader.load();
+            rootLayout = loader.load();
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
@@ -229,7 +231,7 @@ public class MainApp extends Application {
 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/MediaView.fxml"));
-            AnchorPane mediaView =  loader.load();
+            AnchorPane mediaView = loader.load();
             this.movieURL = "movies/" + movieURL; //该路径为相对src的路径
 //            primaryStage.setTitle("movie");
 
