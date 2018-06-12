@@ -132,36 +132,11 @@ public class MovieOverviewController {
             }
         });
 
-        allRadio.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                change_table_for_radio(event);
-            }
-        });
-        genreRadio.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                change_table_for_radio(event);
-            }
-        });
-        countryRadio.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                change_table_for_radio(event);
-            }
-        });
-        ageRadio.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                change_table_for_radio(event);
-            }
-        });
-        ourSelectionRadio.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                change_table_for_radio(event);
-            }
-        });
+        allRadio.addEventFilter(KeyEvent.KEY_PRESSED, this::change_table_for_radio);
+        genreRadio.addEventFilter(KeyEvent.KEY_PRESSED, this::change_table_for_radio);
+        countryRadio.addEventFilter(KeyEvent.KEY_PRESSED, this::change_table_for_radio);
+        ageRadio.addEventFilter(KeyEvent.KEY_PRESSED, this::change_table_for_radio);
+        ourSelectionRadio.addEventFilter(KeyEvent.KEY_PRESSED, this::change_table_for_radio);
 
     }
 
