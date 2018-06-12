@@ -114,21 +114,21 @@ public class MainApp extends Application {
     /**
      * Returns the data as an observable list of movies.
      *
-     * @return
+     * @return the movie data in observable list
      */
     public ObservableList<Movie> getMovieData() {
         return movieData;
     }
 
     /**
-     * initialize root layout and show welcome page
+     * initialize root layout and show welcome page  fcvg
      */
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("In Flight System");
         this.primaryStage.getIcons().add(new Image("main/picture/new_airplane.png"));
-
+        this.primaryStage.setResizable(false);
         initRootLayout();
 //        showMovieOverview();
         showWelcome();
@@ -292,7 +292,7 @@ public class MainApp extends Application {
      * Loads movie data from the specified file. The current movie data will
      * be replaced.
      *
-     * @param file
+     * @param file the XML file that store movie data
      */
     private void loadMovieDataFromFile(File file) {
         try {
@@ -324,7 +324,7 @@ public class MainApp extends Application {
     /**
      * Saves the current movie data to the specified file.
      *
-     * @param file
+     * @param file the XML file that store movie data
      */
     public void saveMovieDataToFile(File file) {
         try {
@@ -346,23 +346,6 @@ public class MainApp extends Application {
             Dialogs.create().title("Error")
                     .masthead("Could not save data to file:\n" + file.getPath())
                     .showException(e);
-        }
-    }
-
-    /**
-     * Returns the movie file preference, i.e. the file that was last opened.
-     * The preference is read from the OS specific registry. If no such
-     * preference can be found, null is returned.
-     *
-     * @return
-     */
-    public File getMovieFilePath() {
-        Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
-        String filePath = prefs.get("filePath", null);
-        if (filePath != null) {
-            return new File(filePath);
-        } else {
-            return null;
         }
     }
 
@@ -390,19 +373,6 @@ public class MainApp extends Application {
 
     public String getMovieURL() {
         return movieURL;
-    }
-
-    public void setMovieURL(String movieURL) {
-        this.movieURL = movieURL;
-    }
-
-    /**
-     * Returns the main stage.
-     *
-     * @return primaryStage
-     */
-    public Stage getPrimaryStage() {
-        return primaryStage;
     }
 
     public static void main(String[] args) {

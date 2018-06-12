@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -97,7 +96,7 @@
                   </GridPane>
                   <HBox layoutX="289.0" layoutY="570.0" spacing="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <children>
-                        <Button fx:id="Auto_set_all" layoutX="289.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleAutoSetAll" onKeyPressed="#set_keyboard_Adim" text="%Auto set all" />
+                        <Button fx:id="Auto_set_all" layoutX="289.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleAutoSetAll" onKeyPressed="#set_keyboard_Admin" text="%Auto set all" />
                         <Button fx:id="Edit" mnemonicParsing="false" onAction="#handleEditMovie" onKeyPressed="#set_keyboard_Edit" text="%Edit" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
                      </children>
                   </HBox>

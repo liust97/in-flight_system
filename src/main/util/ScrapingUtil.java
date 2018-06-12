@@ -30,59 +30,47 @@ public class ScrapingUtil {
         Document doc2 = Jsoup
                 .connect(link)
                 .get();
-        String temp;
+        StringBuilder temp;
         try {  //director
-            temp = null;
+            temp = new StringBuilder();
             String comma;
             for (Element e : doc2.selectFirst("th:contains(directed by)").nextElementSibling().select("li, a")) {
-                comma = temp.equals("") ? "" : ", ";
-                temp = temp + comma + e.text();
+                comma = temp.toString().equals("") ? "" : ", ";
+                temp.append(comma).append(e.text());
             }
         } catch (Exception e) {
-            temp = "/";
+            temp = new StringBuilder("/");
         }
-        movie.setDirector(temp);
+        movie.setDirector(temp.toString());
 
         try { //actors
-            temp = "";
+            temp.delete(0,temp.length());
             String comma;
             for (Element e : doc2.selectFirst("th:contains(starring)").nextElementSibling().select("li, a")) {
-                comma = temp.equals("") ? "" : ", ";
-                temp = temp + comma + e.text();
+                comma = temp.toString().equals("") ? "" : ", ";
+                temp.append(comma).append(e.text());
             }
         } catch (Exception e) {
-            temp = "/";
+            temp = new StringBuilder("/");
         }
-        movie.setMainActors(temp);
-
-        try { // Release date
-            temp = doc2.selectFirst("th:contains(Release date)").nextElementSibling().selectFirst("td").text();
-        } catch (Exception e) {
-            temp = "/";
-        }
-        // not used
+        movie.setMainActors(temp.toString());
 
         try { //Language
-            temp = doc2.selectFirst("th:contains(Language)").nextElementSibling().text();
-//            temp = "";
-//            String comma;
-//            for (Element e : doc2.selectFirst("th:contains(Language)").nextElementSibling().select("a")){
-//                comma = temp.equals("" )? "" : ", ";
-//                temp = temp + comma + e.text();}
+            temp = new StringBuilder(doc2.selectFirst("th:contains(Language)").nextElementSibling().text());
         } catch (Exception e) {
-            temp = "/";
+            temp = new StringBuilder("/");
         }
-        movie.setLanguage(temp);
+        movie.setLanguage(temp.toString());
 
         try { //description
-            temp = doc2.selectFirst("div.mw-parser-output").selectFirst("p").text();
+            temp = new StringBuilder(doc2.selectFirst("div.mw-parser-output").selectFirst("p").text());
         } catch (Exception e) {
-            temp = "/";
+            temp = new StringBuilder("/");
         }
         if (temp.length() > 400) {
-            temp = temp.substring(0, 397) + "...";
+            temp = new StringBuilder(temp.substring(0, 397) + "...");
         }
-        movie.setDescription(temp);
+        movie.setDescription(temp.toString());
         return movie;
     }
 }

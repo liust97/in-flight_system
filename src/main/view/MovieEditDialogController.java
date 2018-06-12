@@ -37,7 +37,7 @@ public class MovieEditDialogController {
     @FXML
     private RadioButton ourSelectionRadio;
     @FXML
-    private ChoiceBox genreChoiceBox;
+    private ChoiceBox<String> genreChoiceBox;
 
     // Reference to the main application.
     private MainApp mainApp;
@@ -45,15 +45,14 @@ public class MovieEditDialogController {
     private Stage dialogStage;
     private Movie movie;
     private boolean okClicked = false;
-    private final  ObservableList genreList = FXCollections.observableArrayList(
-            "/",
-            new Separator(), "Action", "Adventure", "Comedy", "Crime", "Drama", "Horror", "Musicals", "Science Fiction", "War");
+    private final  ObservableList<String> genreList = FXCollections.observableArrayList(
+            "/", "Action", "Adventure", "Comedy", "Crime", "Drama", "Horror", "Musicals", "Science Fiction", "War");
 
     /**
      *
      * Is called by the main application to give a reference back to itself.
      *
-     * @param mainApp
+     * @param mainApp the main app
      */
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
@@ -71,7 +70,7 @@ public class MovieEditDialogController {
     /**
      * Sets the stage of this dialog.
      *
-     * @param dialogStage
+     * @param dialogStage the dialog stage
      */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
@@ -80,7 +79,7 @@ public class MovieEditDialogController {
     /**
      * Sets the movie to be edited in the dialog.
      *
-     * @param movie
+     * @param movie the edited movie
      */
     public void setMovie(Movie movie) {
         this.movie = movie;
@@ -99,7 +98,6 @@ public class MovieEditDialogController {
     /**
      * Returns true if the user clicked OK, false otherwise.
      *
-     * @return
      */
     public boolean isOkClicked() {
         return okClicked;
@@ -120,7 +118,7 @@ public class MovieEditDialogController {
             movie.setDescription(topicField.getText());
             movie.setLanguage(languageField.getText());
             movie.setIsOurSelection(ourSelectionRadio.isSelected());
-            movie.setGenre(genreList.get(genreChoiceBox.getSelectionModel().selectedIndexProperty().getValue()).toString()); // 得到选择的种类
+            movie.setGenre(genreList.get(genreChoiceBox.getSelectionModel().selectedIndexProperty().getValue())); // 得到选择的种类
             okClicked = true;
 
             // save
@@ -139,10 +137,8 @@ public class MovieEditDialogController {
                         System.out.println("fail to save file");
                     }
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-
             }
 //            File movieFile = mainApp.getMovieFilePath();
             // Make sure it has the correct extension

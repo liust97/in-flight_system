@@ -1,7 +1,6 @@
 package main.view;
 
 import com.melloware.jintellitype.JIntellitype;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -68,7 +67,6 @@ public class MovieOverviewController {
     @FXML
     private Button Edit;
     private ResourceBundle resourceBundle;
-    private Category countryList;
     private static final int Super_Administrator_1 = 1;
 
     // Reference to the main application.
@@ -166,24 +164,28 @@ public class MovieOverviewController {
      * </p>
      *
      * @param event The event of keyboard.
-     * @throws AWTException the exception of the abstract window toolkit.
      */
     @FXML
     private void change_table(KeyEvent event) {
         KeyCode code = event.getCode();
         keyboard_action_judge(event, code);
         if (code == KeyCode.LEFT) {
-            try {
-                Robot r = new Robot();
-                r.keyPress(java.awt.event.KeyEvent.VK_SHIFT);
-                r.keyPress(java.awt.event.KeyEvent.VK_TAB);
-                r.keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
-                r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
-            } catch (Exception ignored) {
-            }
+            switchLeft();
         }
         if (code == KeyCode.RIGHT) {
             event.consume();
+        }
+    }
+
+    private void switchLeft() {
+        try {
+            Robot r = new Robot();
+            r.keyPress(java.awt.event.KeyEvent.VK_SHIFT);
+            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+            r.keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
+            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+        } catch (Exception ignored) {
+            System.out.println("fail to switchLeft");
         }
     }
 
@@ -198,19 +200,6 @@ public class MovieOverviewController {
             event.consume();
         }
     }
-
-    /**
-     * The keyboard action to change between each radioButton.
-     * <p>
-     * <ul>
-     * <li>When pressing the TAB, don't do anything.</li>
-     * <li>When pressing the RIGHT, the focus will change to next radiobutton.</li>
-     * </ul>
-     * </p>
-     *
-     * @param key The event of keyboard.
-     * @throws AWTException the exception of the abstract window toolkit.
-     */
 
 
     /**
@@ -285,7 +274,7 @@ public class MovieOverviewController {
             String ageType;
             int year;
             try {
-                year = Integer.valueOf(movie.getYear());
+                year = Integer.parseInt(movie.getYear());
             } catch (NumberFormatException e) {
                 year = -1;
             }
@@ -394,7 +383,7 @@ public class MovieOverviewController {
     /**
      * Is called by the main application to give a reference back to itself.
      *
-     * @param mainApp
+     * @param mainApp the mainApp
      */
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
@@ -492,14 +481,7 @@ public class MovieOverviewController {
             return;
         }
         if (event.getCode() == KeyCode.LEFT) {
-            try {
-                Robot r = new Robot();
-                r.keyPress(java.awt.event.KeyEvent.VK_SHIFT);
-                r.keyPress(java.awt.event.KeyEvent.VK_TAB);
-                r.keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
-                r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
-            } catch (Exception ignored) {
-            }
+            switchLeft();
             event.consume();
         }
     }
@@ -537,10 +519,9 @@ public class MovieOverviewController {
         if (!file.exists()) {
             try {
                 if (!file.createNewFile()) {
-                    System.out.println("fail to save file");
+                    System.out.println("fail to auto set all");
                 }
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
 
@@ -587,7 +568,7 @@ public class MovieOverviewController {
      * @throws IOException A exception of IO
      */
     @FXML
-    private void set_keyboard_Adim(KeyEvent event) throws IOException {
+    private void set_keyboard_Admin(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.ENTER) {
             handleAutoSetAll();
         }

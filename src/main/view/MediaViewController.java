@@ -17,9 +17,12 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
+import java.net.URL;
+
+@SuppressWarnings("CanBeFinal")
 public class MediaViewController {
     @FXML
-    private MediaView moviepane;
+    private MediaView movie_pane;
     @FXML
     private Slider slider;
     @FXML
@@ -39,8 +42,12 @@ public class MediaViewController {
     private double store_volume;
     //    private  Media media;
     private MediaPlayer mediaPlayer;
-    private String UrL;
-
+    private String url;
+    private URL play_pause_URL = Thread.currentThread().getContextClassLoader().getResource("main/picture/pause_button.png");
+    private URL play_URL = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png");
+    private URL volume_URL = Thread.currentThread().getContextClassLoader().getResource("main/picture/volume_button.png");
+    private URL silent_URL = Thread.currentThread().getContextClassLoader().getResource("main/picture/silent_button.png");
+    private URL exit_URL = Thread.currentThread().getContextClassLoader().getResource("main/picture/exit_button.png");
     /**
      * The private method is used to store the value of volume.
      * <p>
@@ -80,7 +87,7 @@ public class MediaViewController {
      * <p>
      * Calling the methods which were used to control the property of movie
      * </p>
-     *
+     * <p>
      * <ul>
      * <li>set_button_background()/li>
      * <li>setFocus()</li>
@@ -94,17 +101,18 @@ public class MediaViewController {
     private void ShowMovie() {
         // this part comes from javafx.scene.media api.
         try {
-            Media media = new Media(UrL);
+            Media media = new Media(url);
             if (media.getError() == null) {
                 media.setOnError(() -> {
                     // Handle asynchronous error in Media object.
                 });
             }
             mediaPlayer = new MediaPlayer(media);
-            moviepane.setMediaPlayer(mediaPlayer);
+            movie_pane.setMediaPlayer(mediaPlayer);
             mediaPlayer.setAutoPlay(true);
         } catch (Exception mediaException) {
             // Handle exception in Media constructor.
+            System.out.println("fail to open media player");
         }
 
         set_button_background();
@@ -118,7 +126,7 @@ public class MediaViewController {
     /**
      * The private method is used to remove the focus of the buttons in the BorderPane.
      * <p>
-     *
+     * <p>
      * </p>
      */
     private void setFocus() {
@@ -210,7 +218,7 @@ public class MediaViewController {
             Platform.runLater(() -> {
                 Duration currentTime = mediaPlayer.getCurrentTime();
                 double show_now_time = currentTime.toMillis();
-                time.setText(df.ChangeFormat(show_now_time) + "/" + df.ChangeFormat(duration.toMillis()));
+                time.setText(df.changeFormat(show_now_time) + "/" + df.changeFormat(duration.toMillis()));
                 slider.setValue(currentTime.toMillis() / duration.toMillis() * 100);
             });
         });
@@ -261,12 +269,13 @@ public class MediaViewController {
      * </ol>
      * </p>
      */
+
     private void Stop_method() {
         MediaPlayer.Status status = mediaPlayer.getStatus();
         Duration duration = mediaPlayer.getMedia().getDuration();
         if (status == MediaPlayer.Status.PLAYING) {
             try {
-                String play_pause_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/pause_button.png").toString();
+                String play_pause_pic = play_pause_URL.toString();
                 play.setGraphic(new ImageView(new Image(play_pause_pic, 20, 20, true, true)));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -274,19 +283,16 @@ public class MediaViewController {
                 mediaPlayer.pause();
             }
         } else if (status == MediaPlayer.Status.PAUSED || status == MediaPlayer.Status.STOPPED || status == MediaPlayer.Status.READY) {
-            try {
-                String play_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png").toString();
-                play.setGraphic(new ImageView(new Image(play_pic, 20, 20, true, true)));
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                mediaPlayer.seek(mediaPlayer.getCurrentTime());
-                mediaPlayer.play();
-            }
+
+            String play_pic = play_URL.toString();
+            play.setGraphic(new ImageView(new Image(play_pic, 20, 20, true, true)));
+            mediaPlayer.seek(mediaPlayer.getCurrentTime());
+            mediaPlayer.play();
+
         }
         if (duration.equals(mediaPlayer.getCurrentTime())) {
             try {
-                String play_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png").toString();
+                String play_pic = play_URL.toString();
                 play.setGraphic(new ImageView(new Image(play_pic, 20, 20, true, true)));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -316,11 +322,13 @@ public class MediaViewController {
      * </ol>
      * </p>
      */
+
+
     private void Silent_method() {
         if (volume_control.getValue() == 0) {
 
             try {
-                String volume_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/volume_button.png").toString();
+                String volume_pic = volume_URL.toString();
                 silent.setGraphic(new ImageView((new Image(volume_pic, 20, 20, true, true))));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -334,7 +342,7 @@ public class MediaViewController {
                 double temp = volume_control.getValue();
                 store_volume(temp);
                 volume_control.valueProperty().setValue(0);
-                String volume_silent_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/silent_button.png").toString();
+                String volume_silent_pic = silent_URL.toString();
                 silent.setGraphic(new ImageView((new Image(volume_silent_pic, 20, 20, true, true))));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -347,7 +355,7 @@ public class MediaViewController {
     public void setMainApp(MainApp mainApp) { // 以及播放
         this.mainApp = mainApp;
 //        System.out.println(mainApp.getMovieURL());
-        this.UrL = Thread.currentThread().getContextClassLoader().getResource(mainApp.getMovieURL()).toString();
+        this.url = Thread.currentThread().getContextClassLoader().getResource(mainApp.getMovieURL()).toString();
         ShowMovie();
     }
 
@@ -358,15 +366,14 @@ public class MediaViewController {
         mediaPlayer.dispose();
         mainApp.showMovieOverview(mainApp.getResourceBundle().getLocale());
     }
-
     /**
      * Setting the picture of the play button, silent button and the exit button.
      */
     private void set_button_background() {
         try {
-            String play_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png").toString();
-            String volume_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/volume_button.png").toString();
-            String exit_pic = Thread.currentThread().getContextClassLoader().getResource("main/picture/exit_button.png").toString();
+            String play_pic = play_URL.toString();
+            String volume_pic = volume_URL.toString();
+            String exit_pic = exit_URL.toString();
             play.setGraphic(new ImageView(new Image(play_pic, 20, 20, true, true)));
             silent.setGraphic(new ImageView((new Image(volume_pic, 20, 20, true, true))));
             exit.setGraphic(new ImageView((new Image(exit_pic, 20, 20, true, true))));
