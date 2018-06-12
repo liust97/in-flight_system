@@ -2,7 +2,7 @@
     -fx-background-image: url(/main/picture/background_welcome.jpg);
 }
 .image{
-    -fx-image: url(/main/picture/new_airplane.png);
+    -fx-image: url(/main/picture/logo.png);
     -fx-opacity: 0.4;
 }
 .startButton{

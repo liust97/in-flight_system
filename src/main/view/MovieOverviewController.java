@@ -542,7 +542,7 @@ public class MovieOverviewController {
         String url;
         try {
             url = movieTable.getSelectionModel().getSelectedItem().getFileName();
-//            splitPane.getStylesheets().add(getClass().getResource("view/style_black.css").toExternalForm());
+//            splitPane.getStylesheets().add(getClass().getResource("view/style.css").toExternalForm());
 
             mainApp.showMediaView(url);
         } catch (NullPointerException ignored) {

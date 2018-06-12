@@ -1,10 +1,10 @@
-.background {
+.background_pane {
     -fx-background-color: #1d1d1d;
 
 }
 
 .show_movie_background {
-    -fx-background-image: url("/main/picture/new_airplane.png");
+    -fx-background-image: url("/main/picture/logo.png");
 }
 
 .label {

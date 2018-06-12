@@ -127,7 +127,7 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("In Flight System");
-        this.primaryStage.getIcons().add(new Image("main/picture/new_airplane.png"));
+        this.primaryStage.getIcons().add(new Image("main/picture/logo.png"));
         this.primaryStage.setResizable(false);
         initRootLayout();
 //        showMovieOverview();
@@ -201,7 +201,7 @@ public class MainApp extends Application {
 
             loader.setLocation(MainApp.class.getResource("view/MovieOverview.fxml"));
             AnchorPane movieOverview = loader.load();
-//                   movieOverview.getStylesheets().add(getClass().getResource("view/style_black.css").toExternalForm());
+//                   movieOverview.getStylesheets().add(getClass().getResource("view/style.css").toExternalForm());
 
             FadeTransition ft2 = new FadeTransition(Duration.millis(1500), movieOverview);
             ft2.setFromValue(0.0);
