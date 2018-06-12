@@ -1,6 +1,7 @@
 package main.view;
 
 import com.melloware.jintellitype.JIntellitype;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -130,6 +131,57 @@ public class MovieOverviewController {
                     break;
             }
         });
+
+        allRadio.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                change_table_for_radio(event);
+            }
+        });
+        genreRadio.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                change_table_for_radio(event);
+            }
+        });
+        countryRadio.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                change_table_for_radio(event);
+            }
+        });
+        ageRadio.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                change_table_for_radio(event);
+            }
+        });
+        ourSelectionRadio.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                change_table_for_radio(event);
+            }
+        });
+
+    }
+
+    // 有问题
+    @FXML
+    private void change_table_for_radio(KeyEvent event)  {
+        KeyCode code =event.getCode();
+        if(code == KeyCode.ENTER || code == KeyCode.RIGHT){
+            try {
+                // your code here
+                Robot r = new Robot();
+                r.keyPress(java.awt.event.KeyEvent.VK_TAB);//XXX  javafx  has no robot for key type...
+                r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+            } catch (Exception ignored) {
+            }
+            event.consume();
+        }
+        if(code == KeyCode.LEFT){
+            event.consume();
+        }
     }
 
     /**
@@ -179,35 +231,7 @@ public class MovieOverviewController {
      */
 
 
-    // 有问题
-    @FXML
-    private void change_table_for_radio(javafx.scene.input.KeyEvent key) throws AWTException {
-        Robot r = new Robot();
-        categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 4) % 5).setSelected(true); // 把category选中的放回原位
-//        Toggle origin_toggle = categoryGroup.getSelectedToggle();
-//
 
-        if (key.getCode().equals(KeyCode.TAB)) {
-            return;
-        }
-        if (key.getCode().equals(KeyCode.RIGHT)) {
-
-//            categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 5) % 5).setSelected(true); // 把category选中的放回原位
-//            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
-//            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
-
-            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
-            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
-        } else {
-            categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 4) % 5).setSelected(true); // 把category选中的放回原位
-        }
-        if (key.getCode().equals(KeyCode.ENTER)) {
-            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
-            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
-            categoryGroup.getToggles().get((categoryGroup.getToggles().indexOf(categoryGroup.getSelectedToggle()) + 3) % 5).setSelected(true);
-        }
-//        categoryGroup.selectToggle(origin_toggle);
-    }
 
     /**
      * Using the JIntellitype jar to make a hot key.

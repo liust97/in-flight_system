@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -15,15 +16,15 @@
                      <children>
                         <VBox spacing="5.0">
                            <children>
-                              <RadioButton fx:id="allRadio" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" selected="true" styleClass="label" text="%All">
+                              <RadioButton fx:id="allRadio" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" selected="true" styleClass="label" text="%All">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="categoryGroup" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="genreRadio" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" styleClass="label" text="%Genre" toggleGroup="$categoryGroup" />
-                              <RadioButton fx:id="countryRadio" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" styleClass="label" text="%Country" toggleGroup="$categoryGroup" />
-                              <RadioButton fx:id="ageRadio" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" styleClass="label" text="%Age" toggleGroup="$categoryGroup" />
-                              <RadioButton fx:id="ourSelectionRadio" layoutX="14.0" layoutY="115.0" mnemonicParsing="false" onKeyPressed="#change_table_for_radio" styleClass="label" text="%Our selection" toggleGroup="$categoryGroup" />
+                              <RadioButton fx:id="genreRadio" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" styleClass="label" text="%Genre" toggleGroup="$categoryGroup" />
+                              <RadioButton fx:id="countryRadio" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" styleClass="label" text="%Country" toggleGroup="$categoryGroup" />
+                              <RadioButton fx:id="ageRadio" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" styleClass="label" text="%Age" toggleGroup="$categoryGroup" />
+                              <RadioButton fx:id="ourSelectionRadio" layoutX="14.0" layoutY="115.0" mnemonicParsing="false" styleClass="label" text="%Our selection" toggleGroup="$categoryGroup" />
                            </children>
                         </VBox>
                      </children>
