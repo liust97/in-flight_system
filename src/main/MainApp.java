@@ -187,6 +187,7 @@ public class MainApp extends Application {
     }
 
     /**
+     * @param locale the locale of movie overview
      * Shows the movie overview inside the root layout.
      */
     public void showMovieOverview(Locale locale) {
@@ -225,6 +226,7 @@ public class MainApp extends Application {
 
     /**
      * Shows the media view inside the root layout.
+     * @param movieURL the movie url to play
      */
     public void showMediaView(String movieURL) {
         try {
@@ -252,6 +254,7 @@ public class MainApp extends Application {
      * is returned.
      *
      * @param movie the movie object to be edited
+     * @param locale the locale of movie edit dialog
      * @return true if the user clicked OK, false otherwise.
      */
     public boolean showMovieEditDialog(Movie movie, Locale locale) {

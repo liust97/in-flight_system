@@ -546,6 +546,7 @@ public class MovieOverviewController {
 
             mainApp.showMediaView(url);
         } catch (NullPointerException ignored) {
+            System.out.println("cannot find the video");
         }
     }
 

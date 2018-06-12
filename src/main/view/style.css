@@ -35,6 +35,12 @@
 
 .radio-back {
     -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+
+}
+.radio-back:focused{
+    -fx-text-fill: #fff48a;
+    -fx-font-weight: bold;
 }
 
 .button:hover {

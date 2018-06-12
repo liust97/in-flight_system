@@ -8,13 +8,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import main.util.ScrapingUtil;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 
 /**
  * Dialog to edit details of a movie.
- *
  */
 public class MovieEditDialogController {
 
@@ -45,11 +45,10 @@ public class MovieEditDialogController {
     private Stage dialogStage;
     private Movie movie;
     private boolean okClicked = false;
-    private final  ObservableList<String> genreList = FXCollections.observableArrayList(
+    private final ObservableList<String> genreList = FXCollections.observableArrayList(
             "/", "Action", "Adventure", "Comedy", "Crime", "Drama", "Horror", "Musicals", "Science Fiction", "War");
 
     /**
-     *
      * Is called by the main application to give a reference back to itself.
      *
      * @param mainApp the main app
@@ -96,8 +95,8 @@ public class MovieEditDialogController {
     }
 
     /**
-     * Returns true if the user clicked OK, false otherwise.
-     *
+     * check whether user click ok
+     * @return Returns true if the user clicked OK, false otherwise.
      */
     public boolean isOkClicked() {
         return okClicked;
@@ -124,10 +123,9 @@ public class MovieEditDialogController {
             // save
             String path = "info";//所创建文件的路径
             File f = new File(path);
-            if (!f.exists()) {
-                if (!f.mkdirs()) {
-                    System.out.println("fail to make dir");
-                }//创建目录
+            if (!f.exists() && !f.mkdirs()) {
+                System.out.println("fail to make dir");
+                //创建目录
             }
             String fileName = "MoviesInfo.xml";//文件名及类型
             File file = new File(path, fileName);
@@ -158,6 +156,7 @@ public class MovieEditDialogController {
         dialogStage.close();
     }
 
+
     @FXML
     private void handleAutoSet() throws IOException {
         Movie movie = ScrapingUtil.scrapMovieInfo(nameField.getText());
@@ -172,7 +171,7 @@ public class MovieEditDialogController {
      * Reset information of movie to the origin state
      */
     @FXML
-    private void handleReset()  {
+    private void handleReset() {
         Movie movie = new Movie();
         String fileName = this.movie.getFileName();
         String fileData[] = fileName.split("_");

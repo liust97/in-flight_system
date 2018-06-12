@@ -35,7 +35,7 @@ public class ScrapingUtil {
             temp = new StringBuilder();
             String comma;
             for (Element e : doc2.selectFirst("th:contains(directed by)").nextElementSibling().select("li, a")) {
-                comma = temp.toString().equals("") ? "" : ", ";
+                comma = temp.length()==0 ? "" : ", ";
                 temp.append(comma).append(e.text());
             }
         } catch (Exception e) {
@@ -47,7 +47,7 @@ public class ScrapingUtil {
             temp.delete(0,temp.length());
             String comma;
             for (Element e : doc2.selectFirst("th:contains(starring)").nextElementSibling().select("li, a")) {
-                comma = temp.toString().equals("") ? "" : ", ";
+                comma = temp.length()==0 ? "" : ", ";
                 temp.append(comma).append(e.text());
             }
         } catch (Exception e) {

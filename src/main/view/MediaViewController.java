@@ -141,7 +141,6 @@ public class MediaViewController {
 
     /**
      * The private method provide a way to control the mediaPlayer by keyboard.
-     * <p>
      * <ul>
      * <li>When pressing the DOWN, if the movie is playing, the movie will be stopped. Then,
      * if the movie is paused, the movie will be playing.</li>
@@ -152,7 +151,6 @@ public class MediaViewController {
      * <li>When pressing the MULTIPLY, the movie will be quiet.</li>
      * <li>When pressing the UP, coming back to the last scene.</li>
      * </ul>
-     * </p>
      *
      * @param event The event of keyboard.
      */
