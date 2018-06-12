@@ -95,18 +95,18 @@
                         <Label fx:id="genreLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
-                  <HBox layoutX="289.0" layoutY="570.0" spacing="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                  <HBox layoutX="289.0" layoutY="570.0" spacing="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <children>
-                        <Button fx:id="Auto_set_all" layoutX="289.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleAutoSetAll" text="%Auto set all" />
-                        <Button fx:id="Edit" mnemonicParsing="false" onAction="#handleEditMovie" text="%Edit" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+                        <Button fx:id="Auto_set_all" layoutX="289.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleAutoSetAll" onKeyPressed="#set_keyboard_Adim" text="%Auto set all" />
+                        <Button fx:id="Edit" mnemonicParsing="false" onAction="#handleEditMovie" onKeyPressed="#set_keyboard_Edit" text="%Edit" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
                      </children>
                   </HBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                  <HBox spacing="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <children>
                         <Button fx:id="Play" mnemonicParsing="false" onAction="#handlePlay" onKeyPressed="#set_keyboard_Play" prefHeight="30.0" prefWidth="75.0" text="%Play" />
                         <Button fx:id="Back" mnemonicParsing="false" onAction="#handleBack" onKeyPressed="#set_keyboard_Back" prefHeight="30.0" prefWidth="75.0" text="%Back" />
                      </children>
-                  </VBox>
+                  </HBox>
                </children>
             </AnchorPane>
         </items>

@@ -16,6 +16,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import main.util.ScrapingUtil;
+
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -140,21 +141,16 @@ public class MovieOverviewController {
 
     }
 
-    // 有问题
+    /**
+     * The private method is used for the action of keyboard.
+     *
+     * @param event The event of keyboard.
+     */
     @FXML
-    private void change_table_for_radio(KeyEvent event)  {
-        KeyCode code =event.getCode();
-        if(code == KeyCode.ENTER || code == KeyCode.RIGHT){
-            try {
-                // your code here
-                Robot r = new Robot();
-                r.keyPress(java.awt.event.KeyEvent.VK_TAB);//XXX  javafx  has no robot for key type...
-                r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
-            } catch (Exception ignored) {
-            }
-            event.consume();
-        }
-        if(code == KeyCode.LEFT){
+    private void change_table_for_radio(KeyEvent event) {
+        KeyCode code = event.getCode();
+        keyboard_action_judge(event, code);
+        if (code == KeyCode.LEFT) {
             event.consume();
         }
     }
@@ -169,26 +165,37 @@ public class MovieOverviewController {
      * </ul>
      * </p>
      *
-     * @param key The event of keyboard.
+     * @param event The event of keyboard.
      * @throws AWTException the exception of the abstract window toolkit.
      */
     @FXML
-    private void change_table(javafx.scene.input.KeyEvent key) throws AWTException {
-        Robot r = new Robot();
-        if (key.getCode() == KeyCode.ENTER) {
-            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
-            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+    private void change_table(KeyEvent event) {
+        KeyCode code = event.getCode();
+        keyboard_action_judge(event, code);
+        if (code == KeyCode.LEFT) {
+            try {
+                Robot r = new Robot();
+                r.keyPress(java.awt.event.KeyEvent.VK_SHIFT);
+                r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+                r.keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
+                r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+            } catch (Exception ignored) {
+            }
+        }
+        if (code == KeyCode.RIGHT) {
+            event.consume();
+        }
+    }
 
-        }
-        if (key.getCode() == KeyCode.RIGHT) {
-            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
-            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
-        }
-        if (key.getCode() == KeyCode.LEFT) {
-            r.keyPress(java.awt.event.KeyEvent.VK_SHIFT);
-            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
-            r.keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
-            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+    private void keyboard_action_judge(KeyEvent event, KeyCode code) {
+        if (code == KeyCode.ENTER || code == KeyCode.RIGHT) {
+            try {
+                Robot r = new Robot();
+                r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+                r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+            } catch (Exception ignored) {
+            }
+            event.consume();
         }
     }
 
@@ -204,8 +211,6 @@ public class MovieOverviewController {
      * @param key The event of keyboard.
      * @throws AWTException the exception of the abstract window toolkit.
      */
-
-
 
 
     /**
@@ -479,20 +484,23 @@ public class MovieOverviewController {
      * @param event The action of keyboard.
      */
     @FXML
-    private void set_keyboard_Back(javafx.scene.input.KeyEvent event) throws AWTException {
-        Robot r = new Robot();
+    private void set_keyboard_Back(KeyEvent event) throws AWTException {
         if (event.getCode() == KeyCode.ENTER) {
             handleBack();
         }
         if (event.getCode() == KeyCode.RIGHT) {
-            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
-            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+            return;
         }
         if (event.getCode() == KeyCode.LEFT) {
-            r.keyPress(java.awt.event.KeyEvent.VK_SHIFT);
-            r.keyPress(java.awt.event.KeyEvent.VK_TAB);
-            r.keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
-            r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+            try {
+                Robot r = new Robot();
+                r.keyPress(java.awt.event.KeyEvent.VK_SHIFT);
+                r.keyPress(java.awt.event.KeyEvent.VK_TAB);
+                r.keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
+                r.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+            } catch (Exception ignored) {
+            }
+            event.consume();
         }
     }
 
@@ -569,6 +577,30 @@ public class MovieOverviewController {
     private void set_keyboard_Play(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             handlePlay();
+        }
+    }
+
+    /**
+     *  Set the keyboard action of Auto set all Button.
+     * @param event The action of keyboard.
+     * @throws IOException A exception of IO
+     */
+    @FXML
+    private  void set_keyboard_Adim(KeyEvent event) throws IOException {
+        if(event.getCode() == KeyCode.ENTER){
+            handleAutoSetAll();
+        }
+    }
+
+    /**
+     *  Set the keyboard action of Edit Button.
+     * @param event The action of keyboard.
+     * @throws IOException A exception of IO
+     */
+    @FXML
+    private  void set_keyboard_Edit(KeyEvent event) throws IOException {
+        if(event.getCode() == KeyCode.ENTER){
+            handleEditMovie();
         }
     }
 }
