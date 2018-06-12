@@ -581,25 +581,27 @@ public class MovieOverviewController {
     }
 
     /**
-     *  Set the keyboard action of Auto set all Button.
+     * Set the keyboard action of Auto set all Button.
+     *
      * @param event The action of keyboard.
      * @throws IOException A exception of IO
      */
     @FXML
-    private  void set_keyboard_Adim(KeyEvent event) throws IOException {
-        if(event.getCode() == KeyCode.ENTER){
+    private void set_keyboard_Adim(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
             handleAutoSetAll();
         }
     }
 
     /**
-     *  Set the keyboard action of Edit Button.
+     * Set the keyboard action of Edit Button.
+     *
      * @param event The action of keyboard.
      * @throws IOException A exception of IO
      */
     @FXML
-    private  void set_keyboard_Edit(KeyEvent event) throws IOException {
-        if(event.getCode() == KeyCode.ENTER){
+    private void set_keyboard_Edit(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
             handleEditMovie();
         }
     }
