@@ -1,8 +1,8 @@
 .anchorpane{
-    -fx-background-image: url(/main/picture/bg3.jpeg);
+    -fx-background-image: url(/main/appearance/picture/background_welcome.jpg);
 }
 .image{
-    -fx-image: url(/main/picture/logo.png);
+    -fx-image: url(/main/appearance/picture/logo.png);
     -fx-opacity: 0.9;
 }
 .startButton{

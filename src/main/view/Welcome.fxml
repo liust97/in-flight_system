@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="anchorpane" stylesheets="@welcome_back_air.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.WelcomeController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="anchorpane" stylesheets="@../appearance/welcome_back_air.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.WelcomeController">
    <children>
       <RadioButton fx:id="enButton" layoutX="284.0" layoutY="399.0" mnemonicParsing="false" onKeyPressed="#keyboard_Start" prefHeight="16.0" prefWidth="74.0" selected="true" text="English">
          <toggleGroup>

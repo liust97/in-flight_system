@@ -43,11 +43,11 @@ public class MediaViewController {
     //    private  Media media;
     private MediaPlayer mediaPlayer;
     private String url;
-    private URL play_pause_URL = Thread.currentThread().getContextClassLoader().getResource("main/picture/pause_button.png");
-    private URL play_URL = Thread.currentThread().getContextClassLoader().getResource("main/picture/play_button.png");
-    private URL volume_URL = Thread.currentThread().getContextClassLoader().getResource("main/picture/volume_button.png");
-    private URL silent_URL = Thread.currentThread().getContextClassLoader().getResource("main/picture/silent_button.png");
-    private URL exit_URL = Thread.currentThread().getContextClassLoader().getResource("main/picture/exit_button.png");
+    private URL play_pause_URL = Thread.currentThread().getContextClassLoader().getResource("main/appearance/picture/pause_button.png");
+    private URL play_URL = Thread.currentThread().getContextClassLoader().getResource("main/appearance/picture/play_button.png");
+    private URL volume_URL = Thread.currentThread().getContextClassLoader().getResource("main/appearance/picture/volume_button.png");
+    private URL silent_URL = Thread.currentThread().getContextClassLoader().getResource("main/appearance/picture/silent_button.png");
+    private URL exit_URL = Thread.currentThread().getContextClassLoader().getResource("main/appearance/picture/exit_button.png");
     /**
      * The private method is used to store the value of volume.
      * <p>

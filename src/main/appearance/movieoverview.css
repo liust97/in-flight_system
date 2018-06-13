@@ -1,5 +1,5 @@
 .show_movie_background{
-    -fx-background-image: url("/main/picture/logo.png");
+    -fx-background-image: url("/main/appearance/picture/logo.png");
 }
 .hide_description_border{
     -fx-background-color: black;

@@ -7,7 +7,7 @@
 
 <AnchorPane minHeight="50.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MovieOverviewController">
    <children>
-      <SplitPane fx:id="splitpane" dividerPositions="0.15413533834586465, 0.35213032581453635" layoutX="45.0" layoutY="84.0" prefHeight="450.0" prefWidth="600.0" styleClass="background_pane" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane fx:id="splitpane" dividerPositions="0.15413533834586465, 0.35213032581453635" layoutX="45.0" layoutY="84.0" prefHeight="450.0" prefWidth="600.0" styleClass="background_pane" stylesheets="@../appearance/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="271.0" styleClass="radio-back">
                <children>
@@ -85,7 +85,7 @@
                         <Label fx:id="countryLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label fx:id="durationLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label text="%Duration" GridPane.rowIndex="2" />
-                        <Label fx:id="yearLabel" stylesheets="@style.css" text="Label" GridPane.columnIndex="1" />
+                        <Label fx:id="yearLabel" stylesheets="@../appearance/style.css" text="Label" GridPane.columnIndex="1" />
                         <Label text="%Description" GridPane.rowIndex="7" />
                         <Label text="%Language" GridPane.rowIndex="6" />
                         <Label fx:id="languageLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
