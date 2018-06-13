@@ -1,53 +1,53 @@
 .background_pane {
-    -fx-background-color: #1d1d1d;
+    -fx-background-image: url("/main/picture/bg44.jpeg");
 
 }
 
-.show_movie_background {
-    -fx-background-image: url("/main/picture/logo.png");
-}
+/*.show_movie_background {*/
+    /*-fx-background-image: url("/main/picture/logo.png");*/
+/*}*/
 
 .label {
     -fx-font-size: 12pt;
-    -fx-font-family: "Calibri";
-    -fx-text-fill: white;
+    -fx-font-family: "AR PShinChanPOP";
+    -fx-text-fill: #3d0c0d;
     -fx-opacity: 0.8;
 }
 
 .table-view {
-    -fx-base: #1d1d1d;
-    -fx-control-inner-background: #1d1d1d;
-    -fx-background-color: #1d1d1d;
+    -fx-base: #d44a68;
+    -fx-control-inner-background: #fdcccd;
+    -fx-background-color: #fdeee7;
     -fx-padding: 2;
 }
 .table-view:focused{
-    -fx-border-color: white;
+    -fx-border-color: #d1212d;
 }
 .button {
     -fx-border-color: white;
     -fx-border-width: 2;
     -fx-background-radius: 0;
-    -fx-background-color: #8d8d8d;
-    -fx-font-family: Helvetica;
+    -fx-background-color: #fdcccd;
+    -fx-font-family: "Noto Sans S Chinese Thin";
     -fx-font-size: 10pt;
-    -fx-text-fill: #1d1d1d;
+    -fx-text-fill: #d44a68;
 }
 
 .radio-back {
-    -fx-background-color: #1d1d1d;
+    -fx-background-color: #fdcccd;
 }
 
 .button:hover {
-    -fx-background-color: #3a3a3a;
+    -fx-background-color: #fff7f4;
 }
 
 .button:pressed  {
     -fx-background-color: white;
     -fx-opacity: 0.8;
-    -fx-text-fill: #1d1d1d;
+    -fx-text-fill: #d44a68;
 }
 .button:focused{
     -fx-background-color: white;
     -fx-opacity: 0.8;
-    -fx-text-fill: #1d1d1d;
+    -fx-text-fill: #d44a68;
 }

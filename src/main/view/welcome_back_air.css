@@ -1,15 +1,18 @@
 .anchorpane{
-    -fx-background-image: url(/main/picture/background_welcome.jpg);
+    -fx-background-image: url(/main/picture/bg3.jpeg);
 }
 .image{
     -fx-image: url(/main/picture/logo.png);
-    -fx-opacity: 0.4;
+    -fx-opacity: 0.9;
 }
 .startButton{
     -fx-background-color: white;
     -fx-background-radius: 100px;
 
 }
+.radio-button{
+    -fx-text-fill: white;
+}
 .startButton:hover {
-    -fx-background-color: derive(#3a3a3a,100%);
+    -fx-background-color: derive(#b92228,100%);
 }
