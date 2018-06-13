@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.media.MediaView?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.media.*?>
 
-<AnchorPane fx:id="anchorpane" prefHeight="545.0" prefWidth="801.0" styleClass="anchorpane" stylesheets="@Mediaview.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MediaViewController">
+<AnchorPane fx:id="anchorpane" prefHeight="545.0" prefWidth="801.0" styleClass="anchorpane" stylesheets="@Mediaview.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MediaViewController">
    <children>
       <BorderPane fx:id="BorderPane" prefHeight="545.0" prefWidth="757.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <!--<MediaView fx:id="moviepane" fitHeight="${mediaViewPane.height}" fitWidth="${mediaViewPane.width}" layoutY="-8.0" />-->
-             <MediaView fx:id="movie_pane" fitHeight="530.0" fitWidth="800.0" nodeOrientation="INHERIT" BorderPane.alignment="CENTER" />
+             <MediaView fx:id="movie_pane" fitHeight="480.0" fitWidth="800.0" nodeOrientation="INHERIT" BorderPane.alignment="CENTER" />
          </center>
          <top>
             <Button fx:id="exit" mnemonicParsing="false" onAction="#setExit" prefHeight="0.0" prefWidth="31.0" styleClass="exit_button" BorderPane.alignment="CENTER">
@@ -25,7 +21,7 @@
          </top>
          <bottom>
             <!--<MediaView fx:id="moviepane" fitHeight="530.0" fitWidth="800.0" />-->
-            <Pane fx:id="UIpane" prefHeight="71.0" prefWidth="480.0" BorderPane.alignment="CENTER">
+            <Pane fx:id="UIpane" prefHeight="71.0" prefWidth="480.0" BorderPane.alignment="BOTTOM_CENTER">
                <children>
                   <Button fx:id="play" layoutX="312.0" layoutY="36.0" mnemonicParsing="false" onAction="#setStop" prefHeight="30.0" prefWidth="30.0" styleClass="playbutton" />
                   <TextField fx:id="time" layoutX="679.0" layoutY="6.0" prefHeight="30.0" prefWidth="108.0" styleClass="time_table" />
