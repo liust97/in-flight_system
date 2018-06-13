@@ -1,0 +1,82 @@
+
+.background_pane {
+    -fx-background-color: #1d1d1d;
+
+}
+
+.show_movie_background {
+    -fx-background-image: url("/main/appearance/picture/logo.png");
+}
+
+.label {
+    -fx-font-family: "Calibri";
+    -fx-text-fill: white;
+    -fx-opacity: 0.8;
+}
+
+.table-view {
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-padding: 2;
+}
+.table-view:focused{
+    -fx-border-color: #79c3f5;
+    -fx-border-width: 3px;
+}
+
+.table-row-cell:selected {
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #8d8d8d;
+    -fx-font-family: Helvetica;
+    -fx-font-size: 10pt;
+    -fx-text-fill: #ffffff;
+}
+
+.radio-button{
+    -fx-text-fill: white;
+}
+
+.radio-back {
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+.radio-back:selected{
+    -fx-text-fill: #79c3f5;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.button:hover {
+    -fx-background-color: #ffffff;
+    -fx-opacity: 0.8;
+    -fx-text-fill: #1d1d1d;
+    -fx-border-color: #79c3f5;
+}
+
+.button:pressed  {
+    -fx-background-color: white;
+    -fx-opacity: 0.8;
+    -fx-text-fill: #1d1d1d;
+}
+.button:focused{
+    -fx-background-color: white;
+    -fx-opacity: 0.8;
+    -fx-text-fill: #1d1d1d;
+    -fx-border-color: #79c3f5;
+    -fx-border-width: 5px;
+}
+
+.choice-box .label{
+    -fx-text-fill: #1d1d1d;
+}
+
+.table-th{
+    -fx-font-weight: bold;
+}

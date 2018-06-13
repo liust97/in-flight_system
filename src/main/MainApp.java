@@ -127,7 +127,7 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("In Flight System");
-        this.primaryStage.getIcons().add(new Image("main/picture/logo.png"));
+        this.primaryStage.getIcons().add(new Image("main/appearance/picture/logo.png"));
         this.primaryStage.setResizable(false);
         initRootLayout();
 //        showMovieOverview();

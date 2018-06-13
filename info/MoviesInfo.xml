@@ -1,25 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <movies>
     <movie>
-        <country>us</country>
-        <description>A Funny Thing Happened on the Way to the Forum is a 1966 British-American DeLuxe Color musical comedy film, based on the stage musical of the same name. It was inspired by the farces of the ancient Roman playwright Plautus (251-183 B.C.) – specifically Pseudolus, Miles Gloriosus and Mostellaria – and tells the bawdy story of a slave named Pseudolus and his attempts to win his freedom by helping...</description>
-        <director>Richard Lester</director>
-        <duration>1''18'''</duration>
-        <fileName>A-Funny-Thing-Happened-Official-Trailer-1-Michael-Crawford-M.mp4</fileName>
-        <genre>Crime</genre>
-        <isOurSelection>false</isOurSelection>
-        <language>English</language>
-        <mainActors>Zero Mostel, Zero Mostel, Jack Gilford, Jack Gilford, Phil Silvers, Phil Silvers</mainActors>
-        <name>A Funny Thing Happened</name>
-        <year>1956</year>
-    </movie>
-    <movie>
         <country>ru</country>
         <description>Alexander Nevsky (Russian: Алекса́ндр Не́вский) is a 1938 historical drama film directed by Sergei Eisenstein. It depicts the attempted invasion of Novgorod in the 13th century by the Teutonic Knights of the Holy Roman Empire and their defeat by Prince Alexander, known popularly as Alexander Nevsky (1220–1263).</description>
         <director>Sergei Eisenstein, Dmitri Vasilyev</director>
         <duration>1''18'''</duration>
         <fileName>AlexanderNevsky_ru_1938.mp4</fileName>
-        <genre>/</genre>
+        <genre>Comedy</genre>
         <isOurSelection>false</isOurSelection>
         <language>Russian</language>
         <mainActors>Nikolai Cherkasov, Nikolai Okhlopkov, Andrei Abrikosov</mainActors>
@@ -27,16 +14,16 @@
         <year>1938</year>
     </movie>
     <movie>
-        <country>Ru</country>
-        <description>Harry Potter is a British-American film series based on the Harry Potter novels by author J. K. Rowling. The series is distributed by Warner Bros. and consists of eight fantasy films, beginning with Harry Potter and the Philosopher's Stone (2001) and culminating with Harry Potter and the Deathly Hallows – Part 2 (2011).[2][3] A spin-off prequel series will consist of five films, starting with F...</description>
-        <director>Chris Columbus, Alfonso Cuarón, Mike Newell, David Yates</director>
+        <country>br</country>
+        <description>Black Orpheus (Portuguese: Orfeu Negro) is a 1959 romantic tragedy[2][3][4][5] film made in Brazil by French director Marcel Camus and starring Marpessa Dawn and Breno Mello. It is based on the play Orfeu da Conceição by Vinicius de Moraes, which is itself an adaptation of the Greek legend of Orpheus and Eurydice, set in the modern context of a favela in Rio de Janeiro during Carnaval. The film...</description>
+        <director>Marcel Camus</director>
         <duration>2''4'''</duration>
         <fileName>BlackOrpheus_br_1959.mp4</fileName>
-        <genre>Comedy</genre>
-        <isOurSelection>true</isOurSelection>
-        <language>English</language>
-        <mainActors>Daniel Radcliffe, Rupert Grint, Emma Watson, See below</mainActors>
-        <name>Harry potter</name>
+        <genre>Drama</genre>
+        <isOurSelection>false</isOurSelection>
+        <language>Portuguese</language>
+        <mainActors>Marpessa Dawn, Marpessa Dawn, Breno Mello, Breno Mello</mainActors>
+        <name>BlackOrpheus</name>
         <year>1959</year>
     </movie>
     <movie>
@@ -45,7 +32,7 @@
         <director>George Roy Hill</director>
         <duration>2''59'''</duration>
         <fileName>ButchCassidyAndTheSundanceKid_us_1969.mp4</fileName>
-        <genre>/</genre>
+        <genre>Comedy</genre>
         <isOurSelection>false</isOurSelection>
         <language>English</language>
         <mainActors>Paul Newman, Paul Newman, Robert Redford, Robert Redford, Katharine Ross, Katharine Ross, Strother Martin, Strother Martin, Jeff Corey, Jeff Corey, Henry Jones, Henry Jones</mainActors>
@@ -53,13 +40,13 @@
         <year>1969</year>
     </movie>
     <movie>
-        <country>美国</country>
+        <country>us</country>
         <description>Citizen Kane is a 1941 American mystery drama film by Orson Welles, its producer, co-screenwriter, director and star. The picture was Welles's first feature film. Nominated for Academy Awards in nine categories, it won an Academy Award for Best Writing (Original Screenplay) by Herman J. Mankiewicz and Welles. Considered by many critics, filmmakers, and fans to be the greatest film of all time, ...</description>
         <director>Orson Welles</director>
         <duration>3''44'''</duration>
         <fileName>CitizenKane_us_1941.mp4</fileName>
         <genre>/</genre>
-        <isOurSelection>true</isOurSelection>
+        <isOurSelection>false</isOurSelection>
         <language>English</language>
         <mainActors>Orson Welles, Joseph Cotten, Joseph Cotten, Dorothy Comingore, Dorothy Comingore, Everett Sloane, Everett Sloane, Ray Collins, Ray Collins, George Coulouris, George Coulouris, Agnes Moorehead, Agnes Moorehead, Paul Stewart, Paul Stewart, Ruth Warrick, Ruth Warrick, Erskine Sanford, Erskine Sanford, William Alland, William Alland</mainActors>
         <name>CitizenKane</name>
@@ -79,41 +66,54 @@
         <year>1939</year>
     </movie>
     <movie>
+        <country>/</country>
+        <description>In the Mood for Love is a 2000 romantic Hong Kong film written, produced, and directed by Wong Kar-wai. It tells the story of a man (played by Tony Leung) and a woman (Maggie Cheung) whose spouses have an affair together and who slowly develop feelings for each other.</description>
+        <director>Wong Kar-wai</director>
+        <duration>2''34'''</duration>
+        <fileName>In-the-Mood-for-Love-2000-Trailer-HD.mp4</fileName>
+        <genre>Adventure</genre>
+        <isOurSelection>true</isOurSelection>
+        <language>Cantonese Shanghainese French</language>
+        <mainActors>Maggie Cheung, Tony Leung</mainActors>
+        <name>In-the-Mood-for-Love</name>
+        <year>/</year>
+    </movie>
+    <movie>
         <country>jp</country>
         <description>Kagemusha (影武者, Shadow Warrior) is a 1980 jidaigeki film directed by Akira Kurosawa. In Japanese, kagemusha is a term used to denote a political decoy. It is set in the Sengoku period of Japanese history and tells the story of a lower-class criminal who is taught to impersonate a dying daimyō to dissuade opposing lords from attacking the newly vulnerable clan. The daimyō is based on Takeda Shin...</description>
         <director>Akira Kurosawa</director>
         <duration>1''13'''</duration>
         <fileName>Kagemusha_jp_1980.mp4</fileName>
         <genre>/</genre>
-        <isOurSelection>false</isOurSelection>
+        <isOurSelection>true</isOurSelection>
         <language>Japanese</language>
         <mainActors>Tatsuya Nakadai</mainActors>
         <name>Kagemusha</name>
         <year>1980</year>
     </movie>
     <movie>
-        <country>cn</country>
-        <description>Pocket Listing is a 2016 American neo-noir black comedy film directed by Conor Allyn, written by James Jurdi, and starring Jurdi, Logan Fahey, Caitlin Gerard, Christos Vasilopolous, Jessica Clark, Rob Lowe, and Burt Reynolds. The film was acquired by Metro-Goldwyn-Mayer and Orion Pictures for limited theatrical and video on demand release on December 2, 2016.[1][2]</description>
-        <director></director>
-        <duration>2''8'''</duration>
-        <fileName>liustiong_cn_2018.mp4</fileName>
+        <country>us</country>
+        <description>/</description>
+        <director>/</director>
+        <duration>3''30'''</duration>
+        <fileName>MyFairLady_us_1964.mp4</fileName>
         <genre>/</genre>
         <isOurSelection>false</isOurSelection>
-        <language>English</language>
-        <mainActors>James Jurdi, Logan Fahey, Caitlin Gerard, Caitlin Gerard, Christos Vasilopolous, Jessica Clark, Jessica Clark, Rob Lowe, Rob Lowe, Burt Reynolds, Burt Reynolds</mainActors>
-        <name>liustiong</name>
-        <year>2018</year>
+        <language>/</language>
+        <mainActors>/</mainActors>
+        <name>MyFairLady</name>
+        <year>1964</year>
     </movie>
     <movie>
         <country>cn</country>
-        <description>Lost in Thailand is a 2012 Chinese comedy film directed and co-written by Xu Zheng and starring Xu Zheng, Wang Baoqiang, and Huang Bo. The film is about three Chinese men traveling in Thailand: two competing scientists searching for their boss, and a tourist eager to explore the country.[3] The film is Xu's directorial debut.</description>
-        <director>Xu Zheng</director>
+        <description>/</description>
+        <director>/</director>
         <duration>2''8'''</duration>
         <fileName>LostInThailand_cn_2012.mp4</fileName>
         <genre>/</genre>
         <isOurSelection>false</isOurSelection>
-        <language>Mandarin</language>
-        <mainActors>Xu Zheng, Wang Baoqiang, Wang Baoqiang, Huang Bo, Huang Bo, Fan Bingbing, Fan Bingbing, Tao Hong, Tao Hong</mainActors>
+        <language>/</language>
+        <mainActors>/</mainActors>
         <name>LostInThailand</name>
         <year>2012</year>
     </movie>

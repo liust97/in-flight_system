@@ -1,0 +1,27 @@
+.anchorpane {
+    -fx-background-image: url(/main/appearance/picture/background_welcome.jpg);
+}
+
+.image {
+    -fx-image: url(/main/appearance/picture/logo.png);
+    -fx-opacity: 0.4;
+}
+
+.startButton {
+    -fx-background-color: white;
+    -fx-background-radius: 100px;
+
+}
+
+.startButton:hover {
+    -fx-background-color: derive(#3a3a3a, 100%);
+}
+
+.radio-button {
+    -fx-text-fill: white;
+}
+
+.radio-button :selected {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}

@@ -8,7 +8,7 @@
 
 <AnchorPane minHeight="50.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MovieOverviewController">
    <children>
-      <SplitPane fx:id="splitpane" dividerPositions="0.15413533834586465, 0.35213032581453635" layoutX="45.0" layoutY="84.0" prefHeight="450.0" prefWidth="600.0" styleClass="background_pane" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane fx:id="splitpane" dividerPositions="0.15413533834586465, 0.35213032581453635" layoutX="45.0" layoutY="84.0" prefHeight="450.0" prefWidth="600.0" styleClass="background_pane" stylesheets="@../appearance/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="271.0" styleClass="radio-back">
                <children>
@@ -29,7 +29,7 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <TableView fx:id="categoriesTable" layoutY="143.0" onKeyPressed="#change_table" prefHeight="455.0" prefWidth="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="143.0">
+                  <TableView fx:id="categoriesTable" layoutY="131.0" onKeyPressed="#change_table" prefHeight="467.0" prefWidth="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="131.0">
                     <columns>
                       <TableColumn fx:id="categoriesColumn" prefWidth="75.0" styleClass="colume_table_header" text="%Category" />
                     </columns>
@@ -58,7 +58,7 @@
                <children>
                   <Label fx:id="movieNameLabel" layoutX="5.0" layoutY="98.0" text="Label" AnchorPane.bottomAnchor="476.0" AnchorPane.leftAnchor="5.0">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
                   <GridPane layoutX="5.0" layoutY="129.0" prefHeight="409.0" prefWidth="503.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
@@ -77,21 +77,21 @@
                         <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="%Director" GridPane.rowIndex="3" />
-                        <Label text="%Year" />
-                        <Label text="%Country" GridPane.rowIndex="1" />
+                        <Label styleClass="table-th" text="%Director" GridPane.rowIndex="3" />
+                        <Label styleClass="table-th" text="%Year" />
+                        <Label styleClass="table-th" text="%Country" GridPane.rowIndex="1" />
                         <Label fx:id="directorLabel" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label fx:id="mainActorsLabel" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label text="%Main actors" GridPane.rowIndex="5" />
+                        <Label styleClass="table-th" text="%Main actors" GridPane.rowIndex="5" />
                         <Label fx:id="countryLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label fx:id="durationLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="%Duration" GridPane.rowIndex="2" />
-                        <Label fx:id="yearLabel" stylesheets="@style.css" text="Label" GridPane.columnIndex="1" />
-                        <Label text="%Description" GridPane.rowIndex="7" />
-                        <Label text="%Language" GridPane.rowIndex="6" />
+                        <Label styleClass="table-th" text="%Duration" GridPane.rowIndex="2" />
+                        <Label fx:id="yearLabel" stylesheets="@../appearance/style.css" text="Label" GridPane.columnIndex="1" />
+                        <Label styleClass="table-th" text="%Description" GridPane.rowIndex="7" />
+                        <Label styleClass="table-th" text="%Language" GridPane.rowIndex="6" />
                         <Label fx:id="languageLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                         <TextArea fx:id="descriptionLabel" editable="false" prefHeight="200.0" prefWidth="200.0" styleClass="hide_description_border" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                        <Label text="%Genre" GridPane.rowIndex="4" />
+                        <Label styleClass="table-th" text="%Genre" GridPane.rowIndex="4" />
                         <Label fx:id="genreLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>

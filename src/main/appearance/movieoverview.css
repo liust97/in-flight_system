@@ -1,0 +1,9 @@
+.show_movie_background{
+    -fx-background-image: url("/main/appearance/picture/logo.png");
+}
+.hide_description_border{
+    -fx-background-color: black;
+    -fx-opacity: 1.0;
+    -fx-text-fill: black;
+    /*-fx-opacity:0.1;*/
+}
